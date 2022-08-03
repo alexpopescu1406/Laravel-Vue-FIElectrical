@@ -1,20 +1,11 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <!--
-    This example requires updating your template:
-
-    ```
-    <html class="h-full bg-gray-100">
-    <body class="h-full">
-    ```
-  -->
   <div class="min-h-full">
     <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
+              <img class="h-14 w-14" src="../../src/assets/logodark.png" alt="Workflow" />
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -84,11 +75,13 @@
     </Disclosure>
   <router-view></router-view>
   </div>
+  <Footer></Footer>
 </template>
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import Footer from "./Footer.vue";
 
 const user = {
   name: 'Tom Cook',
@@ -97,11 +90,13 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'Business', href: '#', current: false },
+  { name: 'Education', href: '#', current: false },
+  { name: 'Articles', href: '#', current: false },
+  { name: 'Events', href: '#', current: false },
+  { name: 'Tools', href: '#', current: false },
+
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -109,3 +104,11 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 </script>
+
+<style>
+nav {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+}
+</style>
