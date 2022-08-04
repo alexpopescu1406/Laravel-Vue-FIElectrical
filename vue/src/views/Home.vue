@@ -2,13 +2,16 @@
   <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-mdb-interval="3000">
-        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg" class="d-block w-100" alt="Wild Landscape"/>
+        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg"
+             class="d-block w-100" alt="Wild Landscape"/>
       </div>
       <div class="carousel-item" data-mdb-interval="4000">
-        <img src="https://www.enersolare.net/wp-content/uploads/2020/02/fotovoltaico-incentivi-2020-1.jpg" class="d-block w-100" alt="Camera"/>
+        <img src="https://www.enersolare.net/wp-content/uploads/2020/02/fotovoltaico-incentivi-2020-1.jpg"
+             class="d-block w-100" alt="Camera"/>
       </div>
       <div class="carousel-item" data-mdb-interval="5000" >
-        <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+        <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
+             class="d-block w-100" alt="Exotic Fruits"/>
       </div>
     </div>
     <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="prev">
@@ -28,7 +31,6 @@
         <div class="section-title text-center">
 			    <h2 class="title">Latest news in Electrical Engineering</h2>
           <img src="../assets/horizline.png" alt="line" class="horizline">
-          <br>
 		    </div>
       </div>
     </div>
@@ -41,14 +43,19 @@
         </div>
           <div class="post-date">23<span>JUNE</span></div>
           <div class="post-details">
-            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines: Best practices</a></h4></div>
+            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines:
+              Best practices</a></h4></div>
               <div class="post-meta">
                 <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
                 <a href="#"><i class="fa-solid fa-heart"></i> 12 Like </a>
                 <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
               </div>
-              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. it has survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
-          Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
+              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                it has survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
+                Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because
+                occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
               </div>
                 <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
         </div>
@@ -58,56 +65,64 @@
       <div class="post-image clearfix"><img alt="" src="https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg" class="img-fluid"></div>
     <div class="post-date">12<span>JULY</span></div>
           <div class="post-details">
-            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines: Best practices</a></h4></div>
+            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines:
+              Best practices</a></h4></div>
               <div class="post-meta">
                 <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
                 <a href="#"><i class="fa-solid fa-heart"></i> 98 Like </a>
                 <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
               </div>
-              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. it has survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
-          Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
+              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                it has survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
+                Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because
+                occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
               </div>
                 <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
         </div>
               <hr><br>
       </div>
     <div class="post">
-      <div class="post-image clearfix"><img alt="" src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg" class="img-fluid"></div>
+      <div class="post-image clearfix"><img alt=""
+            src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
+            class="img-fluid"></div>
          <div class="post-date">19<span>JULY</span></div>
           <div class="post-details">
-            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines: Best practices</a></h4></div>
+            <div class="post-title"><h4 class="title"><a href="#" class="titletext">AC substation detailed design guidelines:
+              Best practices</a></h4></div>
               <div class="post-meta">
                 <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
                 <a href="#"><i class="fa-solid fa-heart"></i> 98 Like </a>
                 <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
               </div>
-              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. it has survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
-          Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
+              <div class="post-content"><p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus
+                id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. it has
+                survived not only five centuries, but also the leap electronic typesetting, coordination, and control. <br><br>
+                Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+                but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                Neque porro quisquam beginning to completion but also the leap electronic typesetting.</p>
               </div>
                 <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
+            <nav caria-label="...">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="education">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
         </div>
               <hr><br>
-      <br><br>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-4">
-      <nav aria-label="...">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">2 <span class="visually-hidden">(current)</span></a>
-          </li>
-          <li class="page-item"><router-link class="link page-link" :to="{name: 'Education' }"> 3 </router-link></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+      <br><br>
   </div>
   </div>
 
@@ -116,7 +131,8 @@
       <h4 class="widget-title">About Blog</h4>
         <img src="../assets/horizline.png" alt="line" class="horizline2">
         <p>Lorem ipsum dolor sit ametLorem Ipsum Proin dasd nibh vel velit auctor aliquet. Aenean sollicitudin,<br><br>
-        lorem quis bibendum auctor, consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. sem nibh Aenean sollicitudin,</p>
+        lorem quis bibendum auctor, consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet.
+          sem nibh Aenean sollicitudin,</p>
     </div>
     <div class="sidebar-widget">
       <h4>Categories</h4>
@@ -211,12 +227,11 @@
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
+import BlogComponent from '../components/BlogComponent.vue';
+
 export default {
   name: "Home",
   components: {
-    Footer
-
    },
 };
 </script>
@@ -225,7 +240,12 @@ export default {
 * {
   color: black;
 }
-
+nav {
+  position: relative;
+}
+p {
+  text-align: justify;
+}
 .sidebar-widget .tags li a {
     background: #cfe0fc;
     color: #353535;

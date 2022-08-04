@@ -2,13 +2,15 @@
  <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-mdb-interval="2000">
-      <img src="https://image.cnbcfm.com/api/v1/image/106604493-1594057373282harvarduniversitysdunsterhouseincambridgema.jpg?v=1594057738" class="d-block w-100" alt="Wild Landscape"/>
+      <img src="https://image.cnbcfm.com/api/v1/image/106604493-1594057373282harvarduniversitysdunsterhouseincambridgema.jpg?v=1594057738"
+           class="d-block w-100" alt="Wild Landscape"/>
     </div>
     <div class="carousel-item" data-mdb-interval="2000">
       <img src="https://www.science.org/do/10.1126/science.aav7395/abs/MIT_16x9_0.jpg" class="d-block w-100" alt="Camera"/>
     </div>
     <div class="carousel-item" >
-      <img src="https://sciencebusiness.net/sites/default/files/styles/article/public/2020-07/universities-call-for-higher-budget.png?itok=3kv4rkjM" class="d-block w-100" alt="Exotic Fruits"/>
+      <img src="https://sciencebusiness.net/sites/default/files/styles/article/public/2020-07/universities-call-for-higher-budget.png?itok=3kv4rkjM"
+           class="d-block w-100" alt="Exotic Fruits"/>
     </div>
   </div>
   <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="prev">
@@ -206,7 +208,6 @@
      </div>
    </div>
 </div></div>
-
 </template>
 
 <script>
@@ -215,6 +216,7 @@ export default {
   components: {
 
   },
+
 }
 </script>
 
@@ -269,7 +271,7 @@ h3 {
 }
 
 .carousel .carousel-item {
-    max-height:600px;
+    max-height:550px;
 }
 .carousel-item img {
     object-fit:cover;
@@ -293,7 +295,6 @@ button {
   font-weight: 400;
   display: block;
   margin: auto;
-
 }
 .btn-3 {
   line-height: 35px;
