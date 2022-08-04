@@ -89,7 +89,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ title }}}s</a>
+                <a href="#" class="titletext">{{ title }}</a>
               </h4>
             </div>
             <div class="post-meta">
