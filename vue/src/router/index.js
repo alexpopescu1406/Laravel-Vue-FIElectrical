@@ -6,7 +6,10 @@ import AuthLayout from "../components/AuthLayout.vue";
 import store from "../store/index.js";
 import Home from "../views/Home.vue";
 import Education from "../views/Education.vue";
+import BlogView from "../views/BlogView.vue";
+import Blogs from "../views/Blogs.vue";
 
+let BlogCreate;
 const routes = [
   {
     path: '/',
@@ -16,8 +19,10 @@ const routes = [
     meta: {requiresAuth: true},
     children: [
       {path: '/home', name: 'Home', component: Home},
-      {path: '/education', name: 'Education', component: Education}
-
+      {path: '/education', name: 'Education', component: Education},
+      {path: '/blogs', name: 'Blogs', component: Blogs},
+      {path: '/blogs/create', name: 'BlogCreate', component: BlogCreate},
+      {path: '/blogs/:id', name: 'BlogView', component: BlogCreate},
     ]
   },
   {

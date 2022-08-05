@@ -1,6 +1,14 @@
 import { createStore } from "vuex";
 import axiosClient from "../axios";
 
+const tmpBlog = [
+  {
+    id: 100,
+    title: "test",
+    date: "19 Jan",
+    image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
+    content:"asdasdasdasd"
+  }];
 const store = createStore( {
   state: {
     user: {
@@ -9,6 +17,7 @@ const store = createStore( {
         },
       token: sessionStorage.getItem("TOKEN"),
     },
+    blogs: [...tmpBlog],
   },
   getter: {},
   actions: {

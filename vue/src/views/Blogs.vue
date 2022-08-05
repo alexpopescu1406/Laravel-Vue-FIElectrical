@@ -2,22 +2,45 @@
   <blog-component title="Latest news in Electrical Engineering">
     asd
     <template v-slot:header>
-
+      <div class="flex justify-content-between">
+    <h1 class="text-3xl font-bold text-gray-900">Blogs</h1>
+      <router-link :to="{ name: 'BlogCreate' }"
+                   class="py-2 px-3 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 -mt-1 inline-block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4" />
+        </svg>
+        Add new Blog Post
+      </router-link>
+      </div>
     </template>
     <div>
-      <pre>{{home}}</pre>
+      <pre>{{ blogs }}</pre>
     </div>
   </blog-component>
 </template>
 
 <script>
+import store from "../store";
+import { computed } from "vue";
 import BlogComponent from '../components/BlogComponent.vue';
 
+const blogs = computed(() => store.state.blogs);
+
 export default {
-  name: "Home",
+  name: "Blogs",
   components: {
     BlogComponent
-   },
+  },
 };
 </script>
 
@@ -32,58 +55,58 @@ p {
   text-align: justify;
 }
 .sidebar-widget .tags li a {
-    background: #cfe0fc;
-    color: #353535;
-    padding: 4px 8px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
+  background: #cfe0fc;
+  color: #353535;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
 }
 .sidebar-widget .tags li a:hover {
-    background: #ffffff;
-    color: #353535;
-    padding: 4px 8px;
-    border: 1px solid;
-    border-color: #cfe0fc;
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
+  background: #ffffff;
+  color: #353535;
+  padding: 4px 8px;
+  border: 1px solid;
+  border-color: #cfe0fc;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
 }
 ul li {
-    padding: 0;
-    margin: 0;
-    line-height: 30px;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
 }
 .list-inline-item {
-    display: inline-block;
+  display: inline-block;
 }
 .sidebar-wdidget{
-    background: #ffd200;
-    padding: 4px 8px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease-in-out;
+  background: #ffd200;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
 }
 .textcustom {
-    color:rgb(0, 0, 0);
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
+  color:rgb(0, 0, 0);
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
 
 }
 .textcustom:hover {
-    transition: 0.4s ease all;
-    color: #1bc76e;
+  transition: 0.4s ease all;
+  color: #1bc76e;
 }
 .horizline {
-    display: block;
-    max-width: 12%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1px;
+  display: block;
+  max-width: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
 }
 .horizline2 {
-    display: block;
-    max-width: 25%;
-    margin-right: auto;
-    margin-bottom: 8px  ;
+  display: block;
+  max-width: 25%;
+  margin-right: auto;
+  margin-bottom: 8px  ;
 }
 #textt {
   text-transform: uppercase;
@@ -93,25 +116,25 @@ ul li {
 }
 
 .carousel .carousel-item {
-    max-height:550px;
+  max-height:550px;
 }
 .carousel-item img {
-    object-fit:cover;
-    max-height:600px;
+  object-fit:cover;
+  max-height:600px;
 }
 .post .post-meta {
-    margin-bottom: 10px;
-    margin-left: 80px;
+  margin-bottom: 10px;
+  margin-left: 80px;
 }
 .post .post-meta a {
-    font-size: 14px;
-    font-weight: 350;
-    color: #555555;
-    margin-right: 15px;
+  font-size: 14px;
+  font-weight: 350;
+  color: #555555;
+  margin-right: 15px;
 }
 .post .post-meta a:hover {
-    transition: 0.4s ease all;
-    color: #1bc76e;
+  transition: 0.4s ease all;
+  color: #1bc76e;
 }
 
 .post .post-details .title {
@@ -121,8 +144,8 @@ ul li {
   margin-left: 80px;
 }
 .titletext:hover {
-    transition: 0.4s ease all;
-    color: #1bc76e;
+  transition: 0.4s ease all;
+  color: #1bc76e;
 }
 .post .post-meta a .fa {
   margin-right: 80px;
@@ -138,29 +161,29 @@ ul li {
   margin-left: 8px;
 }
 .post .post-date {
-    font-size: 27px;
-    font-weight: 600;
-    color: #333333;
-    background: #ffd200;
-    display: inline-block;
-    width: 60px;
-    height: 85px;
-    text-align: center;
-    position: absolute;
-    line-height: 55px;
+  font-size: 27px;
+  font-weight: 600;
+  color: #333333;
+  background: #ffd200;
+  display: inline-block;
+  width: 60px;
+  height: 85px;
+  text-align: center;
+  position: absolute;
+  line-height: 55px;
 }
 .post .post-date span {
-    font-size: 13px;
-    font-weight: normal;
-    color: #ffffff;
-    background: #323232;
-    width: 60px;
-    height: 32px;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    letter-spacing: 1px;
-    line-height: 32px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #ffffff;
+  background: #323232;
+  width: 60px;
+  height: 32px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  letter-spacing: 1px;
+  line-height: 32px;
 }
 .post .post-details a.button {
   margin-bottom: 0;

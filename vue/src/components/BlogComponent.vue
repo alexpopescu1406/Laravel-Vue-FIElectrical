@@ -29,8 +29,9 @@
     <div class="row">
       <div class="col-sm-12 mb-20">
         <div class="section-title text-center">
-          <h2 class="title">Latest news in Electrical Engineering</h2>
-          <img src="../assets/horizline.png" alt="line" class="horizline">
+          <slot name="header"></slot>
+          <h2 class="title">{{ title }}</h2>
+          <img src="../assets/horizline.png" alt="line" class="horizline"><br>
         </div>
       </div>
     </div>
@@ -45,7 +46,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ title }}</a>
+                <a href="#" class="titletext">{{ subtitle }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -66,7 +67,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ title }}</a>
+                <a href="#" class="titletext">{{ subtitle }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -89,7 +90,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ title }}</a>
+                <a href="#" class="titletext">{{ subtitle }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -226,6 +227,7 @@
 <script setup>
 const props = defineProps({
   title: String,
+  subtitle: String,
 })
 
 
