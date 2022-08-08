@@ -1,31 +1,38 @@
 <template>
   <blog-component title="Latest news in Electrical Engineering">
-    asd
     <template v-slot:header>
-      <div class="flex justify-content-between">
-    <h1 class="text-3xl font-bold text-gray-900">Blogs</h1>
-      <router-link :to="{ name: 'BlogCreate' }"
+      <div class="flex justify-content-center">
+          <router-link :to="{ name: 'BlogCreate' }"
                    class="py-2 px-3 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 -mt-1 inline-block"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 -mt-1 inline-block"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            >
+            <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             d="M12 4v16m8-8H4" />
-        </svg>
-        Add new Blog Post
-      </router-link>
-      </div>
+            </svg>
+          Add new Blog Post
+          </router-link>
+      </div><br>
     </template>
-    <div>
-      <pre>{{ blogs }}</pre>
-    </div>
+    subtitle1="Title1"
+    subtitle2="Title2"
+    subtitle3="Title3">
+    <template v-slot:content1>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis consectetur efficitur. Ut pharetra dolor nisi, et congue leo vulputate vitae. Nulla convallis massa ac placerat sagittis. Nunc sit amet leo in tortor molestie hendrerit eu nec quam. Proin mollis dui quis lacus suscipit tincidunt. Donec sed ultricies elit. Donec justo enim, egestas sed justo porta, pharetra bibendum massa.
+    </template>
+    <template v-slot:content2 >
+      Suspendisse potenti. Aliquam scelerisque ullamcorper pulvinar. Vivamus pellentesque risus quis sollicitudin pretium. Nunc rhoncus, velit vel venenatis tincidunt, urna arcu semper augue, non commodo lacus elit et lectus. Vestibulum porta libero sit amet est bibendum, non tincidunt justo elementum. Vestibulum at convallis libero. Nulla est neque, posuere eu consectetur vitae, varius eget tellus. Nulla facilisi. Integer et libero at arcu elementum eleifend. Sed ipsum sem, lacinia vitae odio sed, tincidunt cursus arcu.
+    </template>
+    <template v-slot:content3>
+      Curabitur quis pretium libero, vel pellentesque lectus. Nunc laoreet mi et lacus convallis pellentesque. Morbi consequat sed erat quis gravida. Aenean aliquam ante ac tincidunt dignissim. Donec sapien tortor, posuere imperdiet turpis non, dictum rhoncus quam. Vestibulum eu elit purus. Praesent id pulvinar mauris. Nam sit amet neque porttitor, porttitor risus at, tempor lorem. Nunc sed velit non nisi venenatis tempor. Proin ut urna erat. Aenean finibus dignissim dolor ac sodales.
+    </template>
   </blog-component>
 </template>
 
@@ -79,7 +86,7 @@ ul li {
 .list-inline-item {
   display: inline-block;
 }
-.sidebar-wdidget{
+.sidebar-widget{
   background: #ffd200;
   padding: 4px 8px;
   border: 1px solid transparent;

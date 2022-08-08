@@ -1,35 +1,175 @@
 <template>
-  <blog-component title="Latest news in Electrical Engineering">
-    asd
-    <template v-slot:header>
-
-    </template>
-    <div>
-      <pre>{{home}}</pre>
+  <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-mdb-interval="2000">
+        <img src="https://www.newclothmarketonline.com/wp-content/uploads/2021/09/Swiss-mechanical-and-electrical-engineering-industries2.jpg"
+             class="d-block w-100" alt=""/>
+      </div>
+      <div class="carousel-item" data-mdb-interval="4000">
+        <img src="https://www.enersolare.net/wp-content/uploads/2020/02/fotovoltaico-incentivi-2020-1.jpg"
+             class="d-block w-100" alt=""/>
+      </div>
+      <div class="carousel-item" data-mdb-interval="5000" >
+        <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
+             class="d-block w-100" alt=""/>
+      </div>
     </div>
-  </blog-component>
+    <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br><br>
+  <div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Electrical Engineering</h2>
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">A better way to understand it</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
+      </div>
+
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div v-for="feature in features" :key="feature.name" class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <component :is="feature.icon" class="h-6 w-6" aria-hidden="true" />
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ feature.name }}</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">
+              {{ feature.description }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      From the Blog
+    </div>
+  <div class="cards">
+  <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-4 text-center">
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
+                   class="rounded-circle" />
+              <div class="ms-3">
+                <a href="#" class="textcustom fw-bold mb-1"> Digital Logic Design (DLD)</a>
+                <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 20, 2022</p>
+              </div>
+            </div>
+          </li>
+      </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This card has even longer content than the first to show
+            that equal height action.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </template>
 
 <script>
 import BlogComponent from '../components/BlogComponent.vue';
+import { AnnotationIcon, ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon } from '@heroicons/vue/outline'
+
+const features = [
+  {
+    name: 'Latest news',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    icon: NewspaperIcon,
+  },
+  {
+    name: 'Education',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    icon: AcademicCapIcon,
+  },
+  {
+    name: 'Domain related events',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    icon: UserGroupIcon,
+  },
+  {
+    name: 'Tehnical articles',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    icon: ChipIcon,
+  },
+]
 
 export default {
   name: "Home",
   components: {
-    BlogComponent
+    BlogComponent,
    },
+  setup() {
+    return {
+      features,
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 * {
   color: black;
+
 }
 nav {
   position: relative;
 }
+.cards {
+
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
 p {
-  text-align: justify;
 }
 .sidebar-widget .tags li a {
     background: #cfe0fc;

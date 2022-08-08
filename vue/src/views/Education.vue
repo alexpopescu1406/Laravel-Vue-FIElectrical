@@ -3,14 +3,14 @@
   <div class="carousel-inner">
     <div class="carousel-item active" data-mdb-interval="2000">
       <img src="https://image.cnbcfm.com/api/v1/image/106604493-1594057373282harvarduniversitysdunsterhouseincambridgema.jpg?v=1594057738"
-           class="d-block w-100" alt="Wild Landscape"/>
+           class="d-block w-100" alt=""/>
     </div>
-    <div class="carousel-item" data-mdb-interval="2000">
-      <img src="https://www.science.org/do/10.1126/science.aav7395/abs/MIT_16x9_0.jpg" class="d-block w-100" alt="Camera"/>
+    <div class="carousel-item" data-mdb-interval="4000">
+      <img src="https://www.science.org/do/10.1126/science.aav7395/abs/MIT_16x9_0.jpg" class="d-block w-100" alt=""/>
     </div>
-    <div class="carousel-item" >
+    <div class="carousel-item" data-mdb-interval="5000" >
       <img src="https://sciencebusiness.net/sites/default/files/styles/article/public/2020-07/universities-call-for-higher-budget.png?itok=3kv4rkjM"
-           class="d-block w-100" alt="Exotic Fruits"/>
+           class="d-block w-100" alt=""/>
     </div>
   </div>
   <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="prev">
@@ -75,7 +75,7 @@
          <p class="card-text">
            The University of California, Berkeley (UC Berkeley, Berkeley, Cal, or California)
            is a public land-grant research university in Berkeley, California. Established in 1868 as the University of
-           California, it is the state's first land-grant university and the first campus of the University of California system.
+           California, it is the state's first land-grant university and the first campus.
          </p>
          <a href="https://www.mit.edu/" target="_blank"><button class="custom-btn btn-3"><span>Visit</span></button></a>
        </div>

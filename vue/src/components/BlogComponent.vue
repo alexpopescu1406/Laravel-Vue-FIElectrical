@@ -1,17 +1,17 @@
 <template>
   <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-mdb-interval="3000">
-        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg"
-             class="d-block w-100" alt="Wild Landscape"/>
+      <div class="carousel-item active" data-mdb-interval="2000">
+        <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQGpoD6OAi9CCA/company-background_10000/0/1550767306745?e=2147483647&v=beta&t=39eCNBskOTHD6p-WwGmiZHyx2Sav9htdtV9VA9FM8Zw"
+             class="d-block w-100" alt=""/>
       </div>
       <div class="carousel-item" data-mdb-interval="4000">
         <img src="https://www.enersolare.net/wp-content/uploads/2020/02/fotovoltaico-incentivi-2020-1.jpg"
-             class="d-block w-100" alt="Camera"/>
+             class="d-block w-100" alt=""/>
       </div>
       <div class="carousel-item" data-mdb-interval="5000" >
         <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
-             class="d-block w-100" alt="Exotic Fruits"/>
+             class="d-block w-100" alt=""/>
       </div>
     </div>
     <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button" data-mdb-slide="prev">
@@ -46,7 +46,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ subtitle }}</a>
+                <a href="#" class="titletext">{{ subtitle1 }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -55,7 +55,7 @@
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div class="post-content">
-              <slot></slot>
+              <slot name="content1"></slot>
             </div>
             <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
           </div>
@@ -67,7 +67,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ subtitle }}</a>
+                <a href="#" class="titletext">{{ subtitle2 }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -76,7 +76,7 @@
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div class="post-content">
-              <slot></slot>
+              <slot name="content2"></slot>
             </div>
             <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
           </div>
@@ -90,7 +90,7 @@
           <div class="post-details">
             <div class="post-title">
               <h4 class="title">
-                <a href="#" class="titletext">{{ subtitle }}</a>
+                <a href="#" class="titletext">{{ subtitle3 }}</a>
               </h4>
             </div>
             <div class="post-meta">
@@ -99,10 +99,10 @@
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div class="post-content">
-              <slot></slot>
+              <slot name="content3"></slot>
             </div>
             <a href="#"><button class="custom-btn btn-3"><span>Read More</span></button></a>
-            <nav caria-label="...">
+            <nav aria-label="...">
               <ul class="pagination justify-content-center">
                 <li class="page-item disabled">
                   <a class="page-link">Previous</a>
@@ -227,7 +227,9 @@
 <script setup>
 const props = defineProps({
   title: String,
-  subtitle: String,
+  subtitle1: String,
+  subtitle2: String,
+  subtitle3: String,
 })
 
 
@@ -236,6 +238,9 @@ const props = defineProps({
 <style lang="scss" scoped>
 * {
   color: black;
+}
+.post-content {
+  text-align: justify;
 }
 nav {
   position: relative;
