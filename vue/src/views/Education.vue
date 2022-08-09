@@ -23,18 +23,19 @@
   </button>
 </div><br><br>
 
-<h3>Best Electrical Engineering Universities</h3>
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+    Best Electrical Engineering Universities
+  </div><br>
 <div class="cards">
  <div class="row row-cols-1 row-cols-md-5 g-5">
   <div class="col">
-    <div class="card h-100">
+    <div class="card h-100 hover-shadow">
       <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
       class="card-img-top" alt="Hollywood Sign on The Hill"/>
         <div class="post-date">#1<span>Rank</span></div>
       <div class="card-body">
         <h5 class="card-title">massachusetts institute of technology</h5>
           <div class="card-header"><i class="fa-solid fa-location-dot"></i> Cambridge, United States</div>
-
         <p class="card-text">
           The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge,
           Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science,
@@ -45,14 +46,13 @@
     </div>
   </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://alisteducation.com/wp-content/uploads/2022/02/intro_about-800x532-1.jpeg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#2<span>Rank</span></div>
        <div class="card-body">
          <h5 class="card-title">Stanford University</h5>
          <div class="card-header"><i class="fa-solid fa-location-dot"></i>  Stanford, United States</div>
-
          <p class="card-text">
            Stanford University, officially Leland Stanford Junior University,
            is a private research university in Stanford, California.
@@ -64,14 +64,13 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://www.tclf.org/sites/default/files/thumbnails/image/CA_Berkeley_UniversityOfCaliforniaAtBerkeley_byCharlieNguyen-Flickr_2008_001_Sig.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#3<span>Rank</span></div>
        <div class="card-body">
          <h5 class="card-title">University of California, Berkeley</h5>
          <div class="card-header"><i class="fa-solid fa-location-dot"></i> Berkeley, United States</div>
-
          <p class="card-text">
            The University of California, Berkeley (UC Berkeley, Berkeley, Cal, or California)
            is a public land-grant research university in Berkeley, California. Established in 1868 as the University of
@@ -82,14 +81,13 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#4<span>Rank</span></div>
        <div class="card-body">
          <h5 class="card-title">massachusetts institute of technology</h5>
          <div class="card-header"><i class="fa-solid fa-location-dot"></i> Cambridge, United States</div>
-
          <p class="card-text">
            The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge,
            Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science,
@@ -100,14 +98,13 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#5<span>Rank</span></div>
        <div class="card-body">
          <h5 class="card-title">massachusetts institute of technology</h5>
          <div class="card-header"><i class="fa-solid fa-location-dot"></i> Cambridge, United States</div>
-
          <p class="card-text">
            The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge,
            Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science,
@@ -118,14 +115,13 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#6<span>Rank</span></div>
        <div class="card-body">
          <h5 class="card-title">massachusetts institute of technology</h5>
          <div class="card-header"><i class="fa-solid fa-location-dot"></i> Cambridge, United States</div>
-
          <p class="card-text">
            The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge,
            Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science,
@@ -136,7 +132,7 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#7<span>Rank</span></div>
@@ -154,7 +150,7 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#8<span>Rank</span></div>
@@ -172,7 +168,7 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#9<span>Rank</span></div>
@@ -190,7 +186,7 @@
      </div>
    </div>
    <div class="col">
-     <div class="card h-100">
+     <div class="card h-100 hover-shadow">
        <img src="https://cdn.britannica.com/17/100117-050-EA32F934/Massachusetts-Institute-of-Technology-Cambridge.jpg"
             class="card-img-top" alt="Hollywood Sign on The Hill"/>
        <div class="post-date">#10<span>Rank</span></div>
@@ -271,7 +267,7 @@ h3 {
 }
 
 .carousel .carousel-item {
-    max-height:550px;
+    max-height:500px;
 }
 .carousel-item img {
     object-fit:cover;

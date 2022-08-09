@@ -23,15 +23,15 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <br><br>
+  <br>
+
   <div class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Electrical Engineering</h2>
-        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">A better way to understand it</p>
+        <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Electrical Engineering</h2>
+        <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">A better way to understand it</p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
       </div>
-
       <div class="mt-10">
         <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
           <div v-for="feature in features" :key="feature.name" class="relative">
@@ -51,64 +51,146 @@
   </div><br>
 
   <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-      From the Blog
-    </div>
-  <div class="cards">
-  <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-4 text-center">
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in to
-            additional content. This content is a little bit longer.
-          </p>
+    Trusted by engineers around the world
+  </div><br>
+  <div class="container hover-shadow-soft">
+    <div class="row">
+      <div class="border-end col-sm-4 text-base text-center text-indigo-600 font-semibold tracking-wide uppercase mt-2 text-4xl leading-8 font-extrabold">
+        250+
+        <div class="text-center text-sm leading-8 font-extrabold tracking-tight text-gray-500">
+          Articles
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+      <div class="border-end col-sm-4 text-base text-center text-indigo-600 font-semibold tracking-wide uppercase mt-2 text-4xl leading-8 font-extrabold">
+        230k
+        <div class="text-center text-sm leading-8 font-extrabold tracking-tight text-gray-500">
+          Users
+        </div>
+      </div>
+      <div class="col-sm-4 text-base text-center text-indigo-600 font-semibold tracking-wide uppercase mt-2 text-4xl leading-8 font-extrabold">
+        580
+        <div class="text-center text-sm leading-8 font-extrabold tracking-tight text-gray-500">
+          Tools
         </div>
       </div>
     </div>
+  </div><br><br><br>
+
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      From the Blog
+  </div><br>
+  <div class="cards">
+  <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-4 text-left">
     <div class="col">
-      <div class="card h-100">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+      <router-link to="Blogs"><div class="card h-100 hover-shadow">
+        <img src="https://www.powerelectronicsnews.com/wp-content/uploads/sites/3/2020/12/main-power-electronics-2021.jpg?fit=1754%2C1242"
+             class="card-img-top" alt="Power Electronics"/>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Article</p>
+          <h5 class="card-title">Power Electronics</h5>
+          <p class="card-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione
+          </p>
         </div>
         <div class="card-footer">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="d-flex justify-content-start">
+            <div class="d-flex align-items-center">
+              <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" alt="" style="width: 45px; height: 45px"
+                   class="rounded-circle" />
+              <div class="ms-3">
+                <p class="fw-bold mb-1 d-flex justify-content-start">Daniela Metz</p>
+                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i> March 15, 2022 - 48 min read</p>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+      </router-link>
+    </div>
+    <div class="col">
+      <router-link to="Blogs"><div class="card h-100 hover-shadow">
+        <img src="https://images.ctfassets.net/vne94x762vsn/3n5sFqaSY8M6YAMoYYYAuM/3d818783f2ad3d69c1174fc0b62cb667/digitallogic2.jpg"
+             class="card-img-top" alt="DLD"/>
+        <div class="card-body">
+          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Video</p>
+          <h5 class="card-title">Digital Logic Design (DLD)</h5>
+          <p class="card-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
+            iste dolor cupiditate blanditiis ratione
+          </p>
+        </div>
+        <div class="card-footer">
+          <li class="d-flex justify-content-start">
             <div class="d-flex align-items-center">
               <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
                    class="rounded-circle" />
               <div class="ms-3">
-                <a href="#" class="textcustom fw-bold mb-1"> Digital Logic Design (DLD)</a>
-                <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 20, 2022</p>
+                <p class="fw-bold mb-1 d-flex justify-content-start">Martin Ross</p>
+                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i>  June 20, 2022 - 32 min read</p>
               </div>
             </div>
           </li>
       </div>
       </div>
+      </router-link>
     </div>
     <div class="col">
-      <div class="card h-100">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+      <router-link to="Blogs"><div class="card h-100 hover-shadow">
+        <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:455c87973c6faad63ba5a7c4c95bf5a864b79852/width:1125/quality:high/simotics-electric-motors.jpg"
+             class="card-img-top" alt="Electric Motors"/>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Case study</p>
+          <h5 class="card-title">Electric Motors</h5>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in to
-            additional content. This card has even longer content than the first to show
-            that equal height action.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione
           </p>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <li class="d-flex justify-content-start">
+            <div class="d-flex align-items-center">
+              <img src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt="" style="width: 45px; height: 45px"
+                   class="rounded-circle" />
+              <div class="ms-3">
+                <p class="fw-bold mb-1 d-flex justify-content-start">Andrea Joseph</p>
+                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i>  July 5, 2022 - 29 min read</p>
+              </div>
+            </div>
+          </li>
         </div>
       </div>
+      </router-link>
     </div>
   </div>
-  </div>
+  </div><br><br>
+
+    <div class="mb-7 text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      Testimonials
+    </div>
+   <div class="imagine bg-indigo-600 rounded-xl text-center h-56 shadow">
+     <div class="imagine2">
+     <img class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt="" style="width: 300px; height: 300px">
+     </div>
+     <div >
+       <i class="sm:text-5xl fa-solid fa-quote-left text-white mr-96 mb-2 mt-2"></i>
+       <p class="ml-56 text-white sm:text-2xl">
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
+       <p class="ml-24 text-white sm:text-2xl"> curabitur sapien odio, commodo eu elementum sed.</p>
+       <p class="text-md-between mr-72  text-gray-100"> - Judith Helen, Student</p>
+     </div>
+   </div><br>
+  <div class="imagine3 bg-indigo-600 rounded-xl text-center h-56 shadow">
+    <div class="imagine4">
+      <img class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt="" style="width: 300px; height: 300px">
+    </div>
+      <p class="pt-4 mt-4 mr-96 text-white sm:text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
+      <p class="mr-96  text-white sm:text-2xl"> curabitur sapien odio, commodo eu elementum sed.</p>
+      <p class="text-md-between ml-72 text-gray-100"> - Mark Steven, PHD</p>
+      <i class="sm:text-5xl fa-solid fa-quote-right text-white ml-96"></i>
+  </div><br><br>
+
 </template>
 
 <script>
@@ -158,13 +240,43 @@ export default {
 <style lang="scss" scoped>
 * {
   color: black;
-
+}
+.imagine {
+  width: 70%;
+  margin-left: 110px;
+  z-index: 1;
+  position: relative;
+}
+.imagine2 {
+  left: 35px;
+  top: -35px;
+  position: absolute;
+  z-index: 2;
+}
+.imagine3 {
+  width: 70%;
+  margin-left: 460px;
+  z-index: 1;
+  position: relative;
+}
+.imagine4 {
+  left: 988px;
+  top: -35px;
+  position: absolute;
+  z-index: 2;
+}
+.container  {
+  max-width: 40%;
 }
 nav {
   position: relative;
 }
+.card-img-top {
+  min-height: 230px;
+  max-height: 300px;
+  max-width: 600px;
+}
 .cards {
-
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -233,7 +345,7 @@ ul li {
 }
 
 .carousel .carousel-item {
-    max-height:550px;
+    max-height:500px;
 }
 .carousel-item img {
     object-fit:cover;

@@ -123,7 +123,7 @@ ul li {
 }
 
 .carousel .carousel-item {
-  max-height:550px;
+  max-height:500px;
 }
 .carousel-item img {
   object-fit:cover;

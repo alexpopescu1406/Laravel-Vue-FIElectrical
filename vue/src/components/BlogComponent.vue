@@ -2,7 +2,7 @@
   <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-mdb-interval="2000">
-        <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQGpoD6OAi9CCA/company-background_10000/0/1550767306745?e=2147483647&v=beta&t=39eCNBskOTHD6p-WwGmiZHyx2Sav9htdtV9VA9FM8Zw"
+        <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
              class="d-block w-100" alt=""/>
       </div>
       <div class="carousel-item" data-mdb-interval="4000">
@@ -10,7 +10,8 @@
              class="d-block w-100" alt=""/>
       </div>
       <div class="carousel-item" data-mdb-interval="5000" >
-        <img src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
+        <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQGpoD6OAi9CCA/company-background_10000/0/1550767306745?e=2147483647&v=beta&t=39eCNBskOTHD6p-WwGmiZHyx2Sav9htdtV9VA9FM8Zw
+"
              class="d-block w-100" alt=""/>
       </div>
     </div>
@@ -30,8 +31,7 @@
       <div class="col-sm-12 mb-20">
         <div class="section-title text-center">
           <slot name="header"></slot>
-          <h2 class="title">{{ title }}</h2>
-          <img src="../assets/horizline.png" alt="line" class="horizline"><br>
+          <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">{{ title }}</h2>
         </div>
       </div>
     </div>
