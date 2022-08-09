@@ -339,7 +339,7 @@ ul li {
 }
 .titletext:hover {
   transition: 0.4s ease all;
-  color: #1bc76e;
+  color: #148acb;
 }
 .post .post-meta a .fa {
   margin-right: 80px;

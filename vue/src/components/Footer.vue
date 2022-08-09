@@ -160,7 +160,7 @@ methods: {
 }
 .textcustom:hover {
     transition: 0.4s ease all;
-    color: #1bc76e;
+    color: #148acb;
 }
 img {
   height: 150px;

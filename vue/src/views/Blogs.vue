@@ -1,5 +1,8 @@
 <template>
-  <blog-component title="Latest news in Electrical Engineering">
+  <blog-component title="Latest news in Electrical Engineering"
+                  subtitle1="Title1"
+                  subtitle2="Title2"
+                  subtitle3="Title3">
     <template v-slot:header>
       <div class="flex justify-content-center">
           <router-link :to="{ name: 'BlogCreate' }"
@@ -21,9 +24,6 @@
           </router-link>
       </div><br>
     </template>
-    subtitle1="Title1"
-    subtitle2="Title2"
-    subtitle3="Title3">
     <template v-slot:content1>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis consectetur efficitur. Ut pharetra dolor nisi, et congue leo vulputate vitae. Nulla convallis massa ac placerat sagittis. Nunc sit amet leo in tortor molestie hendrerit eu nec quam. Proin mollis dui quis lacus suscipit tincidunt. Donec sed ultricies elit. Donec justo enim, egestas sed justo porta, pharetra bibendum massa.
     </template>
