@@ -80,89 +80,34 @@
       From the Blog
   </div><br>
   <div class="cards">
-  <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-4 text-left">
-    <div class="col">
-      <router-link to="Blogs"><div class="card h-100 hover-shadow">
-        <img src="https://www.powerelectronicsnews.com/wp-content/uploads/sites/3/2020/12/main-power-electronics-2021.jpg?fit=1754%2C1242"
-             class="card-img-top" alt="Power Electronics"/>
-        <div class="card-body">
-          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Article</p>
-          <h5 class="card-title">Power Electronics</h5>
-          <p class="card-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione
-          </p>
-        </div>
-        <div class="card-footer">
-          <li class="d-flex justify-content-start">
-            <div class="d-flex align-items-center">
-              <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" alt="" style="width: 45px; height: 45px"
-                   class="rounded-circle" />
-              <div class="ms-3">
-                <p class="fw-bold mb-1 d-flex justify-content-start">Daniela Metz</p>
-                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i> March 15, 2022 - 48 min read</p>
+    <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-5 text-left">
+      <div v-for="blog in blogs" :key="blog.title" class="relative">
+        <div class="col">
+        <router-link to="Blogs">
+          <div class="card h-100 hover-shadow">
+            <img :src="blog.image" class="card-img-top" alt="Power Electronics"/>
+            <div class="card-body">
+              <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">{{ blog.type }}</p>
+              <h5 class="card-title">{{ blog.title }}</h5>
+              <p class="card-text">{{ blog.description }}</p>
+            </div>
+              <div class="card-footer">
+                <li class="d-flex justify-content-start">
+                  <div class="d-flex align-items-center">
+                    <img :src="blog.avatar" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                    <div class="ms-3">
+                      <p class="fw-bold mb-1 d-flex justify-content-start">{{ blog.person }}</p>
+                      <p class="text-muted mb-0">
+                        <i class="fa-solid fa-calendar-days"></i>{{ blog.date }} - {{ blog.time }}</p>
+                    </div>
+                  </div>
+                </li>
               </div>
             </div>
-          </li>
+          </router-link>
         </div>
       </div>
-      </router-link>
     </div>
-    <div class="col">
-      <router-link to="Blogs"><div class="card h-100 hover-shadow">
-        <img src="https://images.ctfassets.net/vne94x762vsn/3n5sFqaSY8M6YAMoYYYAuM/3d818783f2ad3d69c1174fc0b62cb667/digitallogic2.jpg"
-             class="card-img-top" alt="DLD"/>
-        <div class="card-body">
-          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Video</p>
-          <h5 class="card-title">Digital Logic Design (DLD)</h5>
-          <p class="card-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-            iste dolor cupiditate blanditiis ratione
-          </p>
-        </div>
-        <div class="card-footer">
-          <li class="d-flex justify-content-start">
-            <div class="d-flex align-items-center">
-              <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
-                   class="rounded-circle" />
-              <div class="ms-3">
-                <p class="fw-bold mb-1 d-flex justify-content-start">Martin Ross</p>
-                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i>  June 20, 2022 - 32 min read</p>
-              </div>
-            </div>
-          </li>
-      </div>
-      </div>
-      </router-link>
-    </div>
-    <div class="col">
-      <router-link to="Blogs"><div class="card h-100 hover-shadow">
-        <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:455c87973c6faad63ba5a7c4c95bf5a864b79852/width:1125/quality:high/simotics-electric-motors.jpg"
-             class="card-img-top" alt="Electric Motors"/>
-        <div class="card-body">
-          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Case study</p>
-          <h5 class="card-title">Electric Motors</h5>
-          <p class="card-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione
-          </p>
-        </div>
-        <div class="card-footer">
-          <li class="d-flex justify-content-start">
-            <div class="d-flex align-items-center">
-              <img src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt="" style="width: 45px; height: 45px"
-                   class="rounded-circle" />
-              <div class="ms-3">
-                <p class="fw-bold mb-1 d-flex justify-content-start">Andrea Joseph</p>
-                <p class="text-muted mb-0"> <i class="fa-solid fa-calendar-days"></i>  July 5, 2022 - 29 min read</p>
-              </div>
-            </div>
-          </li>
-        </div>
-      </div>
-      </router-link>
-    </div>
-  </div>
   </div><br><br>
 
     <div class="mb-7 text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -170,7 +115,7 @@
     </div>
    <div class="imagine bg-indigo-600 rounded-xl text-center h-56 shadow">
      <div class="imagine2">
-     <img class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt="" style="width: 300px; height: 300px">
+     <img class="rounded-xl" src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt="" style="width: 300px; height: 300px">
      </div>
      <div >
        <i class="sm:text-5xl fa-solid fa-quote-left text-white mr-96 mb-2 mt-2"></i>
@@ -180,7 +125,7 @@
        <p class="text-md-between mr-72  text-gray-100"> - Judith Helen, Student</p>
      </div>
    </div><br>
-  <div class="imagine3 bg-indigo-600 rounded-xl text-center h-56 shadow">
+  <div class="imagine3 bg-indigo-600 rounded-xl text-center h-56 shadow mb-24">
     <div class="imagine4">
       <img class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt="" style="width: 300px; height: 300px">
     </div>
@@ -191,11 +136,107 @@
       <i class="sm:text-5xl fa-solid fa-quote-right text-white ml-96"></i>
   </div><br><br>
 
+  <div class="pl-12 pr-12">
+    <div class="cards bg-slate-900 pb-12 rounded-3xl shadow">
+      <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl p-4 mr-4">
+        Meet our Team
+      </div><br>
+        <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-2 text-left pl-12 pr-4 pb-4">
+          <div v-for="team in teams" :key="team.name" class="relative">
+            <div class="col">
+              <div class="card h-100 bg-slate-800 w-96 mb-5">
+                <div class="bg-slate-800 d-flex align-items-center justify-center pt-4">
+                  <img :src="team.image" style="width: 300px; height: 300px"
+                        class="rounded-full d-flex align-items-center"
+                        alt="avatar"/>
+                </div>
+                <div class="card-body bg-slate-800">
+                  <p class="card-text text-white">{{ team.name }}</p>
+                  <div class="d-flex">
+                    <div class=" w-100 text-base text-indigo-500 text-md d-flex justify-content-between">
+                      {{ team.role }}
+                    </div>
+                    <div class="w-20">
+                      <a :href="team.twitter" target="_blank">
+                        <i class="hover:text-blue-500 fa-brands mr-4 fa-twitter text-gray-300"></i>
+                      </a>
+                      <a :href="team.linkedin" target="_blank">
+                        <i class="hover:text-blue-500 fa-brands fa-linkedin text-gray-300"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <br><br>
 </template>
 
 <script>
 import BlogComponent from '../components/BlogComponent.vue';
-import { AnnotationIcon, ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon } from '@heroicons/vue/outline'
+import { ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon } from '@heroicons/vue/outline'
+
+const teams = [
+  {
+    name: 'Maria Gomez',
+    role: 'Designer',
+    image: 'https://mdbootstrap.com/img/new/avatars/5.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Arthur Jordan',
+    role: 'Copywriter',
+    image: 'https://mdbootstrap.com/img/new/avatars/3.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Andrea Gonzalez',
+    role: 'Front-End Developer',
+    image: 'https://mdbootstrap.com/img/new/avatars/20.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Floyd John',
+    role: 'VP, Human Resources',
+    image: 'https://mdbootstrap.com/img/new/avatars/8.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Ly-Chan',
+    role: 'Copywriter',
+    image: 'https://mdbootstrap.com/img/new/avatars/18.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Maria Sol',
+    role: 'Chief Editor',
+    image: 'https://mdbootstrap.com/img/new/avatars/6.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'John Terry',
+    role: 'Co-Founder / CEO',
+    image: 'https://mdbootstrap.com/img/new/avatars/1.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+  {
+    name: 'Ariana Swift',
+    role: 'Editor',
+    image: 'https://mdbootstrap.com/img/new/avatars/14.jpg',
+    twitter: 'https://twitter.com',
+    linkedin: 'https://linkedin.com',
+  },
+]
 
 const features = [
   {
@@ -224,6 +265,42 @@ const features = [
   },
 ]
 
+const blogs = [
+  {
+    type: 'Article',
+    title: 'Power Electronics',
+    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
+      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    date: 'March 15, 2022',
+    image: 'https://www.powerelectronicsnews.com/wp-content/uploads/sites/3/2020/12/main-power-electronics-2021.jpg?fit=1754%2C1242',
+    time: '48 min read',
+    person: 'Daniela Metz',
+    avatar: 'https://mdbootstrap.com/img/new/avatars/6.jpg',
+  },
+  {
+    type: 'Video',
+    title: 'Digital Logic Design (DLD)',
+    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
+      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    date: 'June 20, 2022',
+    image: 'https://images.ctfassets.net/vne94x762vsn/3n5sFqaSY8M6YAMoYYYAuM/3d818783f2ad3d69c1174fc0b62cb667/digitallogic2.jpg',
+    time: '32 min read',
+    person: 'Martin Ross',
+    avatar: 'https://mdbootstrap.com/img/new/avatars/8.jpg',
+  },
+  {
+    type: 'Case study',
+    title: 'Electric Motors',
+    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
+      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    date: 'July 5, 2022',
+    image: 'https://assets.new.siemens.com/siemens/assets/api/uuid:455c87973c6faad63ba5a7c4c95bf5a864b79852/width:1125/quality:high/simotics-electric-motors.jpg',
+    time: '29 min read',
+    person: 'Andrea Joseph',
+    avatar: 'https://mdbootstrap.com/img/new/avatars/9.jpg',
+  },
+]
+
 export default {
   name: "Home",
   components: {
@@ -232,6 +309,8 @@ export default {
   setup() {
     return {
       features,
+      teams,
+      blogs,
     }
   }
 };
