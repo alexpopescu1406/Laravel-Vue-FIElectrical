@@ -25,6 +25,7 @@
               </div>
             </div>
           </div>
+
           <div class="hidden md:block">
             <div class="ml-4 flex items-center md:ml-6">
               <!-- Profile dropdown -->
@@ -111,18 +112,18 @@
 </template>
 
 <script>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline';
 import Footer from "./Footer.vue";
 import { useStore } from 'vuex';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 const navigation = [
-  { name: 'Home', to: {name: "Home"} },
-  { name: 'Education', to: {name: "Education"} },
-  { name: 'Blogs', to: {name: "Blogs"}},
-]
+  { name: 'Home', to: { name: "Home"} },
+  { name: 'Education', to: { name: "Education" } },
+  { name: 'Blogs', to: { name: "Blogs" } },
+];
 
 
 export default {

@@ -5,18 +5,36 @@ const tmpBlog = [
   {
     id: 100,
     title: "test",
-    date: "19 Jan",
+    dateday: "19",
+    datemonth: "JUNE",
     image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
-    content:"asdasdasdasd"
-  }];
+    content:"asdasdasdasd",
+  },
+  {
+    id: 101,
+    title: "test2",
+    dateday: "13",
+    datemonth: "JUNE",
+    image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
+    content:"asdasdasdzzzzzzzzzzzzzzzzzzzasd",
+  },
+  {
+    id: 102,
+    title: "test3",
+    dateday: "21",
+    datemonth: "JUNE",
+    image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
+    content:"asdasdasdaasdasdasdasdasdasdsd",
+  }
+  ];
+
 const store = createStore( {
   state: {
     user: {
-      data: {
-
-        },
+      data: {},
       token: sessionStorage.getItem("TOKEN"),
     },
+
     blogs: [...tmpBlog],
   },
   getter: {},
@@ -49,6 +67,7 @@ const store = createStore( {
     logout: (state) => {
       state.user.data = {};
       state.user.token = null;
+      sessionStorage.removeItem("TOKEN");
     },
     setUser: (state, userData) => {
       state.user.token = userData.token;
