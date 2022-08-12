@@ -1,7 +1,15 @@
 <template>
-  <div className="text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+  <div class="text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
     Create a Blog Post
   </div>
+  <pre>
+    {{model}}
+  </pre>
+  <form @submit.prevent="saveBlog">
+    <div class="shadow sm:rounded-md sm:overflow-hidden">
+
+    </div>
+  </form>
   <br>
   <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
     <!-- Image -->
@@ -18,8 +26,7 @@
         />
         <span
           v-else
-          class="flex items-center justify-center h-12 w-12 rounded-full overflow-hidden bg-gray-100"
-        >
+          class="flex items-center justify-center h-12 w-12 rounded-full overflow-hidden bg-gray-100">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-[80%] w-[80%] text-gray-300"
@@ -50,15 +57,15 @@
 
     <!-- Title -->
     <div>
-      <label for="title" class="block text-sm font-medium text-gray-700"
-      >Title</label
-      >
+      <label for="title" class="block text-sm font-medium text-gray-700">
+        Title
+      </label>
       <input
         type="text"
         name="title"
         id="title"
         v-model="model.title"
-        autocomplete="survey_title"
+        autocomplete="blog_title"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
@@ -74,10 +81,10 @@
                 id="description"
                 name="description"
                 rows="3"
-                v-model="model.description"
-                autocomplete="survey_description"
+                v-model="model.content"
+                autocomplete="blog_description"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                placeholder="Describe your survey"
+                placeholder="Describe your post"
               />
       </div>
     </div>
@@ -87,18 +94,16 @@
     <div>
       <label
         for="expire_date"
-        class="block text-sm font-medium text-gray-700"
-      >Expire Date</label
-      >
+        class="block text-sm font-medium text-gray-700">
+        Date created
+      </label>
       <input
-        type="date"
-        name="expire_date"
-        id="expire_date"
-        v-model="model.expire_date"
+        type="text"
+        v-model="model.date"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
-    <!--/ Expire Date -->
+    <!--/ Date Created -->
 
     <!-- Status -->
     <div class="flex items-start">
@@ -112,38 +117,44 @@
         />
       </div>
       <div class="ml-3 text-sm">
-        <label for="status" class="font-medium text-gray-700"
-        >Active</label
-        >
+        <label for="status" class="font-medium text-gray-700">
+          Active
+        </label>
       </div>
     </div>
     <!--/ Status -->
   </div>
-</template>
+</template> 
 
 <script setup>
-import {computed, ref, watch} from "vue";
+import { ref }from "vue";
 import {useRoute, useRouter} from "vue-router";
 import store from "../store";
 
 const router = useRouter();
 const route = useRoute();
+
 let model = ref({
   title: "",
-  slug: "",
   status: false,
-  description: null,
+  content: null,
   image: null,
   image_url: null,
-  expire_date: null,
-  questions: [],
+  date: null,
+
 });
+
+if (route.params.id) {
+  model.value = store.state.blogs.find(
+    (s) => s.id === parseInt(route.params.id)
+  );
+}
 </script>
 
 <style lang="scss" scoped>
-.card-header {
-  margin-left: -25px;
-  margin-bottom: 15px;
+.titlu {
+  margin-bottom: 200px;
+  margin-left: 100px;
 }
 p {
   text-align: justify;

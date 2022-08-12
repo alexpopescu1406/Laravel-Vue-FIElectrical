@@ -38,12 +38,12 @@
 
     <div class="row">
       <div class="col-md-8 order-2 order-md-1 mt-5 mt-md-0 text-dark">
-        <div v-for="blog in blogs" :key="blogs.id">
+        <div v-for="blog in blogs" :key="blog.id">
         <div class="post">
           <div class="post-image clearfix">
             <img alt="blog" :src="blog.image" class="img-fluid">
           </div>
-          <div class="post-date text-black">{{ blog.dateday }}<span>{{ blog.datemonth }}</span></div>
+          <div class="post-date text-black">{{ blog.dateday}}<span>{{ blog.datemonth }}</span></div>
           <div class="post-details">
             <div class="post-title">
               <h4 class="pl-20 pt-3">
@@ -63,10 +63,15 @@
             </a>
               <router-link :to="{ name: 'BlogView', params: { id: blog.id } }"
                            class="flex py-2 px-4 border border-transparent text-md rounded-md text-white
-                         bg-indigo-600 hover:bg-indigo-700 ml-96">
-                <svg xmins="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewbox="0 0 24 24"
+                                  bg-indigo-600 hover:bg-indigo-700 ml-96">
+                <svg xmins="http://www.w3.org/2000/svg"
+                     class="h-6 w-6 mr-2"
+                     fill="none"
+                     viewbox="0 0 24 24"
                      stroke="currentColor">
-                  <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2"
+                  <path stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
                         d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                 </svg>
                 Edit

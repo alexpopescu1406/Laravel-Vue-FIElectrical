@@ -9,22 +9,25 @@ const tmpBlog = [
     datemonth: "JUNE",
     image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
     content:"asdasdasdasd",
+    date: "June, 19",
   },
   {
-    id: 101,
+    id: 200,
     title: "test2",
     dateday: "13",
     datemonth: "JUNE",
     image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
     content:"asdasdasdzzzzzzzzzzzzzzzzzzzasd",
+    date: "June, 13",
   },
   {
-    id: 102,
+    id: 300,
     title: "test3",
     dateday: "21",
     datemonth: "JUNE",
     image: "https://www.careergirls.org/wp-content/uploads/2018/06/ElectricalEngineer1440x1000.jpg",
     content:"asdasdasdaasdasdasdasdasdasdsd",
+    date: "June, 21"
   }
   ];
 

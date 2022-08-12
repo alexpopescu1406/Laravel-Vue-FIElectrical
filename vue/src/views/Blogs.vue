@@ -21,22 +21,20 @@
           </router-link>
       </div><br>
     </template>
+
   </blog-component>
+  <div>
+    <pre>{{ blogs }}</pre>
+  </div>
 </template>
 
-<script>
+<script setup>
 import store from "../store";
 import { computed } from "vue";
 import BlogComponent from '../components/BlogComponent.vue';
 
 const blogs = computed(() => store.state.blogs);
 
-export default {
-  name: "Blogs",
-  components: {
-    BlogComponent
-  },
-};
 </script>
 
 <style lang="scss" scoped>
