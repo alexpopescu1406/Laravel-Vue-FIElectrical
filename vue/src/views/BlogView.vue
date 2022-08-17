@@ -1,15 +1,32 @@
 <template>
-  <div class="text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-    Create a Blog Post
+  <div class="bg-gray-100">
+  <div class="bg-white pb-8 text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 pl-24 pr-24 sm:text-4xl d-flex justify-content-between">
+    {{ route.params.id ? model.title : "Create a Blog Post" }}
+  <button
+    v-if="route.params.id"
+    type="button"
+    @click="deleteBlog()"
+    class="py-2 px-3 text-xl text-white bg-red-500 rounded-md hover:bg-red-700"
+    >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 -mt-1 inline-block"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+        clip-rule="evenodd"
+      />
+    </svg>
+    Delete Blog
+  </button>
   </div>
-  <pre>
-    {{model}}
-  </pre>
-  <form @submit.prevent="saveBlog">
-    <div class="shadow sm:rounded-md sm:overflow-hidden">
 
-    </div>
-  </form>
+  <div v-if="blogLoading" class="flex justify-center">Loading...</div>
+  <form v-else @submit.prevent="saveBlog">
+    <div class="sm:rounded-md sm:overflow-hidden pr-12 pl-12 mt-12 pb-24">
   <br>
   <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
     <!-- Image -->
@@ -81,7 +98,7 @@
                 id="description"
                 name="description"
                 rows="3"
-                v-model="model.content"
+                v-model="model.description"
                 autocomplete="blog_description"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                 placeholder="Describe your post"
@@ -95,15 +112,15 @@
       <label
         for="expire_date"
         class="block text-sm font-medium text-gray-700">
-        Date created
+        Expire date
       </label>
       <input
-        type="text"
-        v-model="model.date"
+        type="date"
+        v-model="model.expire_date"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
-    <!--/ Date Created -->
+    <!--/ Expire Date -->
 
     <!-- Status -->
     <div class="flex items-start">
@@ -124,30 +141,87 @@
     </div>
     <!--/ Status -->
   </div>
-</template> 
+
+  <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
+    <button
+      type="submit"
+      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+      Save
+    </button>
+  </div>
+    </div>
+  </form>
+  </div>
+</template>
 
 <script setup>
-import { ref }from "vue";
+import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import store from "../store";
 
 const router = useRouter();
 const route = useRoute();
 
+const blogLoading = computed(() => store.state.currentBlog.loading)
+
 let model = ref({
   title: "",
   status: false,
-  content: null,
+  description: null,
   image: null,
   image_url: null,
-  date: null,
-
+  expire_date: null,
 });
 
+watch (
+  () => store.state.currentBlog.data,
+  (newVal, oldVal) => {
+    model.value = {
+      ...JSON.parse(JSON.stringify(newVal)),
+      status: newVal.status !== "draft",
+    }
+  }
+);
+
 if (route.params.id) {
-  model.value = store.state.blogs.find(
-    (s) => s.id === parseInt(route.params.id)
-  );
+  store.dispatch('getBlog', route.params.id);
+}
+
+function onImageChoose (ev) {
+  const file = ev.target.files[0];
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    model.value.image = reader.result;
+
+    model.value.image_url = reader.result;
+    ev.target.value = "";
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveBlog() {
+  store.dispatch("saveBlog", model.value).then(({ data }) => {
+    router.push({
+      name: "BlogView",
+      params: { id: data.data.id },
+    });
+  });
+}
+
+function deleteBlog() {
+  if (
+    confirm (
+      `Are you sure you want to delete this blog? Operation can't be undone.`
+    )
+  ) {
+    store.dispatch("deleteBlog", model.value.id).then(() => {
+      router.push({
+        name: "Blogs",
+      })
+    });
+  }
 }
 </script>
 

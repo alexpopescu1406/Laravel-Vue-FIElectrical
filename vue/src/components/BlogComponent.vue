@@ -41,9 +41,9 @@
         <div v-for="blog in blogs" :key="blog.id">
         <div class="post">
           <div class="post-image clearfix">
-            <img alt="blog" :src="blog.image" class="img-fluid">
+            <img alt="blog" :src="blog.image_url" class="w-full h-full object-cover">
           </div>
-          <div class="post-date text-black">{{ blog.dateday}}<span>{{ blog.datemonth }}</span></div>
+          <div class="post-date text-black">12<span>june</span></div>
           <div class="post-details">
             <div class="post-title">
               <h4 class="pl-20 pt-3">
@@ -56,7 +56,7 @@
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div class="post-content">
-              {{ blog.content }}
+              {{ blog.description }}
             </div>
             <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
             <a href="#"><button class="custom-btn btn-3 text-dark"><span>Read More</span></button>
@@ -219,7 +219,9 @@
 import store from "../store";
 import { computed } from "vue";
 
-const blogs = computed(() => store.state.blogs);
+const blogs = computed(() => store.state.blogs.data);
+
+store.dispatch('getBlogs')
 
 const props = defineProps({
   title: String,
