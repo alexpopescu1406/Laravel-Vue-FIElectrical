@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('title', 1000);
             $table->string('slug', 1000);
             $table->tinyInteger('status');
+            $table->string('dateday', 1000);
+            $table->string('datemonth', 1000);
             $table->text('description')->nullable();
             $table->timestamps();
             $table->timestamp('expire_date')->nullable();

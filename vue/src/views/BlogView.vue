@@ -88,6 +88,34 @@
     </div>
     <!--/ Title -->
 
+    <div>
+      <label for="dateday" class="block text-sm font-medium text-gray-700">
+        Date day
+      </label>
+      <input
+        type="text"
+        name="dateday"
+        id="dateday"
+        v-model="model.dateday"
+        autocomplete="blog_dateday"
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+      />
+    </div>
+
+    <div>
+      <label for="datemonth" class="block text-sm font-medium text-gray-700">
+        Date month
+      </label>
+      <input
+        type="text"
+        name="datemonth"
+        id="datemonth"
+        v-model="model.datemonth"
+        autocomplete="blog_datemonth"
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+      />
+    </div>
+
     <!-- Description -->
     <div>
       <label for="about" class="block text-sm font-medium text-gray-700">
@@ -171,6 +199,8 @@ let model = ref({
   description: null,
   image: null,
   image_url: null,
+  dateday: null,
+  datemonth: null,
   expire_date: null,
 });
 

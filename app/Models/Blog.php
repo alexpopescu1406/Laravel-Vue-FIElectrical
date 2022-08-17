@@ -11,7 +11,7 @@ class Blog extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $fillable = ['user_id', 'image', 'title', 'slug', 'status', 'description', 'expire_date'];
+    protected $fillable = ['user_id', 'image', 'dateday', 'datemonth', 'title', 'slug', 'status', 'description', 'expire_date'];
 
     public function getSlugOptions(): SlugOptions
     {

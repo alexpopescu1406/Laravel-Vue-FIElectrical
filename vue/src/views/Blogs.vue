@@ -1,5 +1,5 @@
 <template>
-  <blog-component title="Latest news in Electrical Engineering">
+  <blog-component>
     <template v-slot:header>
       <div class="flex justify-content-center">
           <router-link :to="{ name: 'BlogCreate' }"
@@ -23,9 +23,7 @@
     </template>
 
   </blog-component>
-  <div>
-    <pre>{{ blogs }}</pre>
-  </div>
+
 </template>
 
 <script setup>

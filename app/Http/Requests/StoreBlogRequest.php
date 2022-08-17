@@ -40,6 +40,8 @@ class StoreBlogRequest extends FormRequest
             'user_id' => 'exists:users,id',
             'status' => 'required|boolean',
             'description' => 'nullable|string',
+            'dateday' => 'nullable|string',
+            'datemonth' => 'nullable|string',
             'expire_date' => 'nullable|date|after:tomorrow'
         ];
     }
