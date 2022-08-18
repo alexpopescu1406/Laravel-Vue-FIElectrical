@@ -8,6 +8,7 @@ import Home from "../views/Home.vue";
 import Education from "../views/Education.vue";
 import BlogView from "../views/BlogView.vue";
 import Blogs from "../views/Blogs.vue";
+import BlogPublicView from "../views/BlogPublicView.vue";
 
 const routes = [
   {
@@ -25,13 +26,19 @@ const routes = [
     ]
   },
   {
+    path: '/view/blog/:slug',
+    name: 'BlogPublicView',
+    component: BlogPublicView, DefaultLayout
+  },
+
+  {
     path: '/auth',
     redirect: '/login',
     name: 'Auth',
     component: AuthLayout,
     meta: {isGuest: true},
     children: [
-        {
+      {
         path: '/login',
         name: 'Login',
         component: Login
@@ -48,7 +55,13 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return {
+      top: 0,
+   }
+  },
 })
 
 router.beforeEach((to, from, next) => {

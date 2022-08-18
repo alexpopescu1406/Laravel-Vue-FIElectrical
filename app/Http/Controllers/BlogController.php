@@ -24,13 +24,13 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        return BlogResource::collection(Blog::where('user_id', $user->id)->paginate());
+        return BlogResource::collection(Blog::where('user_id', $user->id)->paginate(3));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBlogRequest  $request
+     * @param \App\Http\Requests\StoreBlogRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreBlogRequest $request)
@@ -51,7 +51,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function show(Blog $blog, Request $request)
@@ -62,19 +62,30 @@ class BlogController extends Controller
         }
         return new BlogResource($blog);
     }
+ /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\Blog $blog
+     * @return \Illuminate\Http\Response
+     */
+    public function showForGuest(Blog $blog)
+    {
+
+        return new BlogResource($blog);
+    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBlogRequest  $request
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Http\Requests\UpdateBlogRequest $request
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $data = $request->validated();
 
-        if(isset($data['image'])) {
+        if (isset($data['image'])) {
             $relativePath = $this->saveImage($data['image']);
             $data['image'] = $relativePath;
 
@@ -91,7 +102,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy(Blog $blog, Request $request)

@@ -24,8 +24,12 @@
   </button>
   </div>
 
-  <div v-if="blogLoading" class="flex justify-center">Loading...</div>
-  <form v-else @submit.prevent="saveBlog">
+  <div v-if="blogLoading" class="d-flex justify-content-center pb-96 pt-96 mt-96 mb-96">
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+  </div>
+  <form v-else @submit.prevent="saveBlog" class="animate-fade-in-down">
     <div class="sm:rounded-md sm:overflow-hidden pr-12 pl-12 mt-12 pb-24">
   <br>
   <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
@@ -179,6 +183,8 @@
     </button>
   </div>
     </div>
+    <Notification />
+
   </form>
   </div>
 </template>
@@ -187,6 +193,7 @@
 import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import store from "../store";
+import Notification from "../components/Notification.vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -233,6 +240,10 @@ function onImageChoose (ev) {
 
 function saveBlog() {
   store.dispatch("saveBlog", model.value).then(({ data }) => {
+    store.commit('notify', {
+      type: 'success',
+      message: 'Blog was successfully updated'
+    })
     router.push({
       name: "BlogView",
       params: { id: data.data.id },
@@ -263,5 +274,78 @@ function deleteBlog() {
 p {
   text-align: justify;
 }
-
+body {
+  background-color: #222;
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370DB;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #2a32dc;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #16b3e3;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0%   {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0%   {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 </style>

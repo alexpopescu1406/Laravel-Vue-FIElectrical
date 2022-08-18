@@ -1,7 +1,7 @@
-import { createStore } from "vuex";
+import {createStore} from "vuex";
 import axiosClient from "../axios";
 
-const store = createStore( {
+const store = createStore({
   state: {
     user: {
       data: {},
@@ -14,8 +14,14 @@ const store = createStore( {
 
     blogs: {
       loading: false,
+      links: [],
       data: []
     },
+    notification: {
+      show: false,
+      type: null,
+      message: null
+    }
   },
   getters: {},
   actions: {
@@ -33,7 +39,7 @@ const store = createStore( {
           throw err;
         });
     },
-    saveBlog({ commit }, blog) {
+    saveBlog({commit}, blog) {
       delete blog.image_url;
       let response;
       if (blog.id) {
@@ -54,31 +60,47 @@ const store = createStore( {
     deleteBlog({}, id) {
       return axiosClient.delete(`/blog/${id}`);
     },
-    getBlogs({commit}) {
+    getBlogs({commit}, {url = null} = {}) {
+      url = url || '/blog'
       commit('setBlogsLoading', true)
-      return axiosClient.get("/blog").then((res) => {
+      return axiosClient.get(url).then((res) => {
         commit('setBlogsLoading', false)
         commit("setBlogs", res.data);
         return res;
       });
     },
-    register({ commit }, user) {
+    getBlogsBySlug({commit}, slug) {
+      commit("setCurrentBlogLoading", true);
+      return axiosClient
+        .get(`/blog-by-slug/${slug}`)
+        .then((res) => {
+         commit("setCurrentBlog", res.data);
+         return res;
+        })
+        .catch((err) => {
+          throw err;
+        }).finally(()=>{
+          commit("setCurrentBlogLoading", false);
+
+        });
+    },
+    register({commit}, user) {
       return axiosClient.post('/register', user)
-        .then(({ data }) => {
+        .then(({data}) => {
           commit('setUser', data);
           commit('setToken', data.token)
           return data;
         })
     },
-   login({ commit }, user) {
-      return axiosClient.post('/login',user)
-        .then(({ data }) => {
+    login({commit}, user) {
+      return axiosClient.post('/login', user)
+        .then(({data}) => {
           commit('setUser', data);
           commit('setToken', data.token)
           return data;
         })
-   },
-    logout({ commit }) {
+    },
+    logout({commit}) {
       return axiosClient.post('/logout')
         .then(response => {
           commit('logout')
@@ -97,6 +119,7 @@ const store = createStore( {
       state.currentBlog.data = blog.data;
     },
     setBlogs: (state, blogs) => {
+      state.blogs.links = blogs.meta.links;
       state.blogs.data = blogs.data;
     },
 
@@ -110,6 +133,14 @@ const store = createStore( {
       state.user.data = userData.user;
       sessionStorage.setItem('TOKEN', userData.token);
     },
+    notify: (state, {message, type}) => {
+      state.notification.show = true;
+      state.notification.type = type;
+      state.notification.message = message;
+      setTimeout(() => {
+        state.notification.show = false;
+      }, 3000)
+    }
   },
   modules: {},
 });

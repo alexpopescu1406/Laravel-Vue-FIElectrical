@@ -14,7 +14,7 @@ class UpdateBlogRequest extends FormRequest
      */
     public function authorize()
     {
-        $blog = $this->route( 'blog');
+        $blog = $this->route('blog');
         if ($this->user()->id !== $blog->user_id) {
             return false;
         }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::resource('/blog', \App\Http\Controllers\BlogController::class);
+    Route::resource('/blog', BlogController::class);
 });
+
+Route::get('/blog-by-slug/{blog:slug}', [BlogController::class, 'showForGuest']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

@@ -6,6 +6,8 @@
   <router-view></router-view>
 </template>
 
-<style scoped>
-
+<style>
+html {
+  scroll-behavior: auto !important;
+}
 </style>
