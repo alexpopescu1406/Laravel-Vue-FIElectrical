@@ -21,7 +21,7 @@
           <a href="#"><i class="fa-solid fa-heart"></i> 12 Like </a>
           <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
         </div>
-        <div class="post-content">
+        <div id="name" class="post-content">
           {{ blog.description }}
         </div>
         <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
@@ -249,7 +249,13 @@ ul li {
   position: absolute;
   line-height: 55px;
 }
-
+#name {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .post .post-date span {
   font-size: 13px;
   font-weight: normal;

@@ -25,10 +25,11 @@ const routes = [
       {path: '/blogs/:id', name: 'BlogView', component: BlogView},
     ]
   },
+
   {
     path: '/view/blog/:slug',
     name: 'BlogPublicView',
-    component: BlogPublicView, DefaultLayout
+    component: BlogPublicView,
   },
 
   {

@@ -79,9 +79,9 @@ const store = createStore({
         })
         .catch((err) => {
           throw err;
-        }).finally(()=>{
+        })
+        .finally(()=>{
           commit("setCurrentBlogLoading", false);
-
         });
     },
     register({commit}, user) {
