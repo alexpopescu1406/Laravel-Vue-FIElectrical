@@ -114,7 +114,7 @@
             <p><i class="fas fa-home me-3"></i> Bucharest, RO</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              contact@fielectronics.com
+              contact@fielectrical.com
             </p>
             <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
             <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
@@ -127,7 +127,7 @@
     <!-- Copyright -->
     <div class="text-center text-white p-4" style="background-color: black;">
       © 2022 Copyright:
-      <a class="text-reset fw-bold" href="">FIElectronics</a>
+      <a class="text-reset fw-bold" href="">FIElectrical</a>
     </div>
   </footer>
 </template>

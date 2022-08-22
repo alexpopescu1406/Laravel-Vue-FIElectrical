@@ -126,6 +126,7 @@ const navigation = [
   {name: 'Home', to: {name: "Home"}},
   {name: 'Education', to: {name: "Education"}},
   {name: 'Blogs', to: {name: "Blogs"}},
+  {name: 'Tools', to: {name: "Tools"}},
 ];
 
 

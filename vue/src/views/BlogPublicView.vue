@@ -411,7 +411,6 @@ ul li {
   line-height: 55px;
 }
 #name {
-  text-indent: 10%;
   white-space: pre-line;
   overflow: hidden;
   text-overflow: ellipsis;

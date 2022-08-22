@@ -90,27 +90,19 @@
               <div class="sidebar-widget">
                 <h4 class="widget-title">About Blog</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
-                <p>Lorem ipsum dolor sit ametLorem Ipsum Proin dasd nibh vel velit auctor aliquet. Aenean
-                  sollicitudin,<br><br>
-                  lorem quis bibendum auctor, consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor
-                  aliquet.
-                  sem nibh Aenean sollicitudin,</p>
+                <p>Get the latest informations in Electrical Engineering. Discuss with specialists around the globe about
+                new discoveries. Publish your Technical Articles and get feedback from experts. <br>
+                Make use of many Tools to improve your work.</p>
               </div>
               <div class="sidebar-widget">
                 <h4>Categories</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
                 <ul class="widget-ul list-unstyled list-hand ">
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Change Oil and
-                    Filter </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Brake Pads
-                    Replacement </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Timing Belt
-                    Replacement</a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Pre-purchase Car
-                    Inspection </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Starter
-                    Replacement</a>
-                  </li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Microcontrollers </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Circuits </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Telecommunications </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Digital Communications </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> AC/DC Analysis</a></li>
                 </ul>
               </div>
               <div class="sidebar-widget">

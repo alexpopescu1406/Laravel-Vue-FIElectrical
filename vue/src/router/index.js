@@ -8,6 +8,7 @@ import Home from "../views/Home.vue";
 import Education from "../views/Education.vue";
 import BlogView from "../views/BlogView.vue";
 import Blogs from "../views/Blogs.vue";
+import Tools from "../views/Tools.vue";
 import BlogPublicView from "../views/BlogPublicView.vue";
 
 const routes = [
@@ -23,6 +24,7 @@ const routes = [
       {path: '/blogs', name: 'Blogs', component: Blogs},
       {path: '/blogs/create', name: 'BlogCreate', component: BlogView},
       {path: '/blogs/:id', name: 'BlogView', component: BlogView},
+      {path: '/tools', name: 'Tools', component: Tools},
     ]
   },
 
