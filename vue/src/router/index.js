@@ -10,6 +10,8 @@ import BlogView from "../views/BlogView.vue";
 import Blogs from "../views/Blogs.vue";
 import Tools from "../views/Tools.vue";
 import BlogPublicView from "../views/BlogPublicView.vue";
+import ToolsView from "../views/ToolsView.vue";
+import ToolPublicView from "../views/ToolPublicView.vue";
 
 const routes = [
   {
@@ -25,9 +27,15 @@ const routes = [
       {path: '/blogs/create', name: 'BlogCreate', component: BlogView},
       {path: '/blogs/:id', name: 'BlogView', component: BlogView},
       {path: '/tools', name: 'Tools', component: Tools},
+      {path: '/tools/:id', name: 'ToolsView', component: ToolsView},
+      {path: '/tools/create', name: 'ToolCreate', component: ToolsView},
     ]
   },
-
+  {
+    path: '/view/tool/:slug',
+    name: 'ToolPublicView',
+    component: ToolPublicView,
+  },
   {
     path: '/view/blog/:slug',
     name: 'BlogPublicView',
