@@ -1,8 +1,8 @@
 <template>
 <div class="pt-24 w-96 text-3xl font-extrabold text-gray-900 text-center">
-  <label>resistor1</label>
+  <label>resistor3</label>
     <input type="text" class="form-control" v-model="input1">
-  <label>resistor2</label>
+  <label>resistor4</label>
   <input type="text" class="form-control mb-4" v-model="input2">
 
   <h1> results</h1>
@@ -14,17 +14,15 @@
 
 <script>
 export default {
-  name: "function",
+  name: "wheatstone",
   data() {
     return {
-       input1:0,
-      input2: 0,
-      resistance:0
+      resistance:''
     }
   },
   methods: {
    calc() {
-   this.resistance = 1/((1/this.input1)+1/(this.input2));
+   this.resistance = 1/((1/this.input1)+1/(this.input2))+(2*this.input1);
    }
   }
 }

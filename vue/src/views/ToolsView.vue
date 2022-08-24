@@ -110,6 +110,19 @@
             </div>
           </div>
           <!-- Description -->
+
+          <div>
+            <label for="formula" class="block text-sm font-medium text-gray-700">
+              Formula name
+            </label>
+
+            <div>Select formula</div>
+           <select v-model="model.formula">
+             <option>Wheatstone Bridge</option>
+             <option>Parallel Resistor</option>
+           </select>
+          </div>
+
         </div>
 
         <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
@@ -140,6 +153,7 @@ const toolLoading = computed(() => store.state.currentTool.loading)
 let model = ref({
   title: "",
   description: null,
+  formula: null,
   image: null,
   image_url: null,
 });
@@ -178,7 +192,7 @@ function saveTool() {
       message: 'Tool was successfully updated'
     })
     router.push({
-      name: "ToolView",
+      name: "ToolsView",
       params: { id: data.data.id },
     });
   });

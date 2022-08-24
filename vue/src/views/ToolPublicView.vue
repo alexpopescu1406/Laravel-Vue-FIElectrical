@@ -210,7 +210,7 @@
             {{ tool.description }}
           </div>
           <div class="post-content flex justify-center">
-            <function/>
+            <component :is="formulaComponentName"></component>
           </div>
         </div>
       </div>
@@ -221,12 +221,17 @@
 
 <script setup>
 import  { computed } from "vue";
+import { shallowRef } from 'vue'
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
-import Function from "../components/function.vue";
+import parallelresistor from "../components/parallelresistor.vue";
+import wheatstone from "../components/wheatstone.vue";
+
+const current = shallowRef(parallelresistor)
+
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -240,6 +245,17 @@ const store = useStore();
 
 const loading = computed(() => store.state.currentTool.loading);
 const tool = computed (() => store.state.currentTool.data);
+
+const formulaComponentName = computed (() => {
+  switch (tool.value.formula){
+    case "Wheatstone Bridge":
+      return wheatstone
+    case "Parallel Resistor":
+      return parallelresistor
+    default:
+      console.log("alll")
+  }
+});
 
 store.dispatch("getToolsBySlug", route.params.slug);
 

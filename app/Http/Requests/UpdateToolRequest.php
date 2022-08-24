@@ -32,6 +32,7 @@ class UpdateToolRequest extends FormRequest
             'title' => 'required|string|max:1000',
             'image' => 'nullable|string',
             'user_id' => 'exists:users, id',
+            'formula' => 'nullable|string',
             'description' => 'nullable|string',
         ];
     }
