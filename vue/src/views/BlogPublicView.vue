@@ -209,7 +209,7 @@
             </div>
             <div class="post-meta">
               <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
-              <a href="#"><i class="fa-solid fa-heart"></i> 12 Like </a>
+              <a href="#"><i class="fa-solid fa-heart"></i> {{ value4 }} Likes </a>
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div id="name" class="post-content">
@@ -235,6 +235,7 @@ const navigation = [
   {name: 'Home', to: {name: "Home"}},
   {name: 'Education', to: {name: "Education"}},
   {name: 'Blogs', to: {name: "Blogs"}},
+  {name: 'Tools', to: {name: "Tools"}},
 ];
 
 const route = useRoute();
@@ -242,6 +243,11 @@ const store = useStore();
 
 const loading = computed(() => store.state.currentBlog.loading);
 const blog = computed (() => store.state.currentBlog.data);
+
+function generateRandomInteger(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+let value4 = generateRandomInteger(3430);
 
 store.dispatch("getBlogsBySlug", route.params.slug);
 

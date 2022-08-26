@@ -114,7 +114,9 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
                            class="rounded-circle"/>
                       <div class="ms-3">
-                        <a href="#" class="textcustom fw-bold mb-1"> Digital Logic Design (DLD)</a>
+                       <router-link to="/view/blog/digital-logic-design" target="_blank" class="textcustom fw-bold mnb-1">
+                         Digital Logic Design (DLD)
+                       </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 20, 2022</p>
                       </div>
                     </div>
@@ -125,7 +127,9 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <a href="#" class="textcustom fw-bold mb-1"> Power Electronics</a>
+                        <router-link to="/view/blog/power-electronics" target="_blank" class="textcustom fw-bold mb-1">
+                          Power Electronics
+                        </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 29, 2022</p>
                       </div>
                     </div>
@@ -136,7 +140,9 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <a href="#" class="textcustom fw-bold mb-1"> Digital Signal and System</a>
+                        <router-link to="/view/blog/embedded-systems" target="_blank" class="textcustom fw-bold mb-1">
+                          Embedded Systems
+                        </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> July 12, 2022</p>
                       </div>
                     </div>
