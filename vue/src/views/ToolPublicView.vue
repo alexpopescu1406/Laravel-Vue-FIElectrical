@@ -190,7 +190,7 @@
     </div>
   </div>
   <div v-else class="container pt-16">
-    <div class="mb-96">
+    <div class="">
       <div class="post">
         <div class="post-image clearfix flex justify-center">
           <img alt="tool" :src="tool.image_url" class="w-[800px] h-100 object-cover">
@@ -209,12 +209,12 @@
           <div id="name" class="post-content">
             {{ tool.description }}
           </div>
-          <div class="post-content flex justify-center">
-            <component :is="formulaComponentName"></component>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div>
+    <component :is="formulaComponentName"></component>
   </div>
   <Footer/>
 </template>
