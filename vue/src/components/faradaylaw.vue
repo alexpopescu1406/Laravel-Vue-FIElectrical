@@ -1,6 +1,6 @@
 <template>
   <div class="container text-2xl pl-96 pr-96 font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-8">
-    <div class="row pl-12 pr-12">
+    <div class="row pl-12 pr-12 pt-4 pb-4">
       <div class="col-md">
       <div id="faraday-law-calculator">
         <div id="tool-form">

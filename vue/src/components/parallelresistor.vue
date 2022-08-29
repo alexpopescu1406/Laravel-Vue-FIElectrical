@@ -1,16 +1,60 @@
 <template>
-  <div class="container text-2xl pl-96 pr-96 font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-8">
-    <div class="row pl-12 pr-12">
-      <div class="col-md mr-72 ml-72">
-        <div class="mb-2 text-3xl">Number of<span class="text-indigo-500"> Resistors</span></div>
-        <label class="mb-2">R1 Value:</label>
-        <input type="number" class="rounded-pill form-control bg-blue-500 mb-2 text-center" v-model="r1">
-        <label class="mb-2">R2 Value:</label>
-        <input type="number" class="rounded-pill form-control mb-2 text-center" v-model="r2">
-        <div class="text-3xl mb-2 mt-4">Result</div>
-        <button @click="calcRx" class="mb-2 btn btn-primary">Calculate</button>
-        <button @click="resetInputs" class="mb-2 btn btn-primary">Reset values</button><br>
-        Equivalent Resistance = {{ rx }}<br><br>
+  <div class="container text-2xl pl-96 pr-96 font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-12 pb-4 mb-8">
+    <div id="parallel-resistance-calculator">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12 mb-4">
+            <label class="control-label">Number of Resistors (<small>min 2 and max 6 resistors</small>):</label
+            >
+          </div>
+          <div class="col-sm-6 col-xs-8">
+            <input v-model="numberOfResistors" type="number" class="rounded-pill form-control bg-blue-500 mb-4 text-center" />
+          </div>
+          <div class="col-sm-2 col-xs-4"></div>
+        </div>
+      </div>
+      <div v-for="(resistor, index) in addResistors" :key="index">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4 col-xs-12">
+              <label class="control-label" v-html="resistorLabel(index)"></label>
+            </div>
+            <div class="col-sm-6 col-xs-8">
+              <input v-model="resistors[index].value" type="number" class="rounded-pill form-control bg-blue-500 mb-4 text-center" />
+            </div>
+            <div class="col-sm-2 col-xs-4">
+              (Ω)
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-3xl font-extrabold  mb-2">Result</h3>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <label class="control-label">Equivalent Resistance:</label>
+          </div>
+          <div class="col-sm-6 col-xs-8">
+            <input disabled v-model="eResistance" type="number" class="rounded-pill form-control bg-blue-500 mb-4 text-center" />
+          </div>
+          <div class="col-sm-2 col-xs-4">
+            (Ω)
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12"></div>
+          <div class="col-sm-6 col-xs-8 mb-4 mt-2">
+            <button :disabled="disable" @click="calculate" class="btn btn-primary">
+              Calculate
+            </button>
+            <button @click="resetInputs" class="btn btn-primary">
+              Reset
+            </button>
+          </div>
+          <div class="col-sm-2 col-xs-4"></div>
+        </div>
       </div>
     </div>
 </div>
@@ -74,13 +118,9 @@ export default {
   name: "parallelresistor",
   data() {
     return {
-      rx: '',
-      r1: '',
-      r2: '',
-      r3: '',
-      r4: '',
-      r5: '',
-      r6: '',
+      resistors: [],
+      numberOfResistors: 2,
+      eResistance: null,
       formula: '$$I_x = \\frac{V}{R_x}$$',
       formula1: '$$I_{total} = I_1 + I_2 + I_3 + ... + I_n$$',
       formula2: '$$R_{eq} = \\frac{V}{I_{total}} = \\frac{V}{(\\frac{V}{R_1} + \\frac{V}{R_2} + \\frac{V}{R_3} + ... + \\frac{V}{R_n})}$$',
@@ -89,23 +129,38 @@ export default {
       formula5: '$$R_{eq} = \\frac{R_1\\times R_2}{R_1+R_2}$$',
     }
   },
-  methods: {
-    calcRx() {
-      this.rx = this.formatOutput(
-          this.rx = 1 / ((1 / this.r1) + 1 / (this.r2))
+  computed: {
+    addResistors() {
+      (this.resistors = []),
+        (this.eResistance = null),
+        (this.numberOfResistors = this.numberOfResistors < 7 && this.numberOfResistors > 1 ? this.numberOfResistors : this.numberOfResistors < 2 ? 2 : 6);
+      for (var e = 0; e < this.numberOfResistors; e++) this.resistors.push({value: ""});
+      return this.resistors;
+    },
+    disable() {
+      var e = !1;
+      return (
+        this.resistors.forEach(function (t) {
+          (null != t.value && "" != t.value) || (e = !0);
+        }),
+          e
       );
     },
-    formatOutput(e) {
-      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(3));
+  },
+  methods: {
+    calculate() {
+      var e = 0;
+      this.resistors.forEach(function (t) {
+        e += 1 / t.value;
+      }),
+        (this.eResistance = (1 / e).toFixed(2));
+    },
+    resistorLabel(e) {
+      return "Resistor<sub>" + (e + 1) + "</sub>";
     },
     resetInputs() {
-        this.r1 = null,
-        this.r2 = null,
-        this.r3 = null,
-        this.r4 = null,
-        this.r5 = null,
-        this.r6 = null,
-        this.rx = null
+     this.resistors = null,
+     this.eResistance = null
     },
   },
 }
