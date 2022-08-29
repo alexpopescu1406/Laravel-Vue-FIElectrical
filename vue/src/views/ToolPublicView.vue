@@ -197,16 +197,16 @@
         </div>
         <div class="post-details">
           <div class="post-title">
-            <h4 class="pl-20 pt-24">
+            <h4 class="pt-24">
               <a
                 :href="`/view/tool/${tool.slug}`"
                 target="_blank"
-                class="text-gray-900 hover:text-green-400 text-3xl font-extrabold">
+                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
                 {{ tool.title }}
               </a>
             </h4>
           </div>
-          <div id="name" class="post-content">
+          <div id="name" class="text-xl pl-12 ">
             {{ tool.description }}
           </div>
         </div>
@@ -221,7 +221,6 @@
 
 <script setup>
 import  { computed } from "vue";
-import { shallowRef } from 'vue'
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
@@ -229,9 +228,7 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
 import parallelresistor from "../components/parallelresistor.vue";
 import wheatstone from "../components/wheatstone.vue";
-
-const current = shallowRef(parallelresistor)
-
+import faradaylaw from "../components/faradaylaw.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -252,6 +249,8 @@ const formulaComponentName = computed (() => {
       return wheatstone
     case "Parallel Resistor":
       return parallelresistor
+    case "Faraday Lenz Law":
+      return faradaylaw
     default:
       console.log("alll")
   }

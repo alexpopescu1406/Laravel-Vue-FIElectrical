@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-2xl pl-96 pr-96 font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-12">
+  <div class="container text-2xl pl-96 pr-96 font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-8">
     <div class="row pl-12 pr-12">
       <div class="col-md mr-72 ml-72">
         <div class="mb-2 text-3xl">Number of<span class="text-indigo-500"> Resistors</span></div>
@@ -14,7 +14,59 @@
       </div>
     </div>
 </div>
-
+  <div class="container pl-96 pr-96">
+    <div class=" text-3xl font-extrabold text-gray-900 mb-4">
+      How to Calculate the Equivalent Resistance of Resistors Connected in Parallel
+    </div>
+    <p class="text-xl"> Calculating the equivalent resistance (Req) of resistors in parallel (Figure 1) by hand can be tiresome.
+    </p>
+    <img class="pl-72 mb-2" src="https://www.allaboutcircuits.com/uploads/articles/Parallel_Resistor_Drawing.jpg">
+    <p class="italic text-center mb-4 pl-12"><b>Figure 1.</b> Circuit schematic for resistors connected in parallel
+    </p>
+    <p class="text-3xl font-extrabold">Calculating Resistance in Parallel Using Ohm's Law</p>
+    <p class="text-xl">
+      The voltage (V) across all of the resistors in a parallel circuit is identical. This can be seen by observing that the parallel resistors share the same nodes. The current through each individual resistor, Rx, can be calculated using Ohm's law:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax :formula="formula" />
+    </div>
+    <p class="text-xl">
+      The total current through the parallel resistors is the sum of the individual currents:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax :formula="formula1" />
+    </div>
+    <p class="text-xl">
+      The current through each individual resistor does not change when you add resistors in parallel because adding resistors in parallel does not affect the voltage across the resistors' terminals. What changes in the total current delivered by the power supply, not the current through one particular resistor.
+    </p>
+    <p class="text-3xl font-extrabold">
+      Parallel Resistance Formula
+    </p>
+    <p class="text-xl">
+      From the total current equation, we can then derive an equation for the equivalent parallel resistance:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax  :formula="formula2"/>
+    </div>
+    <p class="text-xl">
+      From there, by simplifying the terms, we get:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax  :formula="formula3"/>
+    </div>
+    <p class="text-xl">
+      This is often expressed as:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax  :formula="formula4"/>
+    </div>
+    <p class="text-xl">
+      When you have only <b>two resistors</b> in parallel, the equivalent resistance can be easily calculated using this equation:
+    </p>
+    <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
+      <vue-mathjax  :formula="formula5"/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -29,6 +81,12 @@ export default {
       r4: '',
       r5: '',
       r6: '',
+      formula: '$$I_x = \\frac{V}{R_x}$$',
+      formula1: '$$I_{total} = I_1 + I_2 + I_3 + ... + I_n$$',
+      formula2: '$$R_{eq} = \\frac{V}{I_{total}} = \\frac{V}{(\\frac{V}{R_1} + \\frac{V}{R_2} + \\frac{V}{R_3} + ... + \\frac{V}{R_n})}$$',
+      formula3: '$$R_{eq} = \\frac{1}{(\\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + ... + \\frac{1}{R_n})}$$',
+      formula4: '$$\\frac{1}{R_{eq}} = \\frac{1}{R_1 + R_2 + R_3 + ... + R_n}$$',
+      formula5: '$$R_{eq} = \\frac{R_1\\times R_2}{R_1+R_2}$$',
     }
   },
   methods: {

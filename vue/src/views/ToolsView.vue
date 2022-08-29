@@ -120,6 +120,7 @@
            <select v-model="model.formula">
              <option>Wheatstone Bridge</option>
              <option>Parallel Resistor</option>
+             <option>Faraday Lenz Law</option>
            </select>
           </div>
 

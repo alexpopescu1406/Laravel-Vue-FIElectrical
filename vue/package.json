@@ -19,6 +19,7 @@
     "flowbite": "^1.5.1",
     "mdb-vue-ui-kit": "^2.0.0",
     "vue": "^3.2.36",
+    "vue-mathjax-next": "^0.0.4",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.2"
   },
