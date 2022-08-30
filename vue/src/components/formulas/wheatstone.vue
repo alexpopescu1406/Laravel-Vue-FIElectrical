@@ -206,66 +206,6 @@ export default {
         ((null != this.RxValueNew.value && "" != this.RxValueNew.value) || (null != this.VoutValueNew.value && "" != this.VoutValueNew.value))
       );
     },
-    RxValueNewClone() {
-      return JSON.parse(JSON.stringify(this.RxValueNew));
-    },
-    VoutValueNewClone() {
-      return JSON.parse(JSON.stringify(this.VoutValueNew));
-    },
-    rUnits() {
-      return [
-        { value: 1, text: "Ohms" },
-        { value: 1e3, text: "Kilohms" },
-        { value: 1e6, text: "Megohms" },
-      ];
-    },
-    vUnits() {
-      return [
-        { value: 1, text: "Volts" },
-        { value: 1e3, text: "Millivolts" },
-        { value: 1e6, text: "Microvolts" },
-      ];
-    },
-    prefSeries() {
-      return [
-        { value: 1, text: "E12" },
-        { value: 2, text: "E24" },
-        { value: 3, text: "E48" },
-        { value: 4, text: "E96" },
-        { value: 5, text: "E192" },
-      ];
-    },
-    vbR1() {
-      return this.inputVbR1.value * this.inputVbR1.unit;
-    },
-    vbR2() {
-      return this.inputVbR2.value * this.inputVbR2.unit;
-    },
-    vbR3() {
-      return this.inputVbR3.value * this.inputVbR3.unit;
-    },
-    vbR4() {
-      return this.inputVbR4.value * this.inputVbR4.unit;
-    },
-    vbV() {
-      return this.inputVbV.value * this.inputVbV.unit;
-    },
-    vBridge() {
-      var e = (this.vbR2 / (this.vbR1 + this.vbR2)) * this.vbV;
-      return (this.vbR4 / (this.vbR3 + this.vbR4)) * this.vbV - e + " Volts";
-    },
-    r1() {
-      return this.inputR1.value * this.inputR1.unit;
-    },
-    r2() {
-      return this.inputR2.value * this.inputR2.unit;
-    },
-    r3() {
-      return this.inputR3.value * this.inputR3.unit;
-    },
-    getR4() {
-      return (this.r4 = (this.r3 * this.r2) / this.r1), this.r4 + " Ohms";
-    },
     series() {
       var e = [];
       switch ((console.log(this.rx), this.rx)) {
@@ -686,7 +626,7 @@ export default {
         (this.calculatedValue = this.VoutValueNew));
     },
     formatOutput(e) {
-      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(3));
+      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(4));
     },
     getPrefR4() {
       var e,

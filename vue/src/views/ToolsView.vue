@@ -121,9 +121,10 @@
              <option>Wheatstone Bridge</option>
              <option>Parallel Resistor</option>
              <option>Faraday Lenz Law</option>
+             <option>Pressure Unit</option>
+             <option>Energy Calculator</option>
            </select>
           </div>
-
         </div>
 
         <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">

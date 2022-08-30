@@ -153,7 +153,7 @@ export default {
       this.resistors.forEach(function (t) {
         e += 1 / t.value;
       }),
-        (this.eResistance = (1 / e).toFixed(2));
+        (this.eResistance = (1 / e).toFixed(3));
     },
     resistorLabel(e) {
       return "Resistor<sub>" + (e + 1) + "</sub>";

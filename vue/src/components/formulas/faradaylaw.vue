@@ -249,7 +249,7 @@ export default {
         (this.calculatedValue = this.inducedEMFNew));
     },
     formatOutput(e) {
-      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(4));
+      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(5));
     },
     getAreaUnitValue() {
       var e,

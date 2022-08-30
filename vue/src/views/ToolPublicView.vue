@@ -226,9 +226,11 @@ import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
-import parallelresistor from "../components/parallelresistor.vue";
-import wheatstone from "../components/wheatstone.vue";
-import faradaylaw from "../components/faradaylaw.vue";
+import parallelresistor from "../components/formulas/parallelresistor.vue";
+import wheatstone from "../components/formulas/wheatstone.vue";
+import faradaylaw from "../components/formulas/faradaylaw.vue";
+import pressureunit from "../components/formulas/pressureunit.vue";
+import energycalculator from "../components/formulas/energycalculator.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -251,6 +253,10 @@ const formulaComponentName = computed (() => {
       return parallelresistor
     case "Faraday Lenz Law":
       return faradaylaw
+    case "Pressure Unit":
+      return pressureunit
+    case "Energy Calculator":
+      return energycalculator
     default:
       console.log("alll")
   }
