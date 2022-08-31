@@ -9,8 +9,9 @@ Laravel 9, PHP ^8.1, Vue 3
 4. Create database
 5. Copy .env.example into .env and adjust parameters
 6. Run php artisan migrate
-7. Run php artisan db:seed
-8. Run php artisan serve
+7. Run php artisan db:seed --class BlogsSeeder
+8. Run php artisan db:seed --class ToolsSeeder
+9. Run php artisan serve
 
 <b>Frontend</b>
 1. Navigate to vue folder (cd vue)
