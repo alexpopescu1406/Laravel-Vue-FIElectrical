@@ -1,11 +1,15 @@
+Laravel 9, PHP ^8.1, Vue 3
+
+<b>Live: fielectrical.net</b>
+
 <b>Backend</b>
 1. Clone the project
 2. Go to the project root directory
 3. Run composer install
 4. Create database
 5. Copy .env.example into .env and adjust parameters
-6. Run php artisan db:seed
-7. Run php artisan migrate
+6. Run php artisan migrate
+7. Run php artisan db:seed
 8. Run php artisan serve
 
 <b>Frontend</b>
