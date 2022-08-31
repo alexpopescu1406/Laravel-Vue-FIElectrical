@@ -36,21 +36,21 @@ class ToolsSeeder extends Seeder
                 'title' => 'Lenz’s Law and Faraday’s Law Calculator',
                 'user_id' => '1',
                 'description' => 'This calculator uses Faradays and Lenzs laws to calculate the magnitude and polarity of the induced electromotive force (EMF) caused by a change in magnetic flux through a closed-loop coil.',
-                'image' => 'images/3tBnuBQebYCycXi5.webp',
+                'image' => 'images/5wRFnQharHBMdLLX.webp',
                 'formula' => 'Farday Lenz Law'
             ],
             [
                 'title' => 'Pressure Unit Conversion Calculator',
                 'user_id' => '1',
                 'description' => 'This calculator will convert pressure values to ten different standard units for pressure.',
-                'image' => 'images/InvQhFWNYYLmPQjE.webp',
+                'image' => 'images/cbrdh91dmSUVhr2g.webp',
                 'formula' => 'Pressure Unit'
             ],
             [
                 'title' => 'Electrical Energy Calculator',
                 'user_id' => '1',
                 'description' => 'This calculator will determine the instantaneous energy, sustained energy, and power consumed by an electrical system given two of the three electrical parameters (voltage, current, or resistance) and the time.',
-                'image' => 'images/XPoLrNCQdCEUEGsx.webp',
+                'image' => 'images/aM0sYO5YssJXZGAo.webp',
                 'formula' => 'Energy Calculator'
             ],
 
