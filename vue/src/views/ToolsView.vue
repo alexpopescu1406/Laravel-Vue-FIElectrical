@@ -220,6 +220,9 @@ function deleteTool() {
   margin-bottom: 200px;
   margin-left: 100px;
 }
+body {
+  overflow-x: hidden !important;
+}
 p {
   text-align: justify;
 }

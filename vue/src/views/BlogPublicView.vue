@@ -14,8 +14,8 @@
                   :key="item.name"
                   :to="item.to"
                   :class="{
-                    'bg-gray-900 text-white': item.name === this.$route.name,
-                    'text-gray-300 hover:bg-gray-700 hover:text-white': this.$route.name !== item.to.name,
+                    'bg-gray-900 text-white': item.name === $route.name,
+                    'text-gray-300 hover:bg-gray-700 hover:text-white': $route.name !== item.to.name,
                     'px-3 py-2 rounded-md text-sm font-medium': true
                   }"
                 >{{ item.name }}
@@ -78,7 +78,7 @@
             :to="item.to"
             active-class="bg-gray-900 text-white"
             :class="[
-              this.$route.name === item.to.name
+              $route.name === item.to.name
                 ? ''
                 : 'text-gray-300 hover:bg-gray-700 hover:text-white',
               'block px-3 py-2 rounded-md text-base font-medium',

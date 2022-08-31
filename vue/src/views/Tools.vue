@@ -71,7 +71,9 @@ ul li {
   margin: 0;
   line-height: 30px;
 }
-
+body {
+  overflow-x: hidden !important;
+}
 .list-inline-item {
   display: inline-block;
 }

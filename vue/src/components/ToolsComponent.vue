@@ -108,7 +108,9 @@ function getForPage(ev, link) {
   width: 100%;
   height: 100%;
 }
-
+body {
+  overflow-x: hidden;
+}
 #loader {
   display: block;
   position: relative;

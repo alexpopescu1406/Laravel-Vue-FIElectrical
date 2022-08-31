@@ -10,5 +10,8 @@
 html {
   scroll-behavior: auto !important;
 }
+body {
+  overflow-x: hidden;
+}
 
 </style>

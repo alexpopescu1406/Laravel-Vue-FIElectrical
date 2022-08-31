@@ -82,7 +82,9 @@ const emit = defineEmits(['delete'])
 .trash {
   color: red !important;
 }
-
+body {
+  overflow-x: hidden;
+}
 nav {
   position: relative;
 }
