@@ -37,7 +37,7 @@ class ToolsSeeder extends Seeder
                 'user_id' => '1',
                 'description' => 'This calculator uses Faradays and Lenzs laws to calculate the magnitude and polarity of the induced electromotive force (EMF) caused by a change in magnetic flux through a closed-loop coil.',
                 'image' => 'images/5wRFnQharHBMdLLX.webp',
-                'formula' => 'Farday Lenz Law'
+                'formula' => 'Faraday Lenz Law'
             ],
             [
                 'title' => 'Pressure Unit Conversion Calculator',
