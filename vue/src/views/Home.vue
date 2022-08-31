@@ -92,12 +92,12 @@
     From the Blog
   </div>
   <br>
-  <div class="cards">
+  <div class="cards d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-5 text-left">
       <div v-for="blog in blogs" :key="blog.title" class="relative">
-        <div class="col">
+        <div class="col ">
           <router-link to="Blogs">
-            <div class="card h-100 hover-shadow">
+            <div class="card h-auto hover-shadow">
               <img :src="blog.image" class="card-img-top" alt="Power Electronics"/>
               <div class="card-body">
                 <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">{{ blog.type }}</p>
@@ -339,7 +339,6 @@ export default {
 * {
   color: black;
 }
-
 .imagine {
   width: 70%;
   margin-left: 110px;
