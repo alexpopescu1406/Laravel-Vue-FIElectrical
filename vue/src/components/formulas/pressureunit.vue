@@ -176,8 +176,9 @@
   <div class="container pl-96 pr-96">
   <div class="lg:mx-4">
     <p class="text-3xl font-extrabold">Pressure Unit Conversion Calculator&nbsp;Applications</p>
-    <p class="text-xl">This calculator applies when attempting to express a pressure measurement in a number of different units. This can be useful when working with pressure sensors in an electronic&nbsp;circuit, designing mechanical parts, or modeling a physical system.</p>
-    <p>&nbsp;</p>
+    <p class="text-xl">This calculator applies when attempting to express a pressure measurement in a number of different units.
+      This can be useful when working with pressure sensors in an electronic&nbsp;circuit, designing mechanical parts, or modeling a physical system.
+    </p>
     <p class="text-3xl font-extrabold">Units of Pressure</p>
     <p class="text-xl">This calculator converts&nbsp;between the following units of pressure:</p>
     <ul class="text-xl">
@@ -196,7 +197,7 @@
       Pressure Conversion Factors</p>
     <p class="text-xl">The following table (Table 1) provides the conversion factors to convert from one unit of pressure to another:</p>
     <p>&nbsp;</p>
-    <h5 style="text-align:center"><em><strong>Table 1. </strong>Conversion factors from one unit of pressure to another.</em></h5>
+    <h5 class="text-center"><em><strong>Table 1. </strong>Conversion factors from one unit of pressure to another.</em></h5>
     <div class="wysiwyg-table-wrapper text-xl mb-12">
       <table align="center" style="width:900px">
         <thead>
@@ -232,32 +233,32 @@
             <p>1 Pa<br />
               (1 N/m<sup>2</sup>)</p>
           </th>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>0.00001</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00001</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00750</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00030</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00015</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0209</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.102</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00401</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00001</p>
           </td>
         </tr>
@@ -265,32 +266,32 @@
           <th scope="row">
             <p>1 Bar</p>
           </th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>100000</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>1.0197</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>750.05</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>29.530</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>14.504</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>2088.540</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>10197.162</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>401.463</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.987</p>
           </td>
         </tr>
@@ -298,32 +299,32 @@
           <th scope="row">
             <p>1 kg/cm<sup>2</sup></p>
           </th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>98066.50</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.981</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>735.56</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>28.959</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>14.223</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>2048.158</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>10000</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>393.701</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.968</p>
           </td>
         </tr>
@@ -331,32 +332,32 @@
           <th scope="row">
             <p>1 mm Hg</p>
           </th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>133.322</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>1.333</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>1.360</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>0.0394</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0193</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>2.784</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>13.595</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.5352</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00132</p>
           </td>
         </tr>
@@ -364,32 +365,32 @@
           <th scope="row">
             <p>1 in Hg</p>
           </th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>3386.389</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0339</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0345</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>25.40</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>0.4912</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>70.7261</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>345.316</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>13.595</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0334</p>
           </td>
         </tr>
@@ -397,158 +398,158 @@
           <th scope="row">
             <p>1 psi</p>
           </th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>6894.757</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0690</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0703</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>51.72</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>2.0360</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>143.9998</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>703.0696</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>27.680</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0681</p>
           </td>
         </tr>
         <tr>
           <th scope="row">1 psf</th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>47.880</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00048</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00049</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.359</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0141</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00694</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>4.882</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.192</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00047</p>
           </td>
         </tr>
         <tr>
           <th scope="row">1 mm H<sub>2</sub>O</th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>9.807</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00010</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00010</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0736</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0029</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00142</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.2048</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>0.0394</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00010</p>
           </td>
         </tr>
         <tr>
           <th scope="row">1 in H<sub>2</sub>O</th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>249.089</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00249</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.00254</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>1.868</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0736</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>0.0361</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>5.2023</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>25.4000</p>
           </td>
-          <td style="text-align:center">1</td>
-          <td style="text-align:center">
+          <td class="text-center">1</td>
+          <td class="text-center">
             <p>0.00246</p>
           </td>
         </tr>
         <tr>
           <th scope="row">1 atm</th>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>101325.0</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>1.0133</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>1.0332</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>760</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>29.921</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>14.696</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>2116.213</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>10332.275</p>
           </td>
-          <td style="text-align:center">
+          <td class="text-center">
             <p>406.783</p>
           </td>
-          <td style="text-align:center">1</td>
+          <td class="text-center">1</td>
         </tr>
         </tbody>
       </table>

@@ -123,6 +123,7 @@
              <option>Faraday Lenz Law</option>
              <option>Pressure Unit</option>
              <option>Energy Calculator</option>
+             <option>RC Time Constant</option>
            </select>
           </div>
         </div>

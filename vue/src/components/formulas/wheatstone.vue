@@ -1,8 +1,39 @@
 <template>
+  <div v-if="loading" class="flex justify-center mb-96 pb-96">
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+  </div>
+  <div v-else class="container pt-16">
+    <div class="">
+      <div class="post">
+        <div class="post-image clearfix flex justify-center">
+          <img alt="tool" :src="image_url" class="w-[800px] h-100 object-cover">
+        </div>
+        <div class="post-details">
+          <div class="post-title">
+            <h4 class="pt-24">
+              <a
+                :href="`/view/tool/${tool.slug}`"
+                target="_blank"
+                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
+                {{ tool.title }}
+              </a>
+            </h4>
+          </div>
+          <div id="name" class="text-xl pl-12 ">
+            {{ tool.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container text-2xl font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-8">
     <div id="wheatstone-bridge-calculator">
       <div id="tool-form">
-        <h3 class="pb-4">You must input everything except for either <span class="text-indigo-500">R<sub>x</sub> or V<sub>out</sub></span></h3>
+        <h3 class="pb-4">You must input everything except for either
+          <span class="text-indigo-500">R<sub>x</sub> or V<sub>out</sub></span>
+        </h3>
         <div class="form-group">
           <div class="row">
             <div class="col-sm-4 col-xs-12">
@@ -112,7 +143,9 @@
   </div>
 
   <div class="container pl-96 pr-96">
-    <p class="text-xl"> This calculator can be used to either design a Wheatstone bridge or to interpret the output of a sensor within a Wheatstone bridge. As shown in Figure 1, the Wheatstone bridge is a simple circuit consisting of two sets of series resistors connected in parallel.
+    <p class="text-xl"> This calculator can be used to either design a Wheatstone bridge or to interpret the
+      output of a sensor within a Wheatstone bridge. As shown in Figure 1, the Wheatstone bridge is a simple circuit
+      consisting of two sets of series resistors connected in parallel.
     </p>
     <p class="text-xl">The Wheatstone bridge configuration allows for high accuracy measurements of unknown resistance. </p>
     <p class="text-3xl font-extrabold">Balancing a Wheatstone Bridge Circuit</p>
@@ -125,11 +158,18 @@
       <vue-mathjax :formula="formula1" />
     </div>
     <p class="text-xl">
-      Even a small change in resistance (R<sub>x</sub>) causes the bridge to become unbalanced. These changes result in a non-zero voltage at V<sub>out</sub> with the polarity indicating if R<sub>x</sub> is smaller or larger than the balanced value. Utilizing a differential amplifier across the V<sub>out</sub> terminals to extract the differential signal while rejecting common-mode noise makes precise detection of very small changes possible.
-      This calculator with either solve for V<sub>out</sub> in the figure above given the R<sub>x</sub> resistance or solve for the R<sub>x</sub> resistance given Vout.    </p>
+      Even a small change in resistance (R<sub>x</sub>) causes the bridge to become unbalanced.
+      These changes result in a non-zero voltage at V<sub>out</sub> with the polarity indicating if R<sub>x</sub>
+      is smaller or larger than the balanced value. Utilizing a differential amplifier across the V<sub>out</sub>
+      terminals to extract the differential signal while rejecting common-mode noise makes precise detection of very small changes possible.
+      This calculator with either solve for V<sub>out</sub> in the figure above given the R<sub>x</sub> resistance or solve
+      for the R<sub>x</sub> resistance given Vout.
+    </p>
     <p class="text-3xl font-extrabold">Wheatstone Bridge Equation—Using KVL and KCL</p>
     <p class="text-xl">
-      To solve for output voltage, V<sub>out</sub>, given the R<sub>x</sub> resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:    </p>
+      To solve for output voltage, V<sub>out</sub>, given the R<sub>x</sub> resistance, we use Kirchoff's Voltage Law (KVL)
+      and Kirchoff's Current Law (KCL) to arrive at the following equation:
+    </p>
     <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
       <vue-mathjax  :formula="formula2"/>
     </div>
@@ -140,7 +180,9 @@
       <li>R<sub>n</sub> = resistor values, expressed in ohms</li>
     </ul>
     <p class="text-xl">
-      Similarly, to solve for R<sub>x</sub> given the output voltage V<sub>out</sub>, we'll use KVL and KCL to arrive at the following equation:    </p>
+      Similarly, to solve for R<sub>x</sub> given the output voltage V<sub>out</sub>,
+      we'll use KVL and KCL to arrive at the following equation:
+    </p>
     <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center mb-12">
       <vue-mathjax  :formula="formula3"/>
     </div>

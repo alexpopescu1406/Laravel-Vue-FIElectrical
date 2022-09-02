@@ -69,7 +69,9 @@
     </p>
     <p class="text-3xl font-extrabold">Calculating Resistance in Parallel Using Ohm's Law</p>
     <p class="text-xl">
-      The voltage (V) across all of the resistors in a parallel circuit is identical. This can be seen by observing that the parallel resistors share the same nodes. The current through each individual resistor, Rx, can be calculated using Ohm's law:
+      The voltage (V) across all of the resistors in a parallel circuit is identical.
+      This can be seen by observing that the parallel resistors share the same nodes.
+      The current through each individual resistor, Rx, can be calculated using Ohm's law:
     </p>
     <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
       <vue-mathjax :formula="formula" />
@@ -81,7 +83,9 @@
       <vue-mathjax :formula="formula1" />
     </div>
     <p class="text-xl">
-      The current through each individual resistor does not change when you add resistors in parallel because adding resistors in parallel does not affect the voltage across the resistors' terminals. What changes in the total current delivered by the power supply, not the current through one particular resistor.
+      The current through each individual resistor does not change when you add resistors in parallel because adding resistors in parallel
+      does not affect the voltage across the resistors' terminals. What changes in the total current delivered by the power supply,
+      not the current through one particular resistor.
     </p>
     <p class="text-3xl font-extrabold">
       Parallel Resistance Formula
@@ -133,7 +137,8 @@ export default {
     addResistors() {
       (this.resistors = []),
         (this.eResistance = null),
-        (this.numberOfResistors = this.numberOfResistors < 7 && this.numberOfResistors > 1 ? this.numberOfResistors : this.numberOfResistors < 2 ? 2 : 6);
+        (this.numberOfResistors = this.numberOfResistors < 7 && this.numberOfResistors > 1 ? this.numberOfResistors
+          : this.numberOfResistors < 2 ? 2 : 6);
       for (var e = 0; e < this.numberOfResistors; e++) this.resistors.push({value: ""});
       return this.resistors;
     },

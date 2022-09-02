@@ -231,6 +231,7 @@ import wheatstone from "../components/formulas/wheatstone.vue";
 import faradaylaw from "../components/formulas/faradaylaw.vue";
 import pressureunit from "../components/formulas/pressureunit.vue";
 import energycalculator from "../components/formulas/energycalculator.vue";
+import RCtimeconstant from "../components/formulas/RCtimeconstant.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -257,6 +258,8 @@ const formulaComponentName = computed (() => {
       return pressureunit
     case "Energy Calculator":
       return energycalculator
+    case "RC Time Constant":
+      return RCtimeconstant
     default:
       console.log("alll")
   }

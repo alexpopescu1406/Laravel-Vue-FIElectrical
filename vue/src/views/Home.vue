@@ -89,7 +89,7 @@
   <br><br><br>
 
   <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 ">
-    From the article
+    Latest Technical Articles
   </div>
   <br>
   <div class="container">
