@@ -7,5 +7,4 @@
 </template>
 
 <script setup>
-import { LockClosedIcon } from '@heroicons/vue/solid'
 </script>

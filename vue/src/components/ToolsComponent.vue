@@ -16,14 +16,16 @@
         </div>
       </div>
       <div v-else>
-        <div class="cards pr-36 pl-36">
-          <div class="row row-cols-1 row-cols-md-4 g-5 ">
+        <div class="container">
+        <div class="cards">
+          <div class="row row-cols-1 row-cols-md-3 g-5">
             <ToolListItem
               v-for="tool in tools.data"
               :key="tool.id"
               :tool="tool"
               @delete="deleteTool(tool)"
             />
+          </div>
           </div>
         </div>
             <br>
@@ -67,10 +69,6 @@ const tools = computed(() => store.state.tools);
 
 store.dispatch('getTools')
 
-const props = defineProps({
-  title: String,
-})
-
 function deleteTool(tool) {
   if (
     confirm(
@@ -100,7 +98,6 @@ function getForPage(ev, link) {
   margin-left: -25px;
   margin-bottom: 15px;
 }
-
 #preloader {
   position: fixed;
   top: 0;
@@ -125,7 +122,6 @@ body {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
-
 #loader:before {
   content: "";
   position: absolute;
@@ -139,7 +135,6 @@ body {
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
-
 #loader:after {
   content: "";
   position: absolute;
@@ -153,28 +148,22 @@ body {
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
-
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -182,11 +171,9 @@ body {
 p {
   text-align: justify;
 }
-
 h5 {
   text-transform: capitalize;
 }
-
 h3 {
   font-weight: 300;
   font-size: 30px;
@@ -202,53 +189,31 @@ a {
   margin-right: 30px;
   margin-bottom: 30px;
 }
-
 .textcustom {
   color: rgb(0, 0, 0);
 }
-
 .textcustom:hover {
   transition: 0.4s ease all;
   color: #1bc76e;
 }
-
-.horizline {
-  display: block;
-  max-width: 12%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px;
-}
-
-.horizline2 {
-  display: block;
-  max-width: 25%;
-  margin-right: auto;
-  margin-bottom: 8px;
-}
-
 #textt {
   text-transform: uppercase;
   font-size: 40px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
 }
-
 .carousel .carousel-item {
   max-height: 400px;
 }
-
 .carousel-item img {
   object-fit: cover;
   max-height: 400px;
 }
-
 button {
   margin: 20px;
   outline: none;
   color: white;
 }
-
 .custom-btn {
   width: 120px;
   height: 35px;
@@ -263,24 +228,20 @@ button {
   display: block;
   margin: auto;
 }
-
 .btn-3 {
   line-height: 35px;
   padding: 0;
 }
-
 .btn-3:hover {
   background: transparent;
   color: #000;
 }
-
 .btn-3 span {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
 }
-
 .btn-3:before,
 .btn-3:after {
   position: absolute;
@@ -290,25 +251,20 @@ button {
   background: #000;
   transition: all 0.3s ease;
 }
-
 .btn-3:before {
   height: 0;
   width: 2px;
 }
-
 .btn-3:after {
   width: 0;
   height: 2px;
 }
-
 .btn-3:hover:before {
   height: 100%;
 }
-
 .btn-3:hover:after {
   width: 100%;
 }
-
 .btn-3 span:before,
 .btn-3 span:after {
   position: absolute;
@@ -318,34 +274,27 @@ button {
   background: #000;
   transition: all 0.3s ease;
 }
-
 .btn-3 span:before {
   width: 2px;
   height: 0;
 }
-
 .btn-3 span:after {
   width: 0;
   height: 2px;
 }
-
 .btn-3 span:hover:before {
   height: 100%;
 }
-
 .btn-3 span:hover:after {
   width: 100%;
 }
-
 span {
   color: black;
 }
-
 .card-img-top + .post-date {
   margin-top: 0;
   margin-left: 0;
 }
-
 .col .post-date {
   font-size: 27px;
   font-weight: 600;
@@ -358,7 +307,6 @@ span {
   position: absolute;
   line-height: 55px;
 }
-
 .col .post-date span {
   font-size: 13px;
   font-weight: normal;
@@ -372,7 +320,6 @@ span {
   letter-spacing: 1px;
   line-height: 32px;
 }
-
 .card-img-top {
   min-height: 230px;
   max-height: 230px;

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\BlogResource;
-use App\Models\Blog;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
+use App\Http\Resources\ArticleResource;
+use App\Models\Article;
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Resource_;
 use Illuminate\Support\Arr;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
-class BlogController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,16 +24,16 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        return BlogResource::collection(Blog::where('user_id', $user->id)->paginate(3));
+        return ArticleResource::collection(Article::where('user_id', $user->id)->paginate(3));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreBlogRequest $request
+     * @param \App\Http\Requests\StoreArticleRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogRequest $request)
+    public function store(StoreArticleRequest $request)
     {
         $data = $request->validated();
 
@@ -42,46 +42,46 @@ class BlogController extends Controller
             $data['image'] = $relativePath;
         }
 
-        $blog = Blog::create($data);
+        $article = Article::create($data);
 
-        return new BlogResource($blog);
+        return new ArticleResource($article);
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Blog $blog
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog, Request $request)
+    public function show(Article $article, Request $request)
     {
         $user = $request->user();
-        if ($user->id !== $blog->user_id) {
+        if ($user->id !== $article->user_id) {
             return abort(403, 'Unauthorized action.');
         }
-        return new BlogResource($blog);
+        return new ArticleResource($article);
     }
  /**
      * Display the specified resource.
      *
-     * @param \App\Models\Blog $blog
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function showForGuest(Blog $blog)
+    public function showForGuest(Article $article)
     {
 
-        return new BlogResource($blog);
+        return new ArticleResource($article);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateBlogRequest $request
-     * @param \App\Models\Blog $blog
+     * @param \App\Http\Requests\UpdateArticleRequest $request
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update(UpdateArticleRequest $request, Article $article)
     {
         $data = $request->validated();
 
@@ -89,35 +89,35 @@ class BlogController extends Controller
             $relativePath = $this->saveImage($data['image']);
             $data['image'] = $relativePath;
 
-            if ($blog->image) {
-                $absolutePath = public_path($blog->image);
+            if ($article->image) {
+                $absolutePath = public_path($article->image);
                 File::delete($absolutePath);
             }
         }
 
-        $blog->update($data);
-        return new BlogResource($blog);
+        $article->update($data);
+        return new ArticleResource($article);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Blog $blog
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog, Request $request)
+    public function destroy(Article $article, Request $request)
     {
         $user = $request->user();
-        if ($user->id !== $blog->user_id) {
+        if ($user->id !== $article->user_id) {
             return abort(403, 'Unauthorized action.');
         }
 
-        if ($blog->image) {
-            $absolutePath = public_path($blog->image);
+        if ($article->image) {
+            $absolutePath = public_path($article->image);
             File::delete($absolutePath);
         }
 
-        $blog->delete();
+        $article->delete();
         return response('', 204);
     }
 
@@ -129,7 +129,7 @@ class BlogController extends Controller
             //file extension
             $type = strtolower($type[1]); //jpg, png, gif
 
-            if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
+            if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png', 'webp'])) {
                 throw new \Exception('invalid image type');
             }
             $image = str_replace(' ', '+', $image);

@@ -28,15 +28,16 @@
   </div>
   <br><br>
 
-  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900">
     Best Electrical Engineering Universities
   </div>
   <br>
-  <div class="cards pr-24 pl-24">
-    <div class="row row-cols-1 row-cols-md-4 g-5 ">
+  <div class="container">
+  <div class="cards">
+    <div class="row row-cols-1 row-cols-md-3 g-5">
       <div v-for="feature in features" :key="feature.name" class="relative">
         <div class="col">
-          <div class="card h-100 hover-shadow">
+          <div class="card hover-shadow">
             <img :src="feature.image" class="card-img-top" alt="image"/>
             <div class="post-date">
               {{ feature.rank }}
@@ -60,12 +61,13 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 const features = [
   {
-    name: 'massachusetts institute of technology',
+    name: 'Massachusetts Institute of Technology',
     description: 'The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge, Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science.',
     location: ' Cambridge, United States',
     rank: '#1',
@@ -168,53 +170,10 @@ p {
   text-align: justify;
 }
 
-h5 {
-  text-transform: capitalize;
-}
-
-h3 {
-  font-weight: 300;
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 20px;
-  text-transform: capitalize;
-}
-
 .cards {
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 30px;
-}
-
-.textcustom {
-  color: rgb(0, 0, 0);
-}
-
-.textcustom:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-.horizline {
-  display: block;
-  max-width: 12%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px;
-}
-
-.horizline2 {
-  display: block;
-  max-width: 25%;
-  margin-right: auto;
-  margin-bottom: 8px;
-}
-
-#textt {
-  text-transform: uppercase;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
 }
 
 .carousel .carousel-item {
@@ -359,6 +318,5 @@ span {
 .card-img-top {
   min-height: 230px;
   max-height: 230px;
-  max-width: 600px;
 }
 </style>

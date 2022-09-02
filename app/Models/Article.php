@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Sluggable\HasSlug;
 
-class Blog extends Model
+class Article extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $fillable = ['user_id', 'image', 'dateday', 'datemonth', 'title', 'slug', 'status', 'description', 'expire_date'];
+    protected $fillable = ['user_id', 'image', 'dateday', 'datemonth', 'title', 'slug', 'status', 'description'];
 
     public function getSlugOptions(): SlugOptions
     {

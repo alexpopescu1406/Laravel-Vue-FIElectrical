@@ -216,10 +216,6 @@ function deleteTool() {
 </script>
 
 <style lang="scss" scoped>
-.titlu {
-  margin-bottom: 200px;
-  margin-left: 100px;
-}
 body {
   overflow-x: hidden !important;
 }
@@ -278,24 +274,20 @@ body {
 }
 @-webkit-keyframes spin {
   0%   {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 @keyframes spin {
   0%   {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }

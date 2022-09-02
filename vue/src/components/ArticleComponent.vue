@@ -35,13 +35,13 @@
         <div class="col-sm-12 mb-20">
           <div class="section-title text-center">
             <slot name="header"></slot>
-            <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">
-              Latest News in Electrical Engineering</h2>
+            <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 title">
+              Latest Technical Articles in Electrical Engineering</h2>
           </div>
         </div>
       </div>
 
-      <div v-if="blogs.loading" class="flex justify-center pb-96 pt-96">
+      <div v-if="articles.loading" class="flex justify-center pb-96 pt-96">
         <div id="preloader">
           <div id="loader"></div>
         </div>
@@ -49,11 +49,11 @@
       <div v-else>
         <div class="row">
           <div class="col-md-8 order-2 order-md-1 mt-5 mt-md-0 text-dark">
-            <BlogListItem
-              v-for="blog in blogs.data"
-              :key="blog.id"
-              :blog="blog"
-              @delete="deleteBlog(blog)"
+            <ArticleListItem
+              v-for="article in articles.data"
+              :key="article.id"
+              :article="article"
+              @delete="deleteArticle(article)"
             />
             <br>
             <div class="flex justify-center mt-5">
@@ -62,7 +62,7 @@
                 aria-label="Pagination"
               >
                 <a
-                  v-for="(link, i) of blogs.links"
+                  v-for="(link, i) of articles.links"
                   :key="i"
                   :disabled="!link.url"
                   href="#"
@@ -74,7 +74,7 @@
                       ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
                       : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
                       i === 0 ? 'rounded-l-md bg-gray-100 text-gray-700' : '',
-                      i === blogs.links.length - 1 ? 'rounded-r-md' : '',
+                      i === articles.links.length - 1 ? 'rounded-r-md' : '',
                     ]"
                   v-html="link.label"
                 >
@@ -88,7 +88,7 @@
           <div class="col-md-4 order-1 order-md-2">
             <div class="post-sidebar">
               <div class="sidebar-widget">
-                <h4 class="widget-title">About Blog</h4>
+                <h4 class="widget-title">About Article</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
                 <p>Get the latest informations in Electrical Engineering. Discuss with specialists around the globe about
                 new discoveries. Publish your Technical Articles and get feedback from experts. <br>
@@ -114,7 +114,7 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
                            class="rounded-circle"/>
                       <div class="ms-3">
-                       <router-link to="/view/blog/digital-logic-design" target="_blank" class="textcustom fw-bold mnb-1">
+                       <router-link to="/view/article/digital-logic-design" target="_blank" class="textcustom fw-bold mnb-1">
                          Digital Logic Design (DLD)
                        </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 20, 2022</p>
@@ -127,7 +127,7 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <router-link to="/view/blog/power-electronics" target="_blank" class="textcustom fw-bold mb-1">
+                        <router-link to="/view/article/power-electronics" target="_blank" class="textcustom fw-bold mb-1">
                           Power Electronics
                         </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 29, 2022</p>
@@ -140,7 +140,7 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <router-link to="/view/blog/embedded-systems" target="_blank" class="textcustom fw-bold mb-1">
+                        <router-link to="/view/article/embedded-systems" target="_blank" class="textcustom fw-bold mb-1">
                           Embedded Systems
                         </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> July 12, 2022</p>
@@ -197,25 +197,21 @@
 <script setup>
 import store from "../store";
 import {computed} from "vue";
-import BlogListItem from "./BlogListItem.vue";
+import ArticleListItem from "./ArticleListItem.vue";
 
-const blogs = computed(() => store.state.blogs);
+const articles = computed(() => store.state.articles);
 
-store.dispatch('getBlogs')
+store.dispatch('getArticles')
 
-const props = defineProps({
-  title: String,
-})
-
-function deleteBlog(blog) {
+function deleteArticle(article) {
   if (
     confirm(
-      `Are you sure you want to delete this blog? Operation can't be undone!`
+      `Are you sure you want to delete this Article? Operation can't be undone!`
     )
   ) {
-    store.dispatch('deleteBlog', blog.id)
+    store.dispatch('deleteArticle', article.id)
       .then(() => {
-        store.dispatch('getBlogs')
+        store.dispatch('getArticles')
       })
   }
 }
@@ -226,7 +222,7 @@ function deleteBlog(blog) {
       return;
     }
 
-    store.dispatch("getBlogs", { url: link.url });
+    store.dispatch("getArticles", { url: link.url });
   }
 
 </script>
@@ -558,12 +554,10 @@ header {
 
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -571,12 +565,10 @@ header {
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }

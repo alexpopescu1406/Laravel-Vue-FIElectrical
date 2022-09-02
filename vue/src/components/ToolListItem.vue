@@ -1,6 +1,6 @@
 <template>
         <div class="col">
-          <div class="card h-[550px] hover-shadow">
+          <div class="card h-[550px] hover-shadow mb-4">
             <img :src="tool.image_url" class="card-img-top" alt="image"/>
             <div class="card-body">
               <h5 class="card-title">{{ tool.title}}</h5>

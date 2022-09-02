@@ -6,10 +6,10 @@ import AuthLayout from "../components/AuthLayout.vue";
 import store from "../store";
 import Home from "../views/Home.vue";
 import Education from "../views/Education.vue";
-import BlogView from "../views/BlogView.vue";
-import Blogs from "../views/Blogs.vue";
+import ArticleView from "../views/ArticleView.vue";
+import Articles from "../views/Articles.vue";
 import Tools from "../views/Tools.vue";
-import BlogPublicView from "../views/BlogPublicView.vue";
+import ArticlePublicView from "../views/ArticlePublicView.vue";
 import ToolsView from "../views/ToolsView.vue";
 import ToolPublicView from "../views/ToolPublicView.vue";
 
@@ -23,9 +23,9 @@ const routes = [
     children: [
       {path: '/home', name: 'Home', component: Home},
       {path: '/education', name: 'Education', component: Education},
-      {path: '/blogs', name: 'Blogs', component: Blogs},
-      {path: '/blogs/create', name: 'BlogCreate', component: BlogView},
-      {path: '/blogs/:id', name: 'BlogView', component: BlogView},
+      {path: '/articles', name: 'Articles', component: Articles},
+      {path: '/articles/create', name: 'ArticleCreate', component: ArticleView},
+      {path: '/articles/:id', name: 'ArticleView', component: ArticleView},
       {path: '/tools', name: 'Tools', component: Tools},
       {path: '/tools/:id', name: 'ToolsView', component: ToolsView},
       {path: '/tools/create', name: 'ToolCreate', component: ToolsView},
@@ -37,9 +37,9 @@ const routes = [
     component: ToolPublicView,
   },
   {
-    path: '/view/blog/:slug',
-    name: 'BlogPublicView',
-    component: BlogPublicView,
+    path: '/view/article/:slug',
+    name: 'ArticlePublicView',
+    component: ArticlePublicView,
   },
 
   {

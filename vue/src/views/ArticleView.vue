@@ -1,11 +1,11 @@
 <template>
   <div class="bg-gray-100">
   <div class="bg-white pb-8 text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 pl-24 pr-24 sm:text-4xl d-flex justify-content-between">
-    {{ route.params.id ? model.title : "Create a Blog Post" }}
+    {{ route.params.id ? model.title : "Create an Article Post" }}
   <button
     v-if="route.params.id"
     type="button"
-    @click="deleteBlog()"
+    @click="deleteArticle()"
     class="py-2 px-3 text-xl text-white bg-red-500 rounded-md hover:bg-red-700"
     >
     <svg
@@ -20,16 +20,16 @@
         clip-rule="evenodd"
       />
     </svg>
-    Delete Blog
+    Delete Article
   </button>
   </div>
 
-  <div v-if="blogLoading" class="d-flex justify-content-center pb-96 pt-96 mt-96 mb-96">
+  <div v-if="ArticleLoading" class="d-flex justify-content-center pb-96 pt-96 mt-96 mb-96">
     <div id="preloader">
       <div id="loader"></div>
     </div>
   </div>
-  <form v-else @submit.prevent="saveBlog" class="animate-fade-in-down">
+  <form v-else @submit.prevent="saveArticle" class="animate-fade-in-down">
     <div class="sm:rounded-md sm:overflow-hidden pr-12 pl-12 mt-12 pb-24">
   <br>
   <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
@@ -86,7 +86,7 @@
         name="title"
         id="title"
         v-model="model.title"
-        autocomplete="blog_title"
+        autocomplete="Article_title"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
@@ -101,7 +101,7 @@
         name="dateday"
         id="dateday"
         v-model="model.dateday"
-        autocomplete="blog_dateday"
+        autocomplete="Article_dateday"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
@@ -115,7 +115,7 @@
         name="datemonth"
         id="datemonth"
         v-model="model.datemonth"
-        autocomplete="blog_datemonth"
+        autocomplete="Article_datemonth"
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
@@ -131,7 +131,7 @@
                 name="description"
                 rows="3"
                 v-model="model.description"
-                autocomplete="blog_description"
+                autocomplete="Article_description"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                 placeholder="Describe your post"
               />
@@ -139,20 +139,6 @@
     </div>
     <!-- Description -->
 
-    <!-- Expire Date -->
-    <div>
-      <label
-        for="expire_date"
-        class="block text-sm font-medium text-gray-700">
-        Expire date
-      </label>
-      <input
-        type="date"
-        v-model="model.expire_date"
-        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-      />
-    </div>
-    <!--/ Expire Date -->
 
     <!-- Status -->
     <div class="flex items-start">
@@ -198,7 +184,7 @@ import Notification from "../components/Notification.vue";
 const router = useRouter();
 const route = useRoute();
 
-const blogLoading = computed(() => store.state.currentBlog.loading)
+const ArticleLoading = computed(() => store.state.currentArticle.loading)
 
 let model = ref({
   title: "",
@@ -208,11 +194,10 @@ let model = ref({
   image_url: null,
   dateday: null,
   datemonth: null,
-  expire_date: null,
 });
 
 watch (
-  () => store.state.currentBlog.data,
+  () => store.state.currentArticle.data,
   (newVal, oldVal) => {
     model.value = {
       ...JSON.parse(JSON.stringify(newVal)),
@@ -222,7 +207,7 @@ watch (
 );
 
 if (route.params.id) {
-  store.dispatch('getBlog', route.params.id);
+  store.dispatch('getArticle', route.params.id);
 }
 
 function onImageChoose (ev) {
@@ -238,28 +223,28 @@ function onImageChoose (ev) {
   reader.readAsDataURL(file);
 }
 
-function saveBlog() {
-  store.dispatch("saveBlog", model.value).then(({ data }) => {
+function saveArticle() {
+  store.dispatch("saveArticle", model.value).then(({ data }) => {
     store.commit('notify', {
       type: 'success',
-      message: 'Blog was successfully updated'
+      message: 'Article was successfully updated'
     })
     router.push({
-      name: "BlogView",
+      name: "ArticleView",
       params: { id: data.data.id },
     });
   });
 }
 
-function deleteBlog() {
+function deleteArticle() {
   if (
     confirm (
-      `Are you sure you want to delete this blog? Operation can't be undone.`
+      `Are you sure you want to delete this Article? Operation can't be undone.`
     )
   ) {
-    store.dispatch("deleteBlog", model.value.id).then(() => {
+    store.dispatch("deleteArticle", model.value.id).then(() => {
       router.push({
-        name: "Blogs",
+        name: "Articles",
       })
     });
   }
@@ -267,10 +252,6 @@ function deleteBlog() {
 </script>
 
 <style lang="scss" scoped>
-.titlu {
-  margin-bottom: 200px;
-  margin-left: 100px;
-}
 p {
   text-align: justify;
 }
@@ -326,24 +307,20 @@ body {
 }
 @-webkit-keyframes spin {
   0%   {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 @keyframes spin {
   0%   {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }

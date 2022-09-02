@@ -7,11 +7,11 @@ const store = createStore({
       data: {},
       token: sessionStorage.getItem("TOKEN"),
     },
-    currentBlog: {
+    currentArticle: {
       loading: false,
       data: {}
     },
-    blogs: {
+    articles: {
       loading: false,
       links: [],
       data: []
@@ -33,63 +33,63 @@ const store = createStore({
   },
   getters: {},
   actions: {
-    getBlog({commit}, id) {
-      commit("setCurrentBlogLoading", true);
+    getArticle({commit}, id) {
+      commit("setCurrentArticleLoading", true);
       return axiosClient
-        .get(`/blog/${id}`)
+        .get(`/article/${id}`)
         .then((res) => {
-          commit("setCurrentBlog", res.data);
-          commit("setCurrentBlogLoading", false);
+          commit("setCurrentArticle", res.data);
+          commit("setCurrentArticleLoading", false);
           return res;
         })
         .catch((err) => {
-          commit("setCurrentBlogLoading", false);
+          commit("setCurrentArticleLoading", false);
           throw err;
         });
     },
-    saveBlog({commit}, blog) {
-      delete blog.image_url;
+    saveArticle({commit}, article) {
+      delete article.image_url;
       let response;
-      if (blog.id) {
+      if (article.id) {
         response = axiosClient
-          .put(`/blog/${blog.id}`, blog)
+          .put(`/article/${article.id}`, article)
           .then((res) => {
-            commit("setCurrentBlog", res.data);
+            commit("setCurrentArticle", res.data);
             return res;
           });
       } else {
-        response = axiosClient.post("/blog", blog).then((res) => {
-          commit("setCurrentBlog", res.data)
+        response = axiosClient.post("/article", article).then((res) => {
+          commit("setCurrentArticle", res.data)
           return res;
         });
       }
       return response;
     },
-    deleteBlog({}, id) {
-      return axiosClient.delete(`/blog/${id}`);
+    deleteArticle({}, id) {
+      return axiosClient.delete(`/article/${id}`);
     },
-    getBlogs({commit}, {url = null} = {}) {
-      url = url || '/blog'
-      commit('setBlogsLoading', true)
+    getArticles({commit}, {url = null} = {}) {
+      url = url || '/article'
+      commit('setArticlesLoading', true)
       return axiosClient.get(url).then((res) => {
-        commit('setBlogsLoading', false)
-        commit("setBlogs", res.data);
+        commit('setArticlesLoading', false)
+        commit("setArticles", res.data);
         return res;
       });
     },
-    getBlogsBySlug({commit}, slug) {
-      commit("setCurrentBlogLoading", true);
+    getArticlesBySlug({commit}, slug) {
+      commit("setCurrentArticleLoading", true);
       return axiosClient
-        .get(`/blog-by-slug/${slug}`)
+        .get(`/article-by-slug/${slug}`)
         .then((res) => {
-         commit("setCurrentBlog", res.data);
+         commit("setCurrentArticle", res.data);
          return res;
         })
         .catch((err) => {
           throw err;
         })
         .finally(()=>{
-          commit("setCurrentBlogLoading", false);
+          commit("setCurrentArticleLoading", false);
         });
     },
 
@@ -180,18 +180,18 @@ const store = createStore({
     }
   },
   mutations: {
-    setCurrentBlogLoading: (state, loading) => {
-      state.currentBlog.loading = loading;
+    setCurrentArticleLoading: (state, loading) => {
+      state.currentArticle.loading = loading;
     },
-    setBlogsLoading: (state, loading) => {
-      state.blogs.loading = loading;
+    setArticlesLoading: (state, loading) => {
+      state.articles.loading = loading;
     },
-    setCurrentBlog: (state, blog) => {
-      state.currentBlog.data = blog.data;
+    setCurrentArticle: (state, article) => {
+      state.currentArticle.data = article.data;
     },
-    setBlogs: (state, blogs) => {
-      state.blogs.links = blogs.meta.links;
-      state.blogs.data = blogs.data;
+    setArticles: (state, articles) => {
+      state.articles.links = articles.meta.links;
+      state.articles.data = articles.data;
     },
 
 

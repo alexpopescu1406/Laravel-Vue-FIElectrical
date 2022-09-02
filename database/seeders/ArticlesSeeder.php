@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog;
+use App\Models\Article;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class BlogsSeeder extends Seeder
+class ArticlesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,7 @@ class BlogsSeeder extends Seeder
      */
     public function run()
     {
-        $blogs = [
+        $articles = [
             [
                 'title' => 'Electric Motors',
                 'user_id' => '1',
@@ -84,14 +84,53 @@ In digital logic design only two voltage levels or states are allowed and these 
 A good example of a digital state is a simple light switch. The switch can be either “ON” or “OFF”, one state or the other, but not both at the same time. Then we can summarise the relationship between these various digital states as being:
 ',
                 'image' => 'images/GExvPqmpSjYu5UNT.jpeg'
-            ]
+            ],
+            [
+                'title' => 'Embedded Systems',
+                'user_id' => '1',
+                'status' => '2',
+                'dateday' => '29',
+                'datemonth' => 'Dec',
+                'description' => 'An embedded system is a combination of computer hardware and software designed for a specific function. Embedded systems may also function within a larger system. The systems can be programmable or have a fixed functionality. Industrial machines, consumer electronics, agricultural and processing industry devices, automobiles, medical equipment, cameras, digital watches, household appliances, airplanes, vending machines and toys, as well as mobile devices, are possible locations for an embedded system.
+
+While embedded systems are computing systems, they can range from having no user interface (UI) -- for example, on devices designed to perform a single task -- to complex graphical user interfaces (GUIs), such as in mobile devices. User interfaces can include buttons, LEDs (light-emitting diodes) and touchscreen sensing. Some systems use remote user interfaces as well.
+
+MarketsandMarkets, a business-to-business (B2B) research firm, predicted that the embedded market will be worth $116.2 billion by 2025. Chip manufacturers for embedded systems include many well-known technology companies, such as Apple, IBM, Intel and Texas Instruments. The expected growth is partially due to the continued investment in artificial intelligence (AI), mobile computing and the need for chips designed for high-level processing.
+
+Examples of embedded systems
+Embedded systems are used in a wide range of technologies across an array of industries. Some examples include:
+
+Automobiles. Modern cars commonly consist of many computers (sometimes as many as 100), or embedded systems, designed to perform different tasks within the vehicle. Some of these systems perform basic utility functions and others provide entertainment or user-facing functions. Some embedded systems in consumer vehicles include cruise control, backup sensors, suspension control, navigation systems and airbag systems.
+Mobile phones. These consist of many embedded systems, including GUI software and hardware, operating systems (OSes), cameras, microphones, and USB (Universal Serial Bus) I/O (input/output) modules.
+Industrial machines. They can contain embedded systems, like sensors, and can be embedded systems themselves. Industrial machines often have embedded automation systems that perform specific monitoring and control functions.
+Medical equipment. These may contain embedded systems like sensors and control mechanisms. Medical equipment, such as industrial machines, also must be very user-friendly so that human health isnt jeopardized by preventable machine mistakes. This means they will often include a more complex OS and GUI designed for an appropriate UI.
+How does an embedded system work?
+Embedded systems always function as part of a complete device -- thats whats meant by the term embedded. They are low-cost, low-power-consuming, small computers that are embedded in other mechanical or electrical systems. Generally, they comprise a processor, power supply, and memory and communication ports. Embedded systems use the communication ports to transmit data between the processor and peripheral devices -- often, other embedded systems -- using a communication protocol. The processor interprets this data with the help of minimal software stored on the memory. The software is usually highly specific to the function that the embedded system serves.
+
+The processor may be a microprocessor or microcontroller. Microcontrollers are simply microprocessors with peripheral interfaces and integrated memory included. Microprocessors use separate integrated circuits for memory and peripherals instead of including them on the chip. Both can be used, but microprocessors typically require more support circuitry than microcontrollers because there is less integrated into the microprocessor. The term system on a chip (SoC) is often used. SoCs include multiple processors and interfaces on a single chip. They are often used for high-volume embedded systems. Some example SoC types are the application-specific integrated circuit (ASIC) and the field-programmable gate array (FPGA).
+
+Often, embedded systems are used in real-time operating environments and use a real-time operating system (RTOS) to communicate with the hardware. Near-real-time approaches are suitable at higher levels of chip capability, defined by designers who have increasingly decided the systems are generally fast enough and the tasks tolerant of slight variations in reaction. In these instances, stripped-down versions of the Linux operating system are commonly deployed, although other OSes have been pared down to run on embedded systems, including Embedded Java and Windows IoT (formerly Windows Embedded).
+
+Characteristics of embedded systems
+The main characteristic of embedded systems is that they are task-specific.
+
+Additionally, embedded systems can include the following characteristics:
+
+typically, consist of hardware, software and firmware;
+can be embedded in a larger system to perform a specific function, as they are built for specialized tasks within the system, not various tasks;
+can be either microprocessor-based or microcontroller-based -- both are integrated circuits that give the system compute power;
+are often used for sensing and real-time computing in internet of things (IoT) devices, which are devices that are internet-connected and do not require a user to operate;
+can vary in complexity and in function, which affects the type of software, firmware and hardware they use; and
+are often required to perform their function under a time constraint to keep the larger system functioning properly.',
+                'image' => 'images/4CnGnqeEa8iio6zM.jpeg'
+            ],
         ];
 
-        foreach ($blogs as $blog) {
-            Blog::updateOrCreate([
-                'title' => $blog['title'],
+        foreach ($articles as $article) {
+            Article::updateOrCreate([
+                'title' => $article['title'],
             ],
-                collect($blog)->only('user_id', 'status', 'dateday', 'datemonth', 'description', 'image')->toArray()
+                collect($article)->only('user_id', 'status', 'dateday', 'datemonth', 'description', 'image')->toArray()
             );
         }
     }

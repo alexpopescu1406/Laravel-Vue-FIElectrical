@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-14 w-14" src="../../src/assets/logodark.png" alt="logo"/>
+              <img class="h-14 w-14" src="../../src/assets/logogray.png" alt="logo"/>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -89,7 +89,7 @@
         <div class="pt-4 pb-3 border-t border-gray-700">
           <div class="flex items-center px-5">
             <div class="flex-shrink-0">
-              <img class="h-10 w-10 rounded-full" :src="user.imageUrl" alt=""/>
+              <img class="h-10 w-10 rounded-full" src="../../src/assets/logodark.png" alt="logo"/>
             </div>
             <div class="ml-3">
               <div class="text-base font-medium leading-none text-white">{{ user.name }}</div>
@@ -125,7 +125,7 @@ import {useRouter} from 'vue-router';
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
   {name: 'Education', to: {name: "Education"}},
-  {name: 'Blogs', to: {name: "Blogs"}},
+  {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
 ];
 

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\User::class, 'user_id');
             $table->string('title', 1000);
@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('dateday', 1000);
             $table->string('datemonth', 1000);
             $table->text('description', )->nullable();
-            $table->timestamps();   
-            $table->timestamp('expire_date')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('articles');
     }
 };

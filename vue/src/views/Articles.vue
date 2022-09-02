@@ -1,8 +1,8 @@
 <template>
-  <blog-component>
+  <article-component>
     <template v-slot:header>
       <div class="flex justify-content-center">
-        <router-link :to="{ name: 'BlogCreate' }"
+        <router-link :to="{ name: 'ArticleCreate' }"
                      class="py-2 px-3 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -17,22 +17,22 @@
               stroke-width="2"
               d="M12 4v16m8-8H4"/>
           </svg>
-          Add new Blog Post
+          Add new article Post
         </router-link>
       </div>
       <br>
     </template>
 
-  </blog-component>
+  </article-component>
 
 </template>
 
 <script setup>
 import store from "../store";
 import {computed} from "vue";
-import BlogComponent from '../components/BlogComponent.vue';
+import ArticleComponent from '../components/ArticleComponent.vue';
 
-const blogs = computed(() => store.state.blogs);
+const articles = computed(() => store.state.articles);
 
 </script>
 

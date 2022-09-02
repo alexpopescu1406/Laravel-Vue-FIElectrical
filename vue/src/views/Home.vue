@@ -88,30 +88,31 @@
   </div>
   <br><br><br>
 
-  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-    From the Blog
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 ">
+    From the article
   </div>
   <br>
-  <div class="cards d-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-5 text-left">
-      <div v-for="blog in blogs" :key="blog.title" class="relative">
-        <div class="col ">
-          <router-link to="Blogs">
-            <div class="card h-auto hover-shadow">
-              <img :src="blog.image" class="card-img-top" alt="Power Electronics"/>
+  <div class="container">
+  <div class="cards">
+    <div class="row row-cols-1 row-cols-md-3 g-5 text-left">
+      <div v-for="article in articles" :key="article.title" class="relative">
+        <div class="col">
+          <router-link to="articles">
+            <div class="card hover-shadow">
+              <img :src="article.image" class="card-img-top" alt="Power Electronics"/>
               <div class="card-body">
-                <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">{{ blog.type }}</p>
-                <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text">{{ blog.description }}</p>
+                <p class="text-base text-indigo-600 font-semibold uppercase">{{ article.type }}</p>
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.description }}</p>
               </div>
               <div class="card-footer">
                 <li class="d-flex justify-content-start">
                   <div class="d-flex align-items-center">
-                    <img :src="blog.avatar" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                    <img :src="article.avatar" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                     <div class="ms-3">
-                      <p class="fw-bold mb-1 d-flex justify-content-start">{{ blog.person }}</p>
+                      <p class="fw-bold mb-1 d-flex justify-content-start">{{ article.person }}</p>
                       <p class="text-muted mb-0">
-                        <i class="fa-solid fa-calendar-days"></i>{{ blog.date }} - {{ blog.time }}</p>
+                        <i class="fa-solid fa-calendar-days"></i>{{ article.date }} - {{ article.time }}</p>
                     </div>
                   </div>
                 </li>
@@ -122,48 +123,51 @@
       </div>
     </div>
   </div>
+  </div>
   <br><br>
 
-  <div class="mb-7 text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+  <div class="mb-4 text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900">
     Testimonials
   </div>
-  <div class="imagine bg-indigo-600 rounded-xl text-center h-56 shadow">
+  <div class="container">
+    <div class="imagine bg-indigo-600 rounded-xl text-center shadow mb-4">
     <div class="imagine2">
       <img class="rounded-xl" src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt=""
-           style="width: 300px; height: 300px">
+           style="width: 200px; height: 200px">
     </div>
     <div>
-      <i class="sm:text-5xl fa-solid fa-quote-left text-white mr-96 mb-2 mt-2"></i>
-      <p class="ml-56 text-white sm:text-2xl">
+      <i class="fa-solid fa-quote-left text-white mb-2 mt-2"></i>
+      <p class="pt-2 text-white">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
-      <p class="ml-24 text-white sm:text-2xl"> curabitur sapien odio, commodo eu elementum sed.</p>
-      <p class="text-md-between mr-72  text-gray-100"> - Judith Helen, Student</p>
+      <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
+      <p class="text-md-between text-gray-100"> - Judith Helen, Student</p>
     </div>
   </div>
   <br>
-  <div class="imagine3 bg-indigo-600 rounded-xl text-center h-56 shadow mb-24">
+  <div class="imagine3 bg-indigo-600 rounded-xl text-center shadow">
     <div class="imagine4">
-      <img class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt=""
-           style="width: 300px; height: 300px">
+      <img id="imagine44" class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt=""
+           style="width: 200px; height: 200px">
     </div>
-    <p class="pt-4 mt-4 mr-96 text-white sm:text-2xl">
+    <p class="pt-2 text-white">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
-    <p class="mr-96  text-white sm:text-2xl"> curabitur sapien odio, commodo eu elementum sed.</p>
-    <p class="text-md-between ml-72 text-gray-100"> - Mark Steven, PHD</p>
-    <i class="sm:text-5xl fa-solid fa-quote-right text-white ml-96"></i>
+    <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
+    <p class="text-md-between text-gray-100"> - Mark Steven, PHD</p>
+    <i class=" fa-solid fa-quote-right text-white "></i>
+  </div>
   </div>
   <br><br>
 
-  <div class="pl-12 pr-12">
-    <div class="cards bg-slate-900 pb-12 rounded-3xl shadow">
-      <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl p-4 mr-4">
+  <div class="container">
+    <div class="cards bg-slate-900 pb-4 rounded-3xl shadow">
+      <div class="text-center mt-2 text-3xl font-extrabold text-white pt-4">
         Meet our Team
       </div>
       <br>
-      <div class="d-flex justify-content-center row row-cols-1 row-cols-sm-4 g-2 text-left pl-12 pr-4 pb-4">
+      <div class="row row-cols-1 row-cols-md-3 g-3 text-left">
         <div v-for="team in teams" :key="team.name" class="relative">
           <div class="col">
-            <div class="card h-100 bg-slate-800 w-96 mb-5">
+            <div class="card bg-slate-800 mb-5 ml-4 mr-4">
               <div class="bg-slate-800 d-flex align-items-center justify-center pt-4">
                 <img :src="team.image" style="width: 300px; height: 300px"
                      class="rounded-full d-flex align-items-center"
@@ -195,7 +199,7 @@
 </template>
 
 <script>
-import BlogComponent from '../components/BlogComponent.vue';
+import ArticleComponent from '../components/ArticleComponent.vue';
 import {ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon} from '@heroicons/vue/outline'
 
 const teams = [
@@ -284,7 +288,7 @@ const features = [
   },
 ]
 
-const blogs = [
+const articles = [
   {
     type: 'Article',
     title: 'Power Electronics',
@@ -323,13 +327,13 @@ const blogs = [
 export default {
   name: "Home",
   components: {
-    BlogComponent,
+    ArticleComponent,
   },
   setup() {
     return {
       features,
       teams,
-      blogs,
+      articles,
     }
   }
 };
@@ -340,35 +344,28 @@ export default {
   color: black;
 }
 .imagine {
-  width: 70%;
-  margin-left: 110px;
   z-index: 1;
   position: relative;
+}
+@media screen and (max-width: 770px) {
+  .imagine2{
+    display: none;
+  }
 }
 
 .imagine2 {
   left: 35px;
-  top: -35px;
+  top: -25px;
   position: absolute;
-  z-index: 2;
 }
-
 .imagine3 {
-  width: 70%;
-  margin-left: 460px;
-  z-index: 1;
   position: relative;
 }
 
 .imagine4 {
-  left: 988px;
-  top: -35px;
+  left: 1050px;
+  top: -20px;
   position: absolute;
-  z-index: 2;
-}
-
-.container {
-  max-width: 40%;
 }
 
 nav {
@@ -376,37 +373,11 @@ nav {
 }
 
 .card-img-top {
-  min-height: 230px;
+  min-height: 300px;
   max-height: 300px;
-  max-width: 600px;
 }
-
 .cards {
-  margin-left: 30px;
-  margin-right: 30px;
   margin-bottom: 30px;
-}
-
-p {
-}
-
-.sidebar-widget .tags li a {
-  background: #cfe0fc;
-  color: #353535;
-  padding: 4px 8px;
-  border: 1px solid transparent;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-.sidebar-widget .tags li a:hover {
-  background: #ffffff;
-  color: #353535;
-  padding: 4px 8px;
-  border: 1px solid;
-  border-color: #cfe0fc;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
 }
 
 ul li {
@@ -419,12 +390,6 @@ ul li {
   display: inline-block;
 }
 
-.sidebar-wdidget {
-  background: #ffd200;
-  padding: 4px 8px;
-  border: 1px solid transparent;
-  transition: all 0.3s ease-in-out;
-}
 
 .textcustom {
   color: rgb(0, 0, 0);
@@ -436,21 +401,6 @@ ul li {
 .textcustom:hover {
   transition: 0.4s ease all;
   color: #1bc76e;
-}
-
-.horizline {
-  display: block;
-  max-width: 12%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px;
-}
-
-.horizline2 {
-  display: block;
-  max-width: 25%;
-  margin-right: auto;
-  margin-bottom: 8px;
 }
 
 #textt {

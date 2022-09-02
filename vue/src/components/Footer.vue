@@ -65,7 +65,7 @@
       <div class="container text-center text-md-start mt-4 text-white">
         <div class="row mt-3">
           <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-2">
-            <img src="../assets/logodark1.png" alt="logo">
+            <img src="../assets/logodark.png" alt="logo">
             <p>
               Get your latest informations in Electrical Engineering.
             </p>

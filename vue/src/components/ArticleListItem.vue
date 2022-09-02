@@ -2,17 +2,17 @@
   <div >
     <div class="post">
       <div class="post-image clearfix">
-        <img alt="blog" :src="blog.image_url" class="w-full h-full object-cover">
+        <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
       </div>
-      <div class="post-date text-black">{{ blog.dateday }}<span>{{ blog.datemonth }}</span></div>
+      <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
       <div class="post-details">
         <div class="post-title">
           <h4 class="pl-20 pt-3">
             <a
-              :href="`/view/blog/${blog.slug}`"
+              :href="`/view/article/${article.slug}`"
               target="_blank"
               class="text-gray-900 hover:text-green-400">
-              {{ blog.title }}
+              {{ article.title }}
             </a>
           </h4>
         </div>
@@ -22,11 +22,11 @@
           <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
         </div>
         <div id="name" class="post-content">
-          {{ blog.description }}
+          {{ article.description }}
         </div>
         <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
           <a
-            :href="`/view/blog/${blog.slug}`"
+            :href="`/view/article/${article.slug}`"
             target="_blank"
             class="h-10 w-10 ml-24 flex items-center justify-center rounded-full border border-transparent text-sm text-gray-900 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
@@ -45,7 +45,7 @@
               />
             </svg>
           </a>
-          <router-link :to="{ name: 'BlogView', params: { id: blog.id } }"
+          <router-link :to="{ name: 'ArticleView', params: { id: article.id } }"
                        class="flex py-2 px-4 border border-transparent text-md rounded-md text-white
                                   bg-indigo-600 hover:bg-indigo-700 ml-96">
             <svg xmins="http://www.w3.org/2000/svg"
@@ -60,8 +60,8 @@
             </svg>
             Edit
           </router-link>
-          <button v-if="blog.id" type="button"
-                  @click="emit('delete', blog)"
+          <button v-if="article.id" type="button"
+                  @click="emit('delete', article)"
                   class="trash h-8 w-8 flex items-center justify-center rounded-full text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,8 +91,8 @@ let value4 = generateRandomInteger(3430);
 
 import {defineEmits} from "vue";
 
-const {blog} = defineProps({
-  blog: Object
+const {article} = defineProps({
+  article: Object
 })
 const emit = defineEmits(['delete'])
 

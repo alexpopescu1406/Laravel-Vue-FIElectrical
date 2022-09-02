@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-14 w-14" src="../../src/assets/logodark.png" alt="logo"/>
+              <img class="h-14 w-14" src="../../src/assets/logogray.png" alt="logo"/>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -235,7 +235,7 @@ import energycalculator from "../components/formulas/energycalculator.vue";
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
   {name: 'Education', to: {name: "Education"}},
-  {name: 'Blogs', to: {name: "Blogs"}},
+  {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
 ];
 
@@ -333,12 +333,10 @@ body {
 
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -346,30 +344,19 @@ body {
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-.post-content {
-  text-align: justify;
-}
-
 
 ul li {
   padding: 0;
   margin: 0;
   line-height: 30px;
-}
-
-.post .post-meta {
-  margin-bottom: 10px;
-  margin-left: 80px;
 }
 
 .post .post-meta a {

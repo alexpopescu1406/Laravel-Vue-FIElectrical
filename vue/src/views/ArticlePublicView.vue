@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-14 w-14" src="../../src/assets/logodark.png" alt="logo"/>
+              <img class="h-14 w-14" src="../../src/assets/logogray.png" alt="logo"/>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -193,17 +193,17 @@
       <div class="mb-96">
         <div class="post">
           <div class="post-image clearfix">
-            <img alt="blog" :src="blog.image_url" class="w-full h-full object-cover">
+            <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
           </div>
-          <div class="post-date text-black">{{ blog.dateday }}<span>{{ blog.datemonth }}</span></div>
+          <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
           <div class="post-details">
             <div class="post-title">
               <h4 class="pl-20 pt-3">
                 <a
-                  :href="`/view/blog/${blog.slug}`"
+                  :href="`/view/article/${article.slug}`"
                   target="_blank"
                   class="text-gray-900 hover:text-green-400 text-3xl font-extrabold">
-                  {{ blog.title }}
+                  {{ article.title }}
                 </a>
               </h4>
             </div>
@@ -213,7 +213,7 @@
               <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
             </div>
             <div id="name" class="post-content">
-              {{ blog.description }}
+              {{ article.description }}
             </div>
           </div>
         </div>
@@ -233,22 +233,22 @@ import Footer from "../components/Footer.vue";
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
   {name: 'Education', to: {name: "Education"}},
-  {name: 'Blogs', to: {name: "Blogs"}},
+  {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
 ];
 
 const route = useRoute();
 const store = useStore();
 
-const loading = computed(() => store.state.currentBlog.loading);
-const blog = computed (() => store.state.currentBlog.data);
+const loading = computed(() => store.state.currentArticle.loading);
+const article = computed (() => store.state.currentArticle.data);
 
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 let value4 = generateRandomInteger(3430);
 
-store.dispatch("getBlogsBySlug", route.params.slug);
+store.dispatch("getArticlesBySlug", route.params.slug);
 
 </script>
 
@@ -317,12 +317,10 @@ store.dispatch("getBlogsBySlug", route.params.slug);
 
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -330,12 +328,10 @@ store.dispatch("getBlogsBySlug", route.params.slug);
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -350,22 +346,6 @@ ul li {
   margin: 0;
   line-height: 30px;
 }
-
-.horizline {
-  display: block;
-  max-width: 12%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px;
-}
-
-.horizline2 {
-  display: block;
-  max-width: 25%;
-  margin-right: auto;
-  margin-bottom: 8px;
-}
-
 .post .post-meta {
   margin-bottom: 10px;
   margin-left: 80px;
@@ -402,7 +382,6 @@ ul li {
   margin-top: -20px;
   margin-left: 8px;
 }
-
 .post .post-date {
   font-size: 27px;
   font-weight: 600;

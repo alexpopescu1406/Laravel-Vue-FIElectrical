@@ -3,12 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Enum;
-use App\Models\Blog;
+use App\Models\Article;
 
-class StoreBlogRequest extends FormRequest
+class UpdateArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,14 +14,11 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize()
     {
+        $article = $this->route('article');
+        if ($this->user()->id !== $article->user_id) {
+            return false;
+        }
         return true;
-    }
-
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'user_id' => $this->user()->id
-        ]);
     }
 
     /**
@@ -37,12 +31,11 @@ class StoreBlogRequest extends FormRequest
         return [
             'title' => 'required|string|max:1000',
             'image' => 'nullable|string',
-            'user_id' => 'exists:users,id',
+            'user_id' => 'exists:users, id',
             'status' => 'required|boolean',
             'description' => 'nullable|string',
             'dateday' => 'nullable|string',
             'datemonth' => 'nullable|string',
-            'expire_date' => 'nullable|date|after:tomorrow'
         ];
     }
 }
