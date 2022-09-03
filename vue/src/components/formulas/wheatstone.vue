@@ -1,33 +1,4 @@
 <template>
-  <div v-if="loading" class="flex justify-center mb-96 pb-96">
-    <div id="preloader">
-      <div id="loader"></div>
-    </div>
-  </div>
-  <div v-else class="container pt-16">
-    <div class="">
-      <div class="post">
-        <div class="post-image clearfix flex justify-center">
-          <img alt="tool" :src="image_url" class="w-[800px] h-100 object-cover">
-        </div>
-        <div class="post-details">
-          <div class="post-title">
-            <h4 class="pt-24">
-              <a
-                :href="`/view/tool/${tool.slug}`"
-                target="_blank"
-                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
-                {{ tool.title }}
-              </a>
-            </h4>
-          </div>
-          <div id="name" class="text-xl pl-12 ">
-            {{ tool.description }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="container text-2xl font-extrabold text-white text-center mt-12 bg-slate-900 rounded-xl shadow pt-4 mb-8">
     <div id="wheatstone-bridge-calculator">
       <div id="tool-form">

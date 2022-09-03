@@ -44,11 +44,6 @@ nav {
 p {
   text-align: justify;
 }
-ul li {
-  padding: 0;
-  margin: 0;
-  line-height: 30px;
-}
 body {
   overflow-x: hidden !important;
 }

@@ -93,36 +93,36 @@
   </div>
   <br>
   <div class="container">
-  <div class="cards">
-    <div class="row row-cols-1 row-cols-md-3 g-5 text-left">
-      <div v-for="article in articles" :key="article.title" class="relative">
-        <div class="col">
-          <router-link to="articles">
-            <div class="card hover-shadow">
-              <img :src="article.image" class="card-img-top" alt="Power Electronics"/>
-              <div class="card-body">
-                <p class="text-base text-indigo-600 font-semibold uppercase">{{ article.type }}</p>
-                <h5 class="card-title">{{ article.title }}</h5>
-                <p class="card-text">{{ article.description }}</p>
-              </div>
-              <div class="card-footer">
-                <li class="d-flex justify-content-start">
-                  <div class="d-flex align-items-center">
-                    <img :src="article.avatar" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                    <div class="ms-3">
-                      <p class="fw-bold mb-1 d-flex justify-content-start">{{ article.person }}</p>
-                      <p class="text-muted mb-0">
-                        <i class="fa-solid fa-calendar-days"></i>{{ article.date }} - {{ article.time }}</p>
+    <div class="cards">
+      <div class="row row-cols-1 row-cols-md-3 g-5 text-left">
+        <div v-for="article in articles" :key="article.title" class="relative">
+          <div class="col">
+            <router-link to="articles">
+              <div class="card hover-shadow">
+                <img :src="article.image" class="card-img-top" alt="Power Electronics"/>
+                <div class="card-body">
+                  <p class="text-base text-indigo-600 font-semibold uppercase">{{ article.type }}</p>
+                  <h5 class="card-title">{{ article.title }}</h5>
+                  <p class="card-text">{{ article.description }}</p>
+                </div>
+                <div class="card-footer">
+                  <li class="d-flex justify-content-start">
+                    <div class="d-flex align-items-center">
+                      <img :src="article.avatar" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                      <div class="ms-3">
+                        <p class="fw-bold mb-1 d-flex justify-content-start">{{ article.person }}</p>
+                        <p class="text-muted mb-0">
+                          <i class="fa-solid fa-calendar-days mr-2"></i>{{ article.date }} - {{ article.time }}</p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                </div>
               </div>
-            </div>
-          </router-link>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <br><br>
 
@@ -131,30 +131,30 @@
   </div>
   <div class="container">
     <div class="imagine bg-indigo-600 rounded-xl text-center shadow mb-4">
-    <div class="imagine2">
-      <img class="rounded-xl" src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt=""
-           style="width: 200px; height: 200px">
+      <div class="imagine2">
+        <img class="rounded-xl" src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt=""
+             style="width: 200px; height: 200px">
+      </div>
+      <div>
+        <i class="fa-solid fa-quote-left text-white mb-2 mt-2"></i>
+        <p class="pt-2 text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
+        <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
+        <p class="text-md-between text-gray-100"> - Judith Helen, Student</p>
+      </div>
     </div>
-    <div>
-      <i class="fa-solid fa-quote-left text-white mb-2 mt-2"></i>
+    <br>
+    <div class="imagine3 bg-indigo-600 rounded-xl text-center shadow">
+      <div class="imagine4">
+        <img id="imagine44" class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt=""
+             style="width: 200px; height: 200px">
+      </div>
       <p class="pt-2 text-white">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
       <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
-      <p class="text-md-between text-gray-100"> - Judith Helen, Student</p>
+      <p class="text-md-between text-gray-100"> - Mark Steven, PHD</p>
+      <i class=" fa-solid fa-quote-right text-white "></i>
     </div>
-  </div>
-  <br>
-  <div class="imagine3 bg-indigo-600 rounded-xl text-center shadow">
-    <div class="imagine4">
-      <img id="imagine44" class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt=""
-           style="width: 200px; height: 200px">
-    </div>
-    <p class="pt-2 text-white">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
-    <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
-    <p class="text-md-between text-gray-100"> - Mark Steven, PHD</p>
-    <i class=" fa-solid fa-quote-right text-white "></i>
-  </div>
   </div>
   <br><br>
 
@@ -348,11 +348,10 @@ export default {
   position: relative;
 }
 @media screen and (max-width: 770px) {
-  .imagine2{
+  .imagine2 {
     display: none;
   }
 }
-
 .imagine2 {
   left: 35px;
   top: -25px;
@@ -361,17 +360,14 @@ export default {
 .imagine3 {
   position: relative;
 }
-
 .imagine4 {
   left: 1050px;
   top: -20px;
   position: absolute;
 }
-
 nav {
   position: relative;
 }
-
 .card-img-top {
   min-height: 300px;
   max-height: 300px;
@@ -379,220 +375,11 @@ nav {
 .cards {
   margin-bottom: 30px;
 }
-
-ul li {
-  padding: 0;
-  margin: 0;
-  line-height: 30px;
-}
-
-.list-inline-item {
-  display: inline-block;
-}
-
-
-.textcustom {
-  color: rgb(0, 0, 0);
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal;
-
-}
-
-.textcustom:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-#textt {
-  text-transform: uppercase;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-}
-
 .carousel .carousel-item {
   max-height: 500px;
 }
-
 .carousel-item img {
   object-fit: cover;
   max-height: 600px;
-}
-
-.post .post-meta {
-  margin-bottom: 10px;
-  margin-left: 80px;
-}
-
-.post .post-meta a {
-  font-size: 14px;
-  font-weight: 350;
-  color: #555555;
-  margin-right: 15px;
-}
-
-.post .post-meta a:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-.post .post-details .title {
-  font-weight: 500;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 80px;
-}
-
-.titletext:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-.post .post-meta a .fa {
-  margin-right: 80px;
-}
-
-.fa {
-  margin-right: 50px;
-}
-
-.post .post-content {
-  margin-left: 80px;
-}
-
-.post .post-image + .post-date {
-  margin-top: -20px;
-  margin-left: 8px;
-}
-
-.post .post-date {
-  font-size: 27px;
-  font-weight: 600;
-  color: #333333;
-  background: #ffd200;
-  display: inline-block;
-  width: 60px;
-  height: 85px;
-  text-align: center;
-  position: absolute;
-  line-height: 55px;
-}
-
-.post .post-date span {
-  font-size: 13px;
-  font-weight: normal;
-  color: #ffffff;
-  background: #323232;
-  width: 60px;
-  height: 32px;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  letter-spacing: 1px;
-  line-height: 32px;
-}
-
-.post .post-details a.button {
-  margin-bottom: 0;
-}
-
-button {
-  margin: 20px;
-  outline: none;
-  color: white;
-}
-
-.custom-btn {
-  width: 120px;
-  height: 35px;
-  padding: 10px 25px;
-  border: 1px solid #000;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  margin-left: 80px;
-}
-
-.btn-3 {
-  line-height: 34px;
-  padding: 0;
-}
-
-.btn-3:hover {
-  background: transparent;
-  color: #000;
-}
-
-.btn-3 span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.btn-3:before,
-.btn-3:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  background: #000;
-  transition: all 0.3s ease;
-}
-
-.btn-3:before {
-  height: 0;
-  width: 2px;
-}
-
-.btn-3:after {
-  width: 0;
-  height: 2px;
-}
-
-.btn-3:hover:before {
-  height: 100%;
-}
-
-.btn-3:hover:after {
-  width: 100%;
-}
-
-.btn-3 span:before,
-.btn-3 span:after {
-  position: absolute;
-  content: "";
-  right: 0;
-  bottom: 0;
-  background: #000;
-  transition: all 0.3s ease;
-}
-
-.btn-3 span:before {
-  width: 2px;
-  height: 0;
-}
-
-.btn-3 span:after {
-  width: 0;
-  height: 2px;
-}
-
-.btn-3 span:hover:before {
-  height: 100%;
-}
-
-.btn-3 span:hover:after {
-  width: 100%;
-}
-
-header {
-  position: fixed;
-  z-index: 99;
-  top: 0;
 }
 </style>

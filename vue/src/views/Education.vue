@@ -165,32 +165,26 @@ export default {
   margin-left: -25px;
   margin-bottom: 15px;
 }
-
 p {
   text-align: justify;
 }
-
 .cards {
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 30px;
 }
-
 .carousel .carousel-item {
   max-height: 500px;
 }
-
 .carousel-item img {
   object-fit: cover;
   max-height: 600px;
 }
-
 button {
   margin: 20px;
   outline: none;
   color: white;
 }
-
 .custom-btn {
   width: 120px;
   height: 35px;
@@ -205,24 +199,20 @@ button {
   display: block;
   margin: auto;
 }
-
 .btn-3 {
   line-height: 35px;
   padding: 0;
 }
-
 .btn-3:hover {
   background: transparent;
   color: #000;
 }
-
 .btn-3 span {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
 }
-
 .btn-3:before,
 .btn-3:after {
   position: absolute;
@@ -232,25 +222,20 @@ button {
   background: #000;
   transition: all 0.3s ease;
 }
-
 .btn-3:before {
   height: 0;
   width: 2px;
 }
-
 .btn-3:after {
   width: 0;
   height: 2px;
 }
-
 .btn-3:hover:before {
   height: 100%;
 }
-
 .btn-3:hover:after {
   width: 100%;
 }
-
 .btn-3 span:before,
 .btn-3 span:after {
   position: absolute;
@@ -260,34 +245,27 @@ button {
   background: #000;
   transition: all 0.3s ease;
 }
-
 .btn-3 span:before {
   width: 2px;
   height: 0;
 }
-
 .btn-3 span:after {
   width: 0;
   height: 2px;
 }
-
 .btn-3 span:hover:before {
   height: 100%;
 }
-
 .btn-3 span:hover:after {
   width: 100%;
 }
-
 span {
   color: black;
 }
-
 .card-img-top + .post-date {
   margin-top: 0;
   margin-left: 0;
 }
-
 .col .post-date {
   font-size: 27px;
   font-weight: 600;
@@ -314,7 +292,6 @@ span {
   letter-spacing: 1px;
   line-height: 32px;
 }
-
 .card-img-top {
   min-height: 230px;
   max-height: 230px;

@@ -305,7 +305,6 @@ body {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
-
 #loader:before {
   content: "";
   position: absolute;
@@ -319,7 +318,6 @@ body {
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
-
 #loader:after {
   content: "";
   position: absolute;
@@ -333,7 +331,6 @@ body {
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
-
 @-webkit-keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
@@ -354,57 +351,6 @@ body {
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
-
-ul li {
-  padding: 0;
-  margin: 0;
-  line-height: 30px;
-}
-
-.post .post-meta a {
-  font-size: 14px;
-  font-weight: 350;
-  color: #555555;
-  margin-right: 15px;
-}
-
-.post .post-meta a:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-.post .post-details .title {
-  font-weight: 500;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 80px;
-}
-
-.post .post-meta a .fa {
-  margin-right: 80px;
-}
-
-.post .post-content {
-  margin-left: 80px;
-}
-
-.post .post-image + .post-date {
-  margin-top: -20px;
-  margin-left: 8px;
-}
-
-.post .post-date {
-  font-size: 27px;
-  font-weight: 600;
-  color: #333333;
-  background: #ffd200;
-  display: inline-block;
-  width: 60px;
-  height: 85px;
-  text-align: center;
-  position: absolute;
-  line-height: 55px;
 }
 #name {
   white-space: pre-line;
