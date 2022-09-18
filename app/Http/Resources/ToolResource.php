@@ -19,6 +19,7 @@ class ToolResource extends JsonResource
             'id' => $this->id,
             'image_url' => $this->image ? URL::to($this->image) : null,
             'title' => $this->title,
+            'status' => $this->status,
             'slug' => $this->slug,
             'formula' => $this->formula,
             'description' => $this->description,

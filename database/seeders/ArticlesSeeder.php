@@ -21,7 +21,7 @@ class ArticlesSeeder extends Seeder
             [
                 'title' => 'Electric Motors',
                 'user_id' => '1',
-                'status' => '1',
+                'status' => 'Published',
                 'dateday' => '23',
                 'datemonth' => 'June',
                 'description' => 'An electric motor is an electrical machine that converts electrical energy into mechanical energy. Most electric motors operate through the interaction between the motors magnetic field and electric current in a wire winding to generate force in the form of torque applied on the motors shaft. An electric generator is mechanically identical to an electric motor, but operates with a reversed flow of power, converting mechanical energy into electrical energy.
@@ -32,7 +32,7 @@ Electric motors can be powered by direct current (DC) sources, such as from batt
             [
                 'title' => 'Integrated Circuits',
                 'user_id' => '1',
-                'status' => '2',
+                'status' => 'Published',
                 'dateday' => '12',
                 'datemonth' => 'March',
                 'description' => 'An integrated circuit or monolithic integrated circuit (also referred to as an IC, a chip, or a microchip) is a set of electronic circuits on one small flat piece (or "chip") of semiconductor material, usually silicon. Large numbers of tiny MOSFETs (metal–oxide–semiconductor field-effect transistors) integrate into a small chip. This results in circuits that are orders of magnitude smaller, faster, and less expensive than those constructed of discrete electronic components. The ICs mass production capability, reliability, and building-block approach to integrated circuit design has ensured the rapid adoption of standardized ICs in place of designs using discrete transistors. ICs are now used in virtually all electronic equipment and have revolutionized the world of electronics. Computers, mobile phones and other home appliances are now inextricable parts of the structure of modern societies, made possible by the small size and low cost of ICs such as modern computer processors and microcontrollers.
@@ -45,7 +45,7 @@ ICs have two main advantages over discrete circuits: cost and performance. The c
             [
                 'title' => 'Digital Logic Design',
                 'user_id' => '1',
-                'status' => '3',
+                'status' => 'Published',
                 'dateday' => '22',
                 'datemonth' => 'March',
                 'description' => 'A digital logic gate can have more than one input, for example, inputs A, B, C, D etc., but generally only have one digital output, (Q). Individual logic gates can be connected or cascaded together to form a logic gate function with any desired number of inputs, or to form combinational and sequential type circuits, or to produce differnt logic gate functions from standard gates.
@@ -88,7 +88,7 @@ A good example of a digital state is a simple light switch. The switch can be ei
             [
                 'title' => 'Embedded Systems',
                 'user_id' => '1',
-                'status' => '2',
+                'status' => 'Published',
                 'dateday' => '29',
                 'datemonth' => 'Dec',
                 'description' => 'An embedded system is a combination of computer hardware and software designed for a specific function. Embedded systems may also function within a larger system. The systems can be programmable or have a fixed functionality. Industrial machines, consumer electronics, agricultural and processing industry devices, automobiles, medical equipment, cameras, digital watches, household appliances, airplanes, vending machines and toys, as well as mobile devices, are possible locations for an embedded system.

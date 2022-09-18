@@ -31,6 +31,7 @@ class UpdateToolRequest extends FormRequest
         return [
             'title' => 'required|string|max:1000',
             'image' => 'nullable|string',
+            'status' => 'required|string',
             'user_id' => 'exists:users, id',
             'formula' => 'nullable|string',
             'description' => 'nullable|string',

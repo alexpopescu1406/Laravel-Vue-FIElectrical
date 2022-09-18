@@ -111,7 +111,21 @@
           </div>
           <!-- Description -->
 
+          <!-- Status -->
           <div>
+            <label for="status" class="block text-sm font-medium text-gray-700">
+              Status
+            </label>
+            <select v-model="model.status">
+              <option>Published</option>
+              <option>Work in progress</option>
+              <option>Under review</option>
+            </select>
+        </div>
+        <!-- Status -->
+
+        <!-- Formula -->
+        <div>
             <label for="formula" class="block text-sm font-medium text-gray-700">
               Formula name
             </label>
@@ -127,6 +141,7 @@
            </select>
           </div>
         </div>
+      <!-- Formula -->
 
         <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
           <button
@@ -156,6 +171,7 @@ const toolLoading = computed(() => store.state.currentTool.loading)
 let model = ref({
   title: "",
   description: null,
+  status: null,
   formula: null,
   image: null,
   image_url: null,

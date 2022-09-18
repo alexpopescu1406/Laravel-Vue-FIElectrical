@@ -11,7 +11,7 @@ class Tool extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $fillable = ['user_id', 'image', 'formula', 'title', 'slug', 'description'];
+    protected $fillable = ['user_id', 'image', 'status', 'formula', 'title', 'slug', 'description'];
 
     public function getSlugOptions(): SlugOptions
     {

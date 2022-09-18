@@ -23,8 +23,7 @@ class ToolController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
-        return ToolResource::collection(Tool::where('user_id', $user->id)->paginate(10));
+        return ToolResource::collection(Tool::where('status', 'Published')->paginate(10));
     }
 
     /**

@@ -44,7 +44,9 @@
               <span>Rank</span>
             </div>
             <div class="card-body">
-              <h5 class="card-title">{{ feature.name }}</h5>
+              <a :href="feature.link" target="_blank">
+                <h5 class="card-title text-gray-900 hover:text-indigo-700">{{ feature.name }}</h5>
+              </a>
               <div class="card-header">
                 <i class="fa-solid fa-location-dot"></i>
                 {{ feature.location }}
