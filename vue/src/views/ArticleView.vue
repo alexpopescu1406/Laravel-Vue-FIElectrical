@@ -141,20 +141,24 @@
 
 
     <!-- Status -->
-    <div>
-      <label for="status" class="block text-sm font-medium text-gray-700">
-        Status
-      </label>
-
-      <div>Select status</div>
-      <select v-model="model.status">
-        <option>Published</option>
-        <option>Work in progress</option>
-        <option>Under review</option>
-      </select>
+    <div class="flex items-start">
+      <div class="flex items-center h-5">
+        <input
+          id="status"
+          name="status"
+          type="checkbox"
+          v-model="model.status"
+          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+        />
+      </div>
+      <div class="ml-3 text-sm">
+        <label for="status" class="font-medium text-gray-700">
+          Active
+        </label>
+      </div>
     </div>
-  </div>
     <!--/ Status -->
+  </div>
 
   <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
     <button
@@ -184,7 +188,7 @@ const ArticleLoading = computed(() => store.state.currentArticle.loading)
 
 let model = ref({
   title: "",
-  status: null,
+  status: false,
   description: null,
   image: null,
   image_url: null,

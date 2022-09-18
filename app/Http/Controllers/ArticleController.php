@@ -23,7 +23,8 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        return ArticleResource::collection(Article::where('status', 'Published')->paginate(3));
+        $user = $request->user();
+        return ArticleResource::collection(Article::where('user_id', $user->id)->paginate(3));
     }
 
     /**

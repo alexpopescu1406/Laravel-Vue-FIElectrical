@@ -38,7 +38,7 @@ class StoreArticleRequest extends FormRequest
             'title' => 'required|string|max:1000',
             'image' => 'nullable|string',
             'user_id' => 'exists:users,id',
-            'status' => 'required|string',
+            'status' => 'required|boolean',
             'description' => 'nullable|string',
             'dateday' => 'nullable|string',
             'datemonth' => 'nullable|string',
