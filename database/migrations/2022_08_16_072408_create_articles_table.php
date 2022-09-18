@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class, 'user_id');
             $table->string('title', 1000);
             $table->string('slug', 1000);
-            $table->tinyInteger('status');
+            $table->string('status', 1000);
             $table->string('dateday', 1000);
             $table->string('datemonth', 1000);
             $table->text('description', )->nullable();
