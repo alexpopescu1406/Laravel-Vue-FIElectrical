@@ -1,33 +1,59 @@
 <template>
-  <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide mb-4" data-mdb-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-mdb-target="#carouselExampleCaptions"
+        data-mdb-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-mdb-target="#carouselExampleCaptions"
+        data-mdb-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-mdb-target="#carouselExampleCaptions"
+        data-mdb-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-mdb-interval="2000">
-        <img
-          src="https://www.sincoselectrical.com/wp-content/uploads/2021/10/Master-of-Engineering-Electrical-Systems-Engineer.jpg"
-          class="d-block w-100" alt=""/>
+      <div class="carousel-item active bg-black">
+        <img src="https://www.teslarati.com/wp-content/uploads/2018/07/tesla-factory.jpg" class="w-100 opacity-70" alt="Wild Landscape"/>
+        <div class="carousel-caption d-none d-md-block text-center ">
+          <h5>EV Gigafactory</h5>
+          <p class="text-center d-flex align-items-center justify-content-center">Inside an electrical vehicles fabrication factory.</p>
+        </div>
       </div>
-      <div class="carousel-item" data-mdb-interval="4000">
-        <img src="https://www.enersolare.net/wp-content/uploads/2020/02/fotovoltaico-incentivi-2020-1.jpg"
-             class="d-block w-100" alt=""/>
+      <div class="carousel-item bg-black">
+        <img src="https://wallpaperaccess.com/full/2183826.jpg" class="d-block w-100 opacity-70" alt="Camera"/>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Green energy</h5>
+          <p class="text-center d-flex align-items-center justify-content-center">Better ways to produce electrical energy.</p>
+        </div>
       </div>
-      <div class="carousel-item" data-mdb-interval="5000">
-        <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQGpoD6OAi9CCA/company-background_10000/0/1550767306745?e=2147483647&v=beta&t=39eCNBskOTHD6p-WwGmiZHyx2Sav9htdtV9VA9FM8Zw
-"
-             class="d-block w-100" alt=""/>
+      <div class="carousel-item bg-black">
+        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg" class="d-block w-100 opacity-70" alt="Exotic Fruits"/>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Tesla Roadster</h5>
+          <p class="text-center d-flex align-items-center justify-content-center">Fastest electrical vehicle.</p>
+        </div>
       </div>
     </div>
-    <button class="carousel-control-prev" data-mdb-target="#carouselExampleInterval" type="button"
-            data-mdb-slide="prev">
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" data-mdb-target="#carouselExampleInterval" type="button"
-            data-mdb-slide="next">
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <br><br>
 
   <section class="page-section-ptb">
     <div class="container">
@@ -300,12 +326,13 @@ ul li {
   margin-right: auto;
   margin-bottom: 8px;
 }
+
 .carousel .carousel-item {
-  max-height: 550px;
+  max-height: 500px;
 }
 .carousel-item img {
   object-fit: cover;
-  max-height: 600px;
+  max-height: 500px;
 }
 button {
   margin: 20px;

@@ -64,17 +64,18 @@
     <section class="">
       <div class="container text-center text-md-start mt-4 text-white">
         <div class="row mt-3">
-          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-2">
-            <img src="../assets/logodark.png" alt="logo">
+          <div class="col-md-2 col-lg-2 col-xl-3 mx-auto">
+            <img src="../assets/newlogo.png" class="w-[140px] h-auto" alt="logo">
             <p>
               Get your latest informations in Electrical Engineering.
             </p>
           </div>
 
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+            <h6 class="text-uppercase fw-bold mb-2">
               News
             </h6>
+            <img src="../assets/horizline.png" class="horizline2 mb-4">
             <p>
               <a href="#" class="textcustom">Embedded Systems</a>
             </p>
@@ -90,9 +91,10 @@
           </div>
 
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold">
               Useful links
             </h6>
+            <img src="../assets/horizline.png" class="horizline2 mb-4">
             <p>
               <a href="#" class="textcustom">Tools</a>
             </p>
@@ -108,27 +110,29 @@
           </div>
 
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold">
               Contact
             </h6>
+            <img src="../assets/horizline.png" class="horizline2 mb-4">
             <p><i class="fas fa-home me-3"></i> Bucharest, RO</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              contact@fielectrical.com
+              contact@fielectrical.net
             </p>
             <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
             <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
           </div>
         </div>
       </div>
-    </section>
+
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center text-white p-4" style="background-color: black;">
-      © 2022 Copyright:
-      <a class="text-reset fw-bold" href="">FIElectrical</a>
+    <div class="copy text-center text-white p-4">
+      © 2022
+      <a class="text-reset fw-bold hover:text-blue-500" href="/home">FIElectrical</a>
     </div>
+    </section>
   </footer>
 </template>
 
@@ -156,7 +160,20 @@ export default {
 * {
   font-size: 14px;
 }
+footer {
+  background: url(http://themes.potenzaglobalsolutions.com/html/constro/images/pattern/pattern2.jpg);
+  color: #c5c5c5;
+}
+.horizline2 {
+  display: block;
+  max-width: 50%;
+  max-height: 5px;
+  transform: rotate(180deg);
+}
 
+.copy {
+  background: rgba(0,0,0,0.5);
+}
 .textcustom {
   color: white;
 }

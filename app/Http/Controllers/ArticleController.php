@@ -23,7 +23,6 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
         return ArticleResource::collection(Article::where('status', 'Published')->paginate(3));
     }
 
