@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ArticleController;
@@ -25,11 +26,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::resource('/article', ArticleController::class);
     Route::resource('/tool', ToolController::class);
+    Route::resource('/event', EventController::class);
 
 });
 
 Route::get('/article-by-slug/{article:slug}', [ArticleController::class, 'showForGuest']);
 Route::get('/tool-by-slug/{tool:slug}', [ToolController::class, 'showForGuest']);
+Route::get('/event-by-slug/{event:slug}', [EventController::class, 'showForGuest']);
+
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

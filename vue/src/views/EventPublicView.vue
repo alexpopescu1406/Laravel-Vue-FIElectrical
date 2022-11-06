@@ -185,50 +185,45 @@
   </div>
 
   <div v-if="loading" class="flex justify-center mb-96 pb-96">
-      <div id="preloader">
-        <div id="loader"></div>
-      </div>
+    <div id="preloader">
+      <div id="loader"></div>
     </div>
-    <div v-else class="container pt-16">
-      <div class="mb-96">
-        <div class="post">
-          <div class="post-image clearfix">
-            <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
+  </div>
+  <div v-else class="container pt-16">
+    <div class="">
+      <div class="post">
+        <div class="post-image clearfix flex justify-center">
+          <img alt="event" :src="event.image_url" class="w-[800px] h-100 object-cover">
+        </div>
+        <div class="post-details">
+          <div class="post-title">
+            <h4 class="pt-24">
+              <a
+                :href="`/view/event/${event.slug}`"
+                target="_blank"
+                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
+                {{ event.title }}
+              </a>
+            </h4>
           </div>
-          <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
-          <div class="post-details">
-            <div class="post-title">
-              <h4 class="pl-20 pt-3">
-                <a
-                  :href="`/view/article/${article.slug}`"
-                  target="_blank"
-                  class="text-gray-900 hover:text-green-400 text-3xl font-extrabold">
-                  {{ article.title }}
-                </a>
-              </h4>
-            </div>
-            <div class="post-meta">
-              <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
-              <a href="#"><i class="fa-solid fa-heart"></i> {{ value4 }} Likes </a>
-              <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
-            </div>
-            <div id="name" class="post-content">
-              {{ article.description }}
-            </div>
+          <div id="name" class="text-xl pl-12 ">
+            {{ event.description }}
           </div>
         </div>
       </div>
     </div>
+  </div>
   <Footer/>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import  { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
+
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -236,20 +231,17 @@ const navigation = [
   {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
   {name: 'Events', to: {name: "Events"}},
+
 ];
 
 const route = useRoute();
 const store = useStore();
 
-const loading = computed(() => store.state.currentArticle.loading);
-const article = computed (() => store.state.currentArticle.data);
+const loading = computed(() => store.state.currentEvent.loading);
+const event = computed (() => store.state.currentEvent.data)
 
-function generateRandomInteger(max) {
-  return Math.floor(Math.random() * max) + 1;
-}
-let value4 = generateRandomInteger(3430);
 
-store.dispatch("getArticlesBySlug", route.params.slug);
+store.dispatch("getEventsBySlug", route.params.slug);
 
 </script>
 
@@ -266,7 +258,9 @@ store.dispatch("getArticlesBySlug", route.params.slug);
   background: black;
   overflow: hidden;
 }
-
+body {
+  overflow-x: hidden !important;
+}
 .carousel-item img {
   object-fit: cover;
   max-height: 400px;
@@ -287,7 +281,6 @@ store.dispatch("getArticlesBySlug", route.params.slug);
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
-
 #loader:before {
   content: "";
   position: absolute;
@@ -301,7 +294,6 @@ store.dispatch("getArticlesBySlug", route.params.slug);
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
-
 #loader:after {
   content: "";
   position: absolute;
@@ -315,7 +307,6 @@ store.dispatch("getArticlesBySlug", route.params.slug);
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
-
 @-webkit-keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
@@ -337,80 +328,10 @@ store.dispatch("getArticlesBySlug", route.params.slug);
     transform: rotate(360deg);
   }
 }
-.post-content {
-  text-align: justify;
-}
-
-
-ul li {
-  padding: 0;
-  margin: 0;
-  line-height: 30px;
-}
-.post .post-meta {
-  margin-bottom: 10px;
-  margin-left: 80px;
-}
-
-.post .post-meta a {
-  font-size: 14px;
-  font-weight: 350;
-  color: #555555;
-  margin-right: 15px;
-}
-
-.post .post-meta a:hover {
-  transition: 0.4s ease all;
-  color: #1bc76e;
-}
-
-.post .post-details .title {
-  font-weight: 500;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 80px;
-}
-
-.post .post-meta a .fa {
-  margin-right: 80px;
-}
-
-.post .post-content {
-  margin-left: 80px;
-}
-
-.post .post-image + .post-date {
-  margin-top: -20px;
-  margin-left: 8px;
-}
-.post .post-date {
-  font-size: 27px;
-  font-weight: 600;
-  color: #333333;
-  background: #ffd200;
-  display: inline-block;
-  width: 60px;
-  height: 85px;
-  text-align: center;
-  position: absolute;
-  line-height: 55px;
-}
 #name {
   white-space: pre-line;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.post .post-date span {
-  font-size: 13px;
-  font-weight: normal;
-  color: #ffffff;
-  background: #323232;
-  width: 60px;
-  height: 32px;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  letter-spacing: 1px;
-  line-height: 32px;
-}
+
 </style>

@@ -12,6 +12,9 @@ import Tools from "../views/Tools.vue";
 import ArticlePublicView from "../views/ArticlePublicView.vue";
 import ToolsView from "../views/ToolsView.vue";
 import ToolPublicView from "../views/ToolPublicView.vue";
+import Events from "../views/Events.vue";
+import EventsView from "../views/EventsView.vue";
+import EventPublicView from "../views/EventPublicView.vue";
 
 const routes = [
   {
@@ -29,6 +32,9 @@ const routes = [
       {path: '/tools', name: 'Tools', component: Tools},
       {path: '/tools/:id', name: 'ToolsView', component: ToolsView},
       {path: '/tools/create', name: 'ToolCreate', component: ToolsView},
+      {path: '/events', name: 'Events', component: Events},
+      {path: '/events/:id', name: 'EventsView', component: EventsView},
+      {path: '/events/create', name: 'EventCreate', component: EventsView},
     ]
   },
   {
@@ -40,6 +46,11 @@ const routes = [
     path: '/view/article/:slug',
     name: 'ArticlePublicView',
     component: ArticlePublicView,
+  },
+  {
+    path: '/view/event/:slug',
+    name: 'EventPublicView',
+    component: EventPublicView,
   },
 
   {

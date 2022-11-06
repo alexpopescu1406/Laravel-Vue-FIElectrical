@@ -28,9 +28,11 @@
   </div>
   <br><br>
 
-  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900">
-    Best Electrical Engineering Universities
+  <div class="text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 mb-2">
+   Electrical Engineering Universities
   </div>
+  <p class="text-base text-indigo-600 font-extrabold tracking-wide uppercase text-center text-xl">TOP 10</p>
+
   <br>
   <div class="container">
   <div class="cards">

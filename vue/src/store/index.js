@@ -30,6 +30,15 @@ const store = createStore({
       links: [],
       data: []
     },
+    currentEvent: {
+      loading: false,
+      data: {}
+    },
+    events: {
+      loading: false,
+      links: [],
+      data: []
+    },
   },
   getters: {},
   actions: {
@@ -90,6 +99,66 @@ const store = createStore({
         })
         .finally(()=>{
           commit("setCurrentArticleLoading", false);
+        });
+    },
+
+    getEvent({commit}, id) {
+      commit("setCurrentEventLoading", true);
+      return axiosClient
+        .get(`/event/${id}`)
+        .then((res) => {
+          commit("setCurrentEvent", res.data);
+          commit("setCurrentEventLoading", false);
+          return res;
+        })
+        .catch((err) => {
+          commit("setCurrentEventLoading", false);
+          throw err;
+        });
+    },
+    saveEvent({commit}, event) {
+      delete event.image_url;
+      let response;
+      if (event.id) {
+        response = axiosClient
+          .put(`/event/${event.id}`, event)
+          .then((res) => {
+            commit("setCurrentEvent", res.data);
+            return res;
+          });
+      } else {
+        response = axiosClient.post("/event", event).then((res) => {
+          commit("setCurrentEvent", res.data)
+          return res;
+        });
+      }
+      return response;
+    },
+    deleteEvent({}, id) {
+      return axiosClient.delete(`/event/${id}`);
+    },
+    getEvents({commit}, {url = null} = {}) {
+      url = url || '/event'
+      commit('setEventsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setEventsLoading', false)
+        commit("setEvents", res.data);
+        return res;
+      });
+    },
+    getEventsBySlug({commit}, slug) {
+      commit("setCurrentEventLoading", true);
+      return axiosClient
+        .get(`/event-by-slug/${slug}`)
+        .then((res) => {
+          commit("setCurrentEvent", res.data);
+          return res;
+        })
+        .catch((err) => {
+          throw err;
+        })
+        .finally(()=>{
+          commit("setCurrentEventLoading", false);
         });
     },
 
@@ -207,6 +276,20 @@ const store = createStore({
     setTools: (state, tools) => {
       state.tools.links = tools.meta.links;
       state.tools.data = tools.data;
+    },
+
+    setCurrentEventLoading: (state, loading) => {
+      state.currentEvent.loading = loading;
+    },
+    setEventsLoading: (state, loading) => {
+      state.events.loading = loading;
+    },
+    setCurrentEvent: (state, event) => {
+      state.currentEvent.data = event.data;
+    },
+    setEvents: (state, events) => {
+      state.events.links = events.meta.links;
+      state.events.data = events.data;
     },
 
 

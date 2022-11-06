@@ -35,8 +35,8 @@
         <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Electrical
           Engineering</h2>
         <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase">A better way to understand it</p>
-        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect adipisicing elit.
-          Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
+        <p class="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">Becoming a good electrical engineer requires a lot of passion, training and commitment.
+          This comprehensive site is prepared as a resource for individuals and professionals interested in the electrical engineering path.</p>
       </div>
       <div class="mt-10">
         <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
@@ -131,27 +131,27 @@
   </div>
   <div class="container">
     <div class="imagine bg-indigo-600 rounded-xl text-center shadow mb-4">
-      <div class="imagine2">
+      <div class="imagine2 hover-zoom">
         <img class="rounded-xl" src="https://mdbootstrap.com/img/new/avatars/9.jpg" alt=""
              style="width: 200px; height: 200px">
       </div>
       <div>
         <i class="fa-solid fa-quote-left text-white mb-2 mt-2"></i>
         <p class="pt-2 text-white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
-        <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
-        <p class="text-md-between text-gray-100"> - Judith Helen, Student</p>
+           FIElectrical helped me to gain a better understanding of electrical engineering</p>
+        <p class="text-white"> and technical issues in general.</p>
+        <p class="text-md-between text-gray-100 pb-2"> - Judith Helen, Student</p>
       </div>
     </div>
     <br>
     <div class="imagine3 bg-indigo-600 rounded-xl text-center shadow">
-      <div class="imagine4">
+      <div class="imagine4 hover-zoom">
         <img id="imagine44" class="rounded-xl " src="https://mdbootstrap.com/img/new/avatars/2.jpg" alt=""
              style="width: 200px; height: 200px">
       </div>
       <p class="pt-2 text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit estibulum, </p>
-      <p class="text-white"> curabitur sapien odio, commodo eu elementum sed.</p>
+        Things that seemed hard in the past, are now easier to work with</p>
+      <p class="text-white">thanks to the Articles and Tools found here.</p>
       <p class="text-md-between text-gray-100"> - Mark Steven, PHD</p>
       <i class=" fa-solid fa-quote-right text-white "></i>
     </div>
@@ -265,25 +265,25 @@ const features = [
   {
     name: 'Latest news',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Get the latest news and discoveries from reliable sources in related fields.',
     icon: NewspaperIcon,
   },
   {
     name: 'Education',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Find out which are the best Electrical Engineering Universities around the world. Sort them based on your personal preferences.',
     icon: AcademicCapIcon,
   },
   {
     name: 'Domain related events',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Search for technical domain related events in your local area or plan them yourself.',
     icon: UserGroupIcon,
   },
   {
-    name: 'Tehnical articles',
+    name: 'Technical articles',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'Gain access to the most unique and interesting approaches made in electrical engineering or post your own scientific researches.',
     icon: ChipIcon,
   },
 ]
@@ -292,8 +292,10 @@ const articles = [
   {
     type: 'Article',
     title: 'Power Electronics',
-    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
-      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    description: ' Power electronics is the application of electronics to the control and conversion of electric power.\n' +
+                  'The first high-power electronic devices were made using mercury-arc valves.\n' +
+                  'In modern systems, the conversion is performed with semiconductor switching devices such as diodes, thyristors,\n' +
+                  'and power transistors such as the power MOSFET and IGBT.',
     date: 'March 15, 2022',
     image: 'https://www.powerelectronicsnews.com/wp-content/uploads/sites/3/2020/12/main-power-electronics-2021.jpg?fit=1754%2C1242',
     time: '48 min read',
@@ -303,8 +305,9 @@ const articles = [
   {
     type: 'Video',
     title: 'Digital Logic Design (DLD)',
-    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
-      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    description: 'Digital logic design is a system in electrical and computer engineering that uses simple number values to produce input and output operations.\n' +
+                  'As a digital design engineer, you may assist in developing cell phones, computers, and related personal electronic devices.\n' +
+                  'Continue reading to find out what training can develop skills in function algorithms and binary conversion.',
     date: 'June 20, 2022',
     image: 'https://images.ctfassets.net/vne94x762vsn/3n5sFqaSY8M6YAMoYYYAuM/3d818783f2ad3d69c1174fc0b62cb667/digitallogic2.jpg',
     time: '32 min read',
@@ -314,8 +317,10 @@ const articles = [
   {
     type: 'Case study',
     title: 'Electric Motors',
-    description: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit.\n' +
-      '            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione',
+    description: ' An electric motor is an electrical machine that converts electrical energy into mechanical energy.\n' +
+                  'Most electric motors operate through the interaction between the motors magnetic field and electric current\n' +
+                  'in a wire winding to generate force in the form of torque applied on the motors shaft.\n' +
+                  'Electric motors can be powered by DC sources or by AC sources.',
     date: 'July 5, 2022',
     image: 'https://assets.new.siemens.com/siemens/assets/api/uuid:455c87973c6faad63ba5a7c4c95bf5a864b79852/width:1125/quality:high/simotics-electric-motors.jpg',
     time: '29 min read',

@@ -1,85 +1,99 @@
 <template>
   <section class="page-section-ptb pt-24">
-      <div class="row">
-        <div class="col-sm-12 mb-20">
-          <div class="section-title text-center">
-            <slot name="header"></slot>
-            <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">
-               Tools in Electrical Engineering</h2>
-          </div>
-          <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Useful calculators </p>
+    <div class="row">
+      <div class="col-sm-12 mb-20">
+        <div class="section-title text-center">
+          <slot name="header"></slot>
+          <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">
+            Events in Electrical Engineering</h2>
         </div>
+        <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Attend or organize a new event </p>
       </div>
+    </div>
 
-      <div v-if="tools.loading" class="flex justify-center pb-96 pt-96">
-        <div id="preloader">
-          <div id="loader"></div>
-        </div>
+    <div v-if="events.loading" class="flex justify-center pb-96 pt-96">
+      <div id="preloader">
+        <div id="loader"></div>
       </div>
-      <div v-else>
-        <div class="container">
+    </div>
+    <div v-else>
+      <div class="container">
         <div class="cards">
-          <div class="row row-cols-1 row-cols-md-3 g-5">
-            <ToolListItem
-              v-for="tool in tools.data"
-              :key="tool.id"
-              :tool="tool"
-              @delete="deleteTool(tool)"
+          <div class="row row-cols-1 row-cols-md-1 g-xxl-5">
+            <EventListItem
+              v-for="event in events.data"
+              :key="event.id"
+              :event="event"
+              @delete="deleteEvent(event)"
+              @attend="attendEvent(event)"
             />
           </div>
-          </div>
         </div>
-            <br>
-            <div class="flex justify-center mt-5">
-              <nav
-                class="relative z-0 inline-flex justify-center rounded-md  -space-x-px"
-                aria-label="Pagination"
-              >
-                <a
-                  v-for="(link, i) of tools.links"
-                  :key="i"
-                  :disabled="!link.url"
-                  href="#"
-                  @click="getForPage($event, link)"
-                  aria-current="page"
-                  class="relative inline-flex items-center px-4 py-2 border text-sm font-medium whitespace-nowrap"
-                  :class="[
+      </div>
+      <br>
+      <div class="flex justify-center mt-5">
+        <nav
+          class="relative z-0 inline-flex justify-center rounded-md  -space-x-px"
+          aria-label="Pagination"
+        >
+          <a
+            v-for="(link, i) of events.links"
+            :key="i"
+            :disabled="!link.url"
+            href="#"
+            @click="getForPage($event, link)"
+            aria-current="page"
+            class="relative inline-flex items-center px-4 py-2 border text-sm font-medium whitespace-nowrap"
+            :class="[
                     link.active
                       ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
                       : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
                       i === 0 ? 'rounded-l-md bg-gray-100 text-gray-700' : '',
-                      i === tools.links.length - 1 ? 'rounded-r-md' : '',
+                      i === events.links.length - 1 ? 'rounded-r-md' : '',
                     ]"
-                  v-html="link.label"
-                >
-                </a>
-              </nav>
-            </div>
-          </div>
+            v-html="link.label"
+          >
+          </a>
+        </nav>
+      </div>
+    </div>
   </section>
-          <br>
-          <br><br>
+  <br>
+  <br><br>
 </template>
 
 <script setup>
 import store from "../store";
 import {computed} from "vue";
-import ToolListItem from "./ToolListItem.vue";
+import EventListItem from "./EventListItem.vue";
 
-const tools = computed(() => store.state.tools);
+const events = computed(() => store.state.events);
 
-store.dispatch('getTools')
+store.dispatch('getEvents')
 
-function deleteTool(tool) {
+function deleteEvent(event) {
   if (
     confirm(
-      `Are you sure you want to delete this tool? Operation can't be undone!`
+      `Are you sure you want to delete this Event? Operation can't be undone!`
     )
   ) {
-    store.dispatch('deleteTool', tool.id)
+    store.dispatch('deleteEvent', event.id)
       .then(() => {
-        store.dispatch('getTools')
+        store.dispatch('getEvents')
       })
+  }
+}
+
+function attendEvent(event) {
+  if (
+    confirm(
+      'Are you sure you want to Attend this Event?'
+    )
+  ) {
+    store.dispatch('attendEvent', event.id)
+      .then(() => {
+        store.dispatch('getEvents')
+    })
   }
 }
 
@@ -89,7 +103,7 @@ function getForPage(ev, link) {
     return;
   }
 
-  store.dispatch("getTools", { url: link.url });
+  store.dispatch("getEvents", { url: link.url });
 }
 
 </script>

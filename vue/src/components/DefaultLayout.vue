@@ -129,6 +129,7 @@ const navigation = [
   {name: 'Education', to: {name: "Education"}},
   {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
+  {name: 'Events', to: {name: "Events"}},
 ];
 
 
