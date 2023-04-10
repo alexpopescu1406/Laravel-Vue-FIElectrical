@@ -31,12 +31,16 @@ class UpdateEventRequest extends FormRequest
         return [
             'title' => 'required|string|max:1000',
             'image' => 'nullable|string',
+            'credits' => 'string',
             'status' => 'required|string',
             'date' => 'required|date',
             'location' => 'required|string',
+            'maplocation' => 'required|string',
+            'longdescription' => 'nullable|string',
             'type' => 'required|string',
             'user_id' => 'exists:users, id',
             'description' => 'nullable|string',
+            'instructors' => 'array',
         ];
     }
 }

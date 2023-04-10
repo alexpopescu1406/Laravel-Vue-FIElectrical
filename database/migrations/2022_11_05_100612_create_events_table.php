@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title', 1000);
             $table->string('type', 1000);
             $table->string('location', 1000);
+            $table->string('maplocation', 1000);
             $table->date('date');
             $table->string('slug', 1000);
             $table->string('status', 1000);

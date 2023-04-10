@@ -11,12 +11,23 @@ class Event extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $fillable = ['user_id', 'image', 'type', 'location', 'date', 'status', 'title', 'slug', 'description'];
+    const TYPE_TEXT = 'text';
+    const TYPE_TEXTAREA = 'textarea';
+    const TYPE_SELECT = 'select';
+    const TYPE_RADIO = 'radio';
+    const TYPE_CHECKBOX = 'checkbox';
+
+    protected $fillable = ['user_id', 'image', 'type', 'location', 'date', 'status', 'title', 'slug', 'description', 'maplocation'];
 
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function instructors()
+    {
+        return $this->hasMany(EventInstructor::class);
     }
 }

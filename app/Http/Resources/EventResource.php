@@ -22,10 +22,14 @@ class EventResource extends JsonResource
             'type' => $this->type,
             'status' => $this->status,
             'location' => $this->location,
+            'maplocation' => $this->maplocation,
             'date' => $this->date,
+            'credits' => $this->credits,
             'slug' => $this->slug,
             'description' => $this->description,
+            'longdescription' => $this->longdescription,
             'updated_at' => $this->updated_at,
+            'instructors' => EventInstructorResource::collection($this->instructors)
         ];
     }
 }

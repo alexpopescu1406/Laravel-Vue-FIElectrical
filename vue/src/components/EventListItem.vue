@@ -1,8 +1,12 @@
 <template>
-  <div class="container card h-[400px] hover-shadow mb-4">
+  <div class="container card h-[450px] hover-shadow mb-4">
     <div class="row">
       <div class="col-md">
-      <img :src="event.image_url" class="card-img-top" alt="image"/>
+        <a
+          :href="`/view/event/${event.slug}`"
+          target="_blank">
+      <img :src="event.image_url" class="card-img-top mt-4" alt="image"/>
+        </a>
       </div>
         <div class="col-md">
         <h5 class="card-title mb-4 text-2xl d-flex justify-between">
@@ -11,36 +15,37 @@
             target="_blank"
             class="text-gray-900 hover:text-green-400 mt-4">
             {{ event.title }}
-            <span class="badge badge-primary text-sm">New</span>
+            <span class="badge badge-primary">New</span>
           </a>
           <span class="mt-4 badge rounded-pill badge-success">{{event.type}}</span>
         </h5>
         <p id="name" class="card-text">{{ event.description }}</p>
         <div class="card-footer">
             <i class="fa-solid fa-location-dot"></i>
+          <button type="button" class="text-black hover:text-red-800" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
             {{ event.location }}
-          <p class="mb-0"><i class="fa-solid fa-calendar-days"></i> {{ event.date }}</p>
-        <div class="d-flex w-100 justify-content-between items-center mt-2 mr-4">
-          <a
-            :href="`/view/event/${event.slug}`"
-            target="_blank"
-            class="h-6 w-6 flex items-center justify-center rounded-full border border-transparent text-sm text-gray-900 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+          </button>
+          <div class="modal fade" id="exampleModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">{{ event.location }}</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe :src=event.maplocation>
+                  </iframe>
+                  </div>
+                <div class="modal-footer min-w-max">
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">
+            <i class="fa-solid fa-calendar-days mr-4"></i> {{ event.date }}
+          </p>
+          <div class="d-flex w-100 justify-content-between items-center mt-2">
           <button v-if="event.id" type="button"
                   @click="emit('attend', event)"
                   class="btn btn-primary">
@@ -113,6 +118,10 @@ p {
   margin-right: 50px;
 }
 
+iframe {
+  width: 470px;
+  height: 450px;
+}
 #name {
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -127,8 +136,8 @@ button {
 }
 
 .card-img-top {
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 350px;
+  max-height: 350px;
   max-width: 600px;
 }
 </style>

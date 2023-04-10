@@ -16,11 +16,6 @@ const store = createStore({
       links: [],
       data: []
     },
-    notification: {
-      show: false,
-      type: null,
-      message: null
-    },
     currentTool: {
       loading: false,
       data: {}
@@ -33,6 +28,12 @@ const store = createStore({
     currentEvent: {
       loading: false,
       data: {}
+    },
+    instructorTypes: ["text", "select", "radio", "checkbox", "textarea"],
+    notification: {
+      show: false,
+      type: 'success',
+      message: ''
     },
     events: {
       loading: false,
@@ -136,6 +137,9 @@ const store = createStore({
     },
     deleteEvent({}, id) {
       return axiosClient.delete(`/event/${id}`);
+    },
+    attendEvent({}, id) {
+
     },
     getEvents({commit}, {url = null} = {}) {
       url = url || '/event'

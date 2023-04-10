@@ -135,6 +135,35 @@
             />
           </div>
 
+          <div>
+            <label for="location" class="block text-sm font-medium text-gray-700">
+              Location Link
+            </label>
+            <input
+              type="text"
+              name="maplocation"
+              id="maplocation"
+              v-model="model.maplocation"
+              autocomplete="event_maplocation"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            />
+          </div>
+
+          <div>
+            <label for="credits" class="block text-sm font-medium text-gray-700">
+              Credits
+            </label>
+            <input
+              type="text"
+              name="credits"
+              id="credits"
+              v-model="model.credits"
+              placeholder="No. of ECTS, SCH, QC, AQF etc."
+              autocomplete="event_credits"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            />
+          </div>
+
           <!-- Description -->
           <div>
             <label for="about" class="block text-sm font-medium text-gray-700">
@@ -148,11 +177,66 @@
                 v-model="model.description"
                 autocomplete="event_description"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                placeholder="Describe your post"
+                placeholder="Small description of your event"
               />
             </div>
           </div>
           <!-- Description -->
+
+
+          <div>
+            <label for="about" class="block text-sm font-medium text-gray-700">
+              Detailed Description
+            </label>
+            <div class="mt-1">
+              <textarea
+                id="longdescription"
+                name="longdescription"
+                rows="3"
+                v-model="model.longdescription"
+                autocomplete="event_longdescription"
+                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                placeholder="Detailed description of your event"
+              />
+            </div>
+          </div>
+
+
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <h3 class="text-2xl font-semibold flex items-center justify-between">
+              Instructors
+              <button type="button"
+                      @click="addInstructor()"
+                      class="flex items-center text-sm py-1 px-4 rounded-sm text-white bg-blue-600 hover:bg-gray-800"
+                      >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Add Instructor
+              </button>
+            <div v-if="!model.instructors.length" class="text-center text-gray-600">
+              You didn't add any instructors
+            </div>
+            </h3>
+            <div v-for="(instructor, index) in model.instructors" :key="instructor.id">
+              <InstructorEditor
+                :instructor="instructor"
+                :index="index"
+                @change="instructorChange"
+                @addInstructor="addInstructor"
+                @deleteInstructor="deleteInstructor"
+              />
+            </div>
+          </div>
 
           <div>
             <label for="status" class="block text-sm font-medium text-gray-700">
@@ -181,11 +265,12 @@
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from "uuid";
 import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import store from "../store";
 import Notification from "../components/Notification.vue";
-
+import InstructorEditor from "../components/editors/InstructorEditor.vue";
 const router = useRouter();
 const route = useRoute();
 
@@ -199,7 +284,11 @@ let model = ref({
   image: null,
   image_url: null,
   date: null,
+  longdescription: null,
   location: null,
+  credits: null,
+  maplocation: null,
+  instructors: [],
 });
 
 watch (
@@ -227,6 +316,31 @@ function onImageChoose (ev) {
     ev.target.value = "";
   };
   reader.readAsDataURL(file);
+}
+
+function addInstructor(index) {
+  const newInstructor = {
+    id: uuidv4(),
+    type: "text",
+    instructor: "",
+    description: null,
+    data: {},
+  };
+  model.value.instructors.splice(index, 0, newInstructor);
+}
+function deleteInstructor(instructor) {
+  model.value.instructors = model.value.instructors.filter((q) => q !== instructor);
+}
+function instructorChange(instructor) {
+  if (instructor.data.options) {
+    instructor.data.options = [...instructor.data.options];
+  }
+  model.value.instructors = model.value.instructors.map((q) => {
+    if (q.id === instructor.id) {
+      return JSON.parse(JSON.stringify(instructor));
+    }
+    return q;
+  });
 }
 
 function saveEvent() {

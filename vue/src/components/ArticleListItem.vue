@@ -2,7 +2,11 @@
   <div >
     <div class="post">
       <div class="post-image clearfix">
+        <a
+          :href="`/view/article/${article.slug}`"
+          target="_blank">
         <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
+        </a>
       </div>
       <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
       <div class="post-details">
@@ -25,29 +29,9 @@
           {{ article.description }}
         </div>
         <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
-          <a
-            :href="`/view/article/${article.slug}`"
-            target="_blank"
-            class="h-10 w-10 ml-24 flex items-center justify-center rounded-full border border-transparent text-sm text-gray-900 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
           <router-link :to="{ name: 'ArticleView', params: { id: article.id } }"
                        class="flex py-2 px-4 border border-transparent text-md rounded-md text-white
-                                  bg-indigo-600 hover:bg-indigo-700 ml-96">
+                                  bg-indigo-600 hover:bg-indigo-700 ml-[660px] ">
             <svg xmins="http://www.w3.org/2000/svg"
                  class="h-6 w-6 mr-2"
                  fill="none"

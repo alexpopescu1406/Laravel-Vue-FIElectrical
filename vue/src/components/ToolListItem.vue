@@ -1,33 +1,26 @@
 <template>
         <div class="col">
           <div class="card h-[550px] hover-shadow mb-4">
+            <a
+              :href="`/view/tool/${tool.slug}`"
+              target="_blank">
             <img :src="tool.image_url" class="card-img-top" alt="image"/>
+            </a>
             <div class="card-body">
-              <h5 class="card-title">{{ tool.title}}</h5>
+              <h5 class="card-title">
+                <a
+                  :href="`/view/tool/${tool.slug}`"
+                  target="_blank"
+                  class="text-gray-900 hover:text-green-400">
+                  {{ tool.title}}
+                </a>
+              </h5>
+
               <p class="card-text">{{ tool.description }}</p>
-              <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
-              <a
-            :href="`/view/tool/${tool.slug}`"
-            target="_blank"
-            class="h-6 w-6 flex items-center justify-center rounded-full border border-transparent text-sm text-gray-900 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+              <div class="d-flex w-100 justify-content-end items-center mt-3">
+
           <router-link :to="{ name: 'ToolsView', params: { id: tool.id } }"
-                       class="flex py-1 px-3 ml-36 text-md rounded-md text-indigo-500
+                       class="flex py-1 px-3  text-md rounded-md text-indigo-500
                                   bg-white hover:bg-indigo-900">
             <svg xmins="http://www.w3.org/2000/svg"
                  class="h-6 w-6 mr-2"

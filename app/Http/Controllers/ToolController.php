@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\EventResource;
 use App\Http\Resources\ToolResource;
+use App\Models\Event;
 use App\Models\Tool;
 use App\Http\Requests\StoreToolRequest;
 use App\Http\Requests\UpdateToolRequest;
@@ -22,8 +24,10 @@ class ToolController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
+
     {
         return ToolResource::collection(Tool::where('status', 'Published')->paginate(10));
+
     }
 
     /**

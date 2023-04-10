@@ -189,30 +189,88 @@
       <div id="loader"></div>
     </div>
   </div>
-  <div v-else class="container pt-16">
-    <div class="">
-      <div class="post">
-        <div class="post-image clearfix flex justify-center">
-          <img alt="event" :src="event.image_url" class="w-[800px] h-100 object-cover">
-        </div>
-        <div class="post-details">
-          <div class="post-title">
-            <h4 class="pt-24">
-              <a
-                :href="`/view/event/${event.slug}`"
-                target="_blank"
-                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
-                {{ event.title }}
-              </a>
-            </h4>
-          </div>
-          <div id="name" class="text-xl pl-12 ">
-            {{ event.description }}
-          </div>
-        </div>
-      </div>
+  <div v-else class="bg-blue-800">
+
+  <div  class="container mt-24 mb-24 pt-12 pb-12  ">
+    <div class="row">
+            <div class="col-md-8">
+              <h4>
+                <div class="d-flex justify-content-start mt-2 ml-12">
+                  <span class="badge rounded-pill badge-info mb-4">{{ event.type }}</span>
+                </div>
+              </h4>
+                  <h5 class="d-flex justify-content-start ml-12
+                            text-gray-900 flex justify-center text-3xl text-light font-extrabold mb-4">
+                    {{ event.title }}
+                  </h5>
+                  <div id="name" class="text-xl pl-12 text-light ">
+                    {{ event.description }}
+                  </div>
+              <section class="text-center mt-24">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                    <i class="fas fa-chalkboard-user fa-2x text-light mb-2"></i>
+                    <h5 class=" fw-bold mb-3 text-light">Course Type</h5>
+                    <h6 class="fw-normal mb-0 text-light">{{event.type}}</h6>
+                    <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block text-light top-0 end-0"></div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                    <i class="fas fa-layer-group fa-2x text-light mb-2"></i>
+                    <h5 class=" fw-bold mb-3 text-light">Product ID</h5>
+                    <h6 class="fw-normal mb-0 text-light">{{event.id}}</h6>
+                    <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 position-relative">
+                    <i class="fas fa-graduation-cap fa-2x text-light mb-2"></i>
+                    <h5 class="fw-bold mb-3 text-light">Credits</h5>
+                    <h6 class="fw-normal mb-0 text-light">{{ event.credits }}</h6>
+                  </div>
+
+                </div>
+              </section>
+            </div>
+                  <div class="col-md-4 bg-light pb-4 shadow rounded-xl pt-4">
+                    <div class="text-center text-2xl text-dark fw-light">
+                      Location & Date
+                    </div>
+                    <div id="name" class="text-xl text-center fw-light text-dark mt-4">
+                      <i class="fas fa-calendar-days fw-light text-dark"></i>
+                      {{ event.date }}
+                    </div>
+                    <div id="name" class="text-xl text-center fw-light text-dark mt-2 mb-2">
+                      <i class="fas fa-location-dot text-dark "></i>
+                    {{ event.location }}
+                    </div>
+                      <iframe :src=event.maplocation class="">
+                      </iframe>
+                  </div>
+
     </div>
   </div>
+  </div>
+
+  <div  id="containerright" class="container mt-24 mb-24 shadow">
+    <div class="d-inline-flex p-3 bg-green-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
+      DESCRIPTION
+    </div>
+    <div class="text-xl  text-dark ">
+      {{ event.longdescription }}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis mauris, interdum quis volutpat sed, vestibulum cursus orci. Integer id egestas ipsum, at finibus dolor. Mauris fringilla dui ex, in consequat odio elementum a. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris sit amet turpis luctus, dapibus dui bibendum, vulputate diam. Suspendisse potenti. Cras lacinia augue vitae enim porta, sed faucibus urna lobortis. Pellentesque at nulla a ipsum pulvinar lobortis eu at tellus. Integer at ipsum at nisi efficitur faucibus in ut metus. Nam tincidunt consequat sapien, in commodo orci varius ac.
+    </div>
+  </div>
+    <div class="container shadow mb-8">
+      <div class="d-inline-flex p-3 bg-blue-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
+        INSTRUCTORS
+      </div>
+    <div v-for="(instructor, ind) of event.instructors" :key="instructor.id">
+      <InstructorViewer
+        v-model="instructor.id"
+        :instructor="instructor"
+        :index="ind"
+      />
+    </div>
+    </div>
   <Footer/>
 </template>
 
@@ -223,7 +281,7 @@ import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
-
+import InstructorViewer from "../components/editors/InstructorViewer.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -231,6 +289,7 @@ const navigation = [
   {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
   {name: 'Events', to: {name: "Events"}},
+  {name: 'Virtual Labs', to: {name: "VirtualLabs"}},
 
 ];
 
@@ -258,6 +317,12 @@ store.dispatch("getEventsBySlug", route.params.slug);
   background: black;
   overflow: hidden;
 }
+
+iframe {
+  width: 400px;
+  height: 300px;
+}
+
 body {
   overflow-x: hidden !important;
 }
@@ -328,10 +393,6 @@ body {
     transform: rotate(360deg);
   }
 }
-#name {
-  white-space: pre-line;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 
 </style>
