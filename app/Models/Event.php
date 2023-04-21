@@ -17,7 +17,7 @@ class Event extends Model
     const TYPE_RADIO = 'radio';
     const TYPE_CHECKBOX = 'checkbox';
 
-    protected $fillable = ['user_id', 'image', 'type', 'location', 'date', 'status', 'title', 'slug', 'description', 'maplocation'];
+    protected $fillable = ['user_id', 'image', 'type', 'location', 'date', 'status', 'title', 'longdescription', 'slug', 'description', 'maplocation', 'credits'];
 
     public function getSlugOptions(): SlugOptions
     {

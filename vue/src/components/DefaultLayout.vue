@@ -130,7 +130,7 @@ const navigation = [
   {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
   {name: 'Events', to: {name: "Events"}},
-  {name: 'Virtual Labs', to: {name: "VirtualLabs"}},
+  {name: 'Virtual Labs', to: {name: "Virtual Labs"}},
 ];
 
 

@@ -255,8 +255,8 @@
     <div class="d-inline-flex p-3 bg-green-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
       DESCRIPTION
     </div>
-    <div class="text-xl  text-dark ">
-      {{ event.longdescription }}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis mauris, interdum quis volutpat sed, vestibulum cursus orci. Integer id egestas ipsum, at finibus dolor. Mauris fringilla dui ex, in consequat odio elementum a. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris sit amet turpis luctus, dapibus dui bibendum, vulputate diam. Suspendisse potenti. Cras lacinia augue vitae enim porta, sed faucibus urna lobortis. Pellentesque at nulla a ipsum pulvinar lobortis eu at tellus. Integer at ipsum at nisi efficitur faucibus in ut metus. Nam tincidunt consequat sapien, in commodo orci varius ac.
+    <div class="text-xl  text-dark mb-2 pb-2">
+      {{ event.longdescription }}
     </div>
   </div>
     <div class="container shadow mb-8">
@@ -289,7 +289,6 @@ const navigation = [
   {name: 'Articles', to: {name: "Articles"}},
   {name: 'Tools', to: {name: "Tools"}},
   {name: 'Events', to: {name: "Events"}},
-  {name: 'Virtual Labs', to: {name: "VirtualLabs"}},
 
 ];
 

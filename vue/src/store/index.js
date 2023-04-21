@@ -267,7 +267,6 @@ const store = createStore({
       state.articles.data = articles.data;
     },
 
-
     setCurrentToolLoading: (state, loading) => {
       state.currentTool.loading = loading;
     },

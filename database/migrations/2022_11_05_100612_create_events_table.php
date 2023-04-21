@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('slug', 1000);
             $table->string('status', 1000);
             $table->text('description')->nullable();
+            $table->text('longdescription')->nullable();
+            $table->text('credits')->nullable();
             $table->timestamps();
         });
     }
