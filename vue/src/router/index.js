@@ -15,7 +15,9 @@ import ToolPublicView from "../views/ToolPublicView.vue";
 import Events from "../views/Events.vue";
 import EventsView from "../views/EventsView.vue";
 import EventPublicView from "../views/EventPublicView.vue";
-import VirtualLab from "../views/VirtualLab.vue";
+import VlabsView from "../views/VlabsView.vue";
+import VlabPublicView from "../views/VlabPublicView.vue";
+import Vlabs from "../views/Vlabs.vue";
 
 const routes = [
   {
@@ -36,7 +38,9 @@ const routes = [
       {path: '/events', name: 'Events', component: Events},
       {path: '/events/:id', name: 'EventsView', component: EventsView},
       {path: '/events/create', name: 'EventCreate', component: EventsView},
-      {path: '/virtuallab', name: 'Virtual Labs', component: VirtualLab},
+      {path: '/vlabs', name: 'Virtual Labs', component: Vlabs},
+      {path: '/vlabs/:id', name: 'VlabsView', component: VlabsView},
+      {path: '/vlabs/create', name: 'VlabCreate', component: VlabsView},
     ]
   },
   {
@@ -53,6 +57,11 @@ const routes = [
     path: '/view/event/:slug',
     name: 'EventPublicView',
     component: EventPublicView,
+  },
+  {
+    path: '/view/vlab/:slug',
+    name: 'VlabPublicView',
+    component: VlabPublicView,
   },
 
 

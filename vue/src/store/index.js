@@ -25,6 +25,15 @@ const store = createStore({
       links: [],
       data: []
     },
+    currentVlab: {
+      loading: false,
+      data: {}
+    },
+    vlabs: {
+      loading: false,
+      links: [],
+      data: []
+    },
     currentEvent: {
       loading: false,
       data: {}
@@ -228,6 +237,73 @@ const store = createStore({
     },
 
 
+
+
+    getVlab({commit}, id) {
+      commit("setCurrentVlabLoading", true);
+      return axiosClient
+        .get(`/vlab/${id}`)
+        .then((res) => {
+          commit("setCurrentVlab", res.data);
+          commit("setCurrentVlabLoading", false);
+          return res;
+        })
+        .catch((err) => {
+          commit("setCurrentVlabLoading", false);
+          throw err;
+        });
+    },
+    saveVlab({commit}, vlab) {
+      delete vlab.image_url;
+      let response;
+      if (vlab.id) {
+        response = axiosClient
+          .put(`/vlab/${vlab.id}`, vlab)
+          .then((res) => {
+            commit("setCurrentVlab", res.data);
+            return res;
+          });
+      } else {
+        response = axiosClient.post("/vlab", vlab).then((res) => {
+          commit("setCurrentVlab", res.data)
+          return res;
+        });
+      }
+      return response;
+    },
+    deleteVlab({}, id) {
+      return axiosClient.delete(`/vlab/${id}`);
+    },
+    getVlabs({commit}, {url = null} = {}) {
+      url = url || '/vlab'
+      commit('setVlabsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setVlabsLoading', false)
+        commit("setVlabs", res.data);
+        return res;
+      });
+    },
+    getVlabsBySlug({commit}, slug) {
+      commit("setCurrentVlabLoading", true);
+      return axiosClient
+        .get(`/vlab-by-slug/${slug}`)
+        .then((res) => {
+          commit("setCurrentVlab", res.data);
+          return res;
+        })
+        .catch((err) => {
+          throw err;
+        })
+        .finally(()=>{
+          commit("setCurrentVlabLoading", false);
+        });
+    },
+
+
+
+
+
+
     register({commit}, user) {
       return axiosClient.post('/register', user)
         .then(({data}) => {
@@ -280,6 +356,22 @@ const store = createStore({
       state.tools.links = tools.meta.links;
       state.tools.data = tools.data;
     },
+
+
+    setCurrentVlabLoading: (state, loading) => {
+      state.currentVlab.loading = loading;
+    },
+    setVlabsLoading: (state, loading) => {
+      state.vlabs.loading = loading;
+    },
+    setCurrentVlab: (state, vlab) => {
+      state.currentVlab.data = vlab.data;
+    },
+    setVlabs: (state, vlabs) => {
+      state.vlabs.links = vlabs.meta.links;
+      state.vlabs.data = vlabs.data;
+    },
+
 
     setCurrentEventLoading: (state, loading) => {
       state.currentEvent.loading = loading;

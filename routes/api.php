@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ArticleController;
 use \App\Http\Controllers\ToolController;
+use \App\Http\Controllers\VlabController;
 
 
 /*
@@ -27,12 +28,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('/article', ArticleController::class);
     Route::resource('/tool', ToolController::class);
     Route::resource('/event', EventController::class);
+    Route::resource('/vlab', VlabController::class);
+
 
 });
 
 Route::get('/article-by-slug/{article:slug}', [ArticleController::class, 'showForGuest']);
 Route::get('/tool-by-slug/{tool:slug}', [ToolController::class, 'showForGuest']);
 Route::get('/event-by-slug/{event:slug}', [EventController::class, 'showForGuest']);
+Route::get('/vlab-by-slug/{vlab:slug}', [VlabController::class, 'showForGuest']);
+
 
 
 Route::post('/register', [AuthController::class, 'register']);
