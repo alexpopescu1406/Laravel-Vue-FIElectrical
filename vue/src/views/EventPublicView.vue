@@ -258,18 +258,7 @@
     <div class="text-xl  text-dark mb-2 pb-2">
       {{ event.longdescription }}
     </div>
-  </div>
-    <div class="container shadow mb-8">
-      <div class="d-inline-flex p-3 bg-blue-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
-        INSTRUCTORS
-      </div>
-    <div v-for="(instructor, ind) of event.instructors" :key="instructor.id">
-      <InstructorViewer
-        v-model="instructor.id"
-        :instructor="instructor"
-        :index="ind"
-      />
-    </div>
+
     </div>
   <Footer/>
 </template>

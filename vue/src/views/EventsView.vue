@@ -202,42 +202,6 @@
           </div>
 
 
-          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-            <h3 class="text-2xl font-semibold flex items-center justify-between">
-              Instructors
-              <button type="button"
-                      @click="addInstructor()"
-                      class="flex items-center text-sm py-1 px-4 rounded-sm text-white bg-blue-600 hover:bg-gray-800"
-                      >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Add Instructor
-              </button>
-            <div v-if="!model.instructors.length" class="text-center text-gray-600">
-              You didn't add any instructors
-            </div>
-            </h3>
-            <div v-for="(instructor, index) in model.instructors" :key="instructor.id">
-              <InstructorEditor
-                :instructor="instructor"
-                :index="index"
-                @change="instructorChange"
-                @addInstructor="addInstructor"
-                @deleteInstructor="deleteInstructor"
-              />
-            </div>
-          </div>
-
           <div>
             <label for="status" class="block text-sm font-medium text-gray-700">
               Status
@@ -288,7 +252,6 @@ let model = ref({
   location: null,
   credits: null,
   maplocation: null,
-  instructors: [],
 });
 
 watch (
@@ -318,30 +281,6 @@ function onImageChoose (ev) {
   reader.readAsDataURL(file);
 }
 
-function addInstructor(index) {
-  const newInstructor = {
-    id: uuidv4(),
-    type: "text",
-    instructor: "",
-    description: null,
-    data: {},
-  };
-  model.value.instructors.splice(index, 0, newInstructor);
-}
-function deleteInstructor(instructor) {
-  model.value.instructors = model.value.instructors.filter((q) => q !== instructor);
-}
-function instructorChange(instructor) {
-  if (instructor.data.options) {
-    instructor.data.options = [...instructor.data.options];
-  }
-  model.value.instructors = model.value.instructors.map((q) => {
-    if (q.id === instructor.id) {
-      return JSON.parse(JSON.stringify(instructor));
-    }
-    return q;
-  });
-}
 
 function saveEvent() {
   store.dispatch("saveEvent", model.value).then(({ data }) => {

@@ -38,7 +38,6 @@ const store = createStore({
       loading: false,
       data: {}
     },
-    instructorTypes: ["text", "select", "radio", "checkbox", "textarea"],
     notification: {
       show: false,
       type: 'success',
