@@ -189,15 +189,12 @@
       <div id="loader"></div>
     </div>
   </div>
-  <div v-else class="container pt-16">
+  <div v-else class="container pt-12">
     <div class="">
       <div class="post">
-        <div class="post-image clearfix flex justify-center">
-          <img alt="vlab" :src="vlab.image_url" class="w-[800px] h-100 object-cover">
-        </div>
         <div class="post-details">
           <div class="post-title">
-            <h4 class="pt-24">
+            <h4 class="pt-2">
               <a
                 :href="`/view/vlab/${vlab.slug}`"
                 target="_blank"
@@ -206,18 +203,17 @@
               </a>
             </h4>
           </div>
-          <div id="name" class="text-xl pl-12 ">
+          <div id="name" class="text-xl ml-60">
             {{ vlab.description }}
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div>
-    <component :is="labComponentName"></component>
-  </div>
+  <component :is="labComponentName"></component>
   <Footer/>
 </template>
+
 
 <script setup>
 import  { computed } from "vue";
@@ -227,6 +223,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
 import plcondelay from "../components/vlabs/plcondelay/plcondelay.vue";
+import speedcontrol from "../components/vlabs/wardleonard/speedcontrol.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -248,6 +245,8 @@ const labComponentName = computed (() => {
   switch (vlab.value.lab){
     case "plcondelay":
       return plcondelay
+    case "speedcontrol":
+      return speedcontrol
     default:
       console.log("alll")
   }
@@ -279,6 +278,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0.45;
 }
+
 #loader {
   display: block;
   position: relative;

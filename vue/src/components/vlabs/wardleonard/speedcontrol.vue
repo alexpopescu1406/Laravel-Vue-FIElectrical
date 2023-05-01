@@ -1,10 +1,10 @@
 <template>
   <div class="demo text-center mb-12">
     <button class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl  hover-shadow-soft mb-4"
-      v-for="tab in tabs"
-      :key="tab"
-      :class="['tab-button', { active: currentTab === tab }]"
-      @click="currentTab = tab"
+            v-for="tab in tabs"
+            :key="tab"
+            :class="['tab-button', { active: currentTab === tab }]"
+            @click="currentTab = tab"
     >
       {{ tab }}
     </button>
@@ -18,7 +18,7 @@ import Theory from "./Theory.vue";
 import Simulation from "./Simulation.vue";
 import Quiz from "./Quiz.vue";
 export default {
-  name: "plcondelay",
+  name: "speedcontrol",
   components: {
     Simulation,
     Theory,
@@ -30,19 +30,11 @@ export default {
       tabs: ['Theory', 'Simulation', 'Quiz']
     }
   },
-  created() {
-    var scripts = [
-      "https://ied-nitk.vlabs.ac.in/exp/exp-plc-on-delay-nitk/simulation/js/ondelay.js",
-      "https://ied-nitk.vlabs.ac.in/exp/exp-plc-on-delay-nitk/assets/js/iframeResize.js",
-    ];
-    scripts.forEach(script => {
-      let tag = document.createElement("script");
-      tag.setAttribute("src", script);
-      document.head.appendChild(tag);
-    });
-  },
 }
+
+
 </script>
+
 <style scoped>
 .demo {
   padding: 20px 30px;

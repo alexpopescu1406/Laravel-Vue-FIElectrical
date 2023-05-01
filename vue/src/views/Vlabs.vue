@@ -1,9 +1,9 @@
 <template>
   <vlabs-component>
     <template v-slot:header>
-      <div class="flex justify-content-center">
+      <div class="flex justify-content-start mb-4 ml-72">
         <router-link :to="{ name: 'VlabCreate' }"
-                     class="py-2 px-3 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
+                     class="py-1 px-2 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4 -mt-1 inline-block"
@@ -17,7 +17,7 @@
               stroke-width="2"
               d="M12 4v16m8-8H4"/>
           </svg>
-          Add new Virtual Lab
+          Add
         </router-link>
       </div>
       <br>

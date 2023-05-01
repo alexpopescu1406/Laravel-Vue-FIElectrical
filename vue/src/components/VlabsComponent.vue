@@ -1,14 +1,15 @@
 <template>
   <section class="page-section-ptb pt-24">
     <div class="row">
-      <div class="col-sm-12 mb-20">
+      <div class="col-sm-12 mb-2">
         <div class="section-title text-center">
-          <slot name="header"></slot>
           <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">
-            Vlabs in Electrical Engineering</h2>
+            Virtual Labs for Electrical Engineering</h2>
         </div>
         <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Electrical Engineering Virtual Laborators Simulations  </p>
       </div>
+      <slot name="header"></slot>
+
     </div>
 
     <div v-if="vlabs.loading" class="flex justify-center pb-96 pt-96">
