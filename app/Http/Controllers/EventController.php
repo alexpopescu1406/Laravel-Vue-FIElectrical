@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Models\EventInstructor;
 
 class EventController extends Controller
 {
@@ -96,78 +95,9 @@ class EventController extends Controller
         }
 
         $event->update($data);
-        // Get ids as plain array of existing questions
-        $existingIds = $event->instructors()->pluck('id')->toArray();
-        // Get ids as plain array of new questions
-        $newIds = Arr::pluck($data['instructors'], 'id');
-        // Find questions to delete
-        $toDelete = array_diff($existingIds, $newIds);
-        //Find questions to add
-        $toAdd = array_diff($newIds, $existingIds);
-
-        // Delete questions by $toDelete array
-        EventInstructor::destroy($toDelete);
-
-        // Create new questions
-        foreach ($data['instructors'] as $instructor) {
-            if (in_array($instructor['id'], $toAdd)) {
-                $instructor['event_id'] = $event->id;
-                $this->createInstructor($instructor);
-            }
-        }
-
-        // Update existing questions
-        $instructorMap = collect($data['instructors'])->keyBy('id');
-        foreach ($event->instructors as $instructor) {
-            if (isset($instructorMap[$instructor->id])) {
-                $this->updateInstructor($instructor, $instructorMap[$instructor->id]);
-            }
-        }
         return new EventResource($event);
     }
 
-    private function createInstructor($data)
-    {
-        if (is_array($data['data'])) {
-            $data['data'] = json_encode($data['data']);
-        }
-        $validator = Validator::make($data, [
-            'instructor' => 'required|string',
-            'type' => ['required', Rule::in([
-                Event::TYPE_TEXT,
-                Event::TYPE_TEXTAREA,
-                Event::TYPE_SELECT,
-                Event::TYPE_RADIO,
-                Event::TYPE_CHECKBOX,
-            ])],
-            'description' => 'nullable|string',
-            'data' => 'present',
-            'event_id' => 'exists:App\Models\Event,id'
-        ]);
-
-        return EventInstructor::create($validator->validated());
-    }
-    private function updateInstructor(EventInstructor $instructor, $data)
-    {
-        if (is_array($data['data'])) {
-            $data['data'] = json_encode($data['data']);
-        }
-        $validator = Validator::make($data, [
-            'id' => 'exists:App\Models\EventInstructor,id',
-            'question' => 'required|string',
-            'type' => ['required', Rule::in([
-                Event::TYPE_TEXT,
-                Event::TYPE_TEXTAREA,
-                Event::TYPE_SELECT,
-                Event::TYPE_RADIO,
-                Event::TYPE_CHECKBOX,
-            ])],
-            'description' => 'nullable|string',
-            'data' => 'present',
-        ]);
-
-        return $instructor->update($validator->validated());
-    }
     /**
      * Remove the specified resource from storage.
      *

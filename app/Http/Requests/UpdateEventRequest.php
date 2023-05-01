@@ -40,7 +40,6 @@ class UpdateEventRequest extends FormRequest
             'type' => 'required|string',
             'user_id' => 'exists:users, id',
             'description' => 'nullable|string',
-            'instructors' => 'array',
         ];
     }
 }

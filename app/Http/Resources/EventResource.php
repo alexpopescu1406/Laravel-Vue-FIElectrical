@@ -29,7 +29,6 @@ class EventResource extends JsonResource
             'description' => $this->description,
             'longdescription' => $this->longdescription,
             'updated_at' => $this->updated_at,
-            'instructors' => EventInstructorResource::collection($this->instructors)
         ];
     }
 }

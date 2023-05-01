@@ -44,7 +44,6 @@ class StoreEventRequest extends FormRequest
             'maplocation' => 'required|string',
             'longdescription' => 'nullable|string',
             'credits' => 'string',
-            'instructors' => 'array',
             'type' => 'required|string|max:1000',
             'description' => 'nullable|string',
         ];
