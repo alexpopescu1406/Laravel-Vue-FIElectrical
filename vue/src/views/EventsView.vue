@@ -234,7 +234,6 @@ import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import store from "../store";
 import Notification from "../components/Notification.vue";
-import InstructorEditor from "../components/editors/InstructorEditor.vue";
 const router = useRouter();
 const route = useRoute();
 

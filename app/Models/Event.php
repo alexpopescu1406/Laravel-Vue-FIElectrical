@@ -25,9 +25,4 @@ class Event extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
-
-    public function instructors()
-    {
-        return $this->hasMany(EventInstructor::class);
-    }
 }

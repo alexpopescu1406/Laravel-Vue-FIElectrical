@@ -270,7 +270,6 @@ import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
-import InstructorViewer from "../components/editors/InstructorViewer.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
