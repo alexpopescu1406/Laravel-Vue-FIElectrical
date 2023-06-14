@@ -74,7 +74,8 @@
 const features = [
   {
     name: 'Massachusetts Institute of Technology',
-    description: 'The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge, Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science.',
+    description: 'The Massachusetts Institute of Technology (MIT) is a private land-grant research university in Cambridge, ' +
+      'Massachusetts. Established in 1861, MIT has since played a key role in the development of modern technology and science.',
     location: ' Cambridge, United States',
     rank: '#1',
     link: 'https://www.mit.edu/',

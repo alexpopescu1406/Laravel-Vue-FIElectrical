@@ -1,11 +1,11 @@
 <template>
-  <div >
+  <div>
     <div class="post">
       <div class="post-image clearfix">
         <a
           :href="`/view/article/${article.slug}`"
           target="_blank">
-        <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
+          <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
         </a>
       </div>
       <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
@@ -71,6 +71,7 @@
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max) + 1;
 }
+
 let value4 = generateRandomInteger(3430);
 
 import {defineEmits} from "vue";
@@ -86,48 +87,60 @@ const emit = defineEmits(['delete'])
 .post-content {
   text-align: justify;
 }
+
 .trash {
   color: red !important;
 }
+
 nav {
   position: relative;
 }
+
 p {
   text-align: justify;
 }
+
 .post .post-meta {
   margin-bottom: 10px;
   margin-left: 80px;
 }
+
 .post .post-meta a {
   font-size: 14px;
   font-weight: 350;
   color: #555555;
   margin-right: 15px;
 }
+
 .post .post-meta a:hover {
   transition: 0.4s ease all;
   color: #1bc76e;
 }
+
 .post .post-details .title {
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 80px;
 }
+
 .post .post-meta a .fa {
   margin-right: 80px;
 }
+
 .fa {
   margin-right: 50px;
 }
+
 .post .post-content {
   margin-left: 80px;
 }
+
 .post .post-image + .post-date {
   margin-top: -20px;
   margin-left: 8px;
 }
+
 .post .post-date {
   font-size: 27px;
   font-weight: 600;
@@ -140,6 +153,7 @@ p {
   position: absolute;
   line-height: 55px;
 }
+
 #name {
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -147,6 +161,7 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .post .post-date span {
   font-size: 13px;
   font-weight: normal;
@@ -160,9 +175,11 @@ p {
   letter-spacing: 1px;
   line-height: 32px;
 }
+
 .post .post-details a.button {
   margin-bottom: 0;
 }
+
 button {
   margin: 20px;
   outline: none;

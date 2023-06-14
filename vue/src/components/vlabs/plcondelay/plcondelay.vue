@@ -1,6 +1,7 @@
 <template>
   <div class="demo text-center mb-12">
-    <button class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl  hover-shadow-soft mb-4"
+    <button
+      class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl  hover-shadow-soft mb-4"
       v-for="tab in tabs"
       :key="tab"
       :class="['tab-button', { active: currentTab === tab }]"
@@ -17,6 +18,7 @@
 import Theory from "./Theory.vue";
 import Simulation from "./Simulation.vue";
 import Quiz from "./Quiz.vue";
+
 export default {
   name: "plcondelay",
   components: {
@@ -29,17 +31,6 @@ export default {
       currentTab: 'Theory',
       tabs: ['Theory', 'Simulation', 'Quiz']
     }
-  },
-  created() {
-    var scripts = [
-      "https://ied-nitk.vlabs.ac.in/exp/exp-plc-on-delay-nitk/simulation/js/ondelay.js",
-      "https://ied-nitk.vlabs.ac.in/exp/exp-plc-on-delay-nitk/assets/js/iframeResize.js",
-    ];
-    scripts.forEach(script => {
-      let tag = document.createElement("script");
-      tag.setAttribute("src", script);
-      document.head.appendChild(tag);
-    });
   },
 }
 </script>
@@ -58,11 +49,14 @@ export default {
   margin-bottom: -1px;
   margin-right: 5px;
 }
+
 .tab-button:hover {
 }
+
 .tab-button.active {
   background: #E6E6FA;
 }
+
 .tab {
   padding: 10px;
 }

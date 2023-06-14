@@ -223,7 +223,6 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Footer from "../components/Footer.vue";
 import plcondelay from "../components/vlabs/plcondelay/plcondelay.vue";
-import speedcontrol from "../components/vlabs/wardleonard/speedcontrol.vue";
 
 const navigation = [
   {name: 'Home', to: {name: "Home"}},
@@ -245,8 +244,6 @@ const labComponentName = computed (() => {
   switch (vlab.value.lab){
     case "plcondelay":
       return plcondelay
-    case "speedcontrol":
-      return speedcontrol
     default:
       console.log("alll")
   }

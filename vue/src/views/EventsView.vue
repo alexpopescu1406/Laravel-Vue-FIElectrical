@@ -201,7 +201,6 @@
             </div>
           </div>
 
-
           <div>
             <label for="status" class="block text-sm font-medium text-gray-700">
               Status
@@ -279,7 +278,6 @@ function onImageChoose (ev) {
   };
   reader.readAsDataURL(file);
 }
-
 
 function saveEvent() {
   store.dispatch("saveEvent", model.value).then(({ data }) => {

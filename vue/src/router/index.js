@@ -25,7 +25,7 @@ const routes = [
     redirect: '/home',
     name: 'Home',
     component: DefaultLayout,
-    meta: {requiresAuth: true},
+    meta: {requiresAuth: true,},
     children: [
       {path: '/home', name: 'Home', component: Home},
       {path: '/education', name: 'Education', component: Education},

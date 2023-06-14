@@ -299,10 +299,6 @@ const store = createStore({
     },
 
 
-
-
-
-
     register({commit}, user) {
       return axiosClient.post('/register', user)
         .then(({data}) => {

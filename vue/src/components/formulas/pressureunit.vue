@@ -574,24 +574,20 @@ export default {
       MillimetersOfWaterColumnAt4C: {value: null},
       InchesOfWaterColumnAt4C: {value: null},
       AtmosphericPressure: {value: null},
-      pa: {value: null, factor: 0.001, disabled: !1},
-      torr: {value: null, factor: 101.325 / 760, disabled: !1},
-      atm: {value: null, factor: 101.325, disabled: !1},
-      mbar: {value: null, factor: 0.1, disabled: !1},
-      lbIn: {value: null, factor: 6.89476, disabled: !1},
-      lbFt: {value: null, factor: 6.89476 / 144, disabled: !1},
-      kg: {value: null, factor: 98.0665, disabled: !1},
-      mm: {value: null, factor: 133.322387415 / 1e3, disabled: !1},
-      inHg: {value: null, factor: 3.386388640341, disabled: !1},
-      h2o: {value: null, factor: 2.98906692, disabled: !1},
-      um: {value: null, factor: 0.000133322387415, disabled: !1},
+      pa: {value: null},
+      torr: {value: null},
+      atm: {value: null},
+      mbar: {value: null},
+      lbIn: {value: null},
+      lbFt: {value: null},
+      kg: {value: null},
+      mm: {value: null},
+      inHg: {value: null},
+      h2o: {value: null},
+      um: {value: null},
     }
   },
   computed: {
-    disabled() {
-      for (var e in this.$data) if (!this.checkValue(this.$data[e].value)) return !1;
-      return !0;
-    },
     disabledNew() {
       return null == this.pressure.value || "" == this.pressure.value;
     },
@@ -610,85 +606,7 @@ export default {
       ];
     },
   },
-  watch: {
-    pa: {
-      handler(e) {
-        this.checkValue(e.value) || this.pa.disabled || this.disableFields("pa");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    torr: {
-      handler(e) {
-        this.checkValue(e.value) || this.torr.disabled || this.disableFields("torr");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    atm: {
-      handler(e) {
-        this.checkValue(e.value) || this.atm.disabled || this.disableFields("atm");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    mbar: {
-      handler(e) {
-        this.checkValue(e.value) || this.mbar.disabled || this.disableFields("mbar");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    lbIn: {
-      handler(e) {
-        this.checkValue(e.value) || this.lbIn.disabled || this.disableFields("lbIn");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    lbFt: {
-      handler(e) {
-        this.checkValue(e.value) || this.lbFt.disabled || this.disableFields("lbFt");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    kg: {
-      handler(e) {
-        this.checkValue(e.value) || this.kg.disabled || this.disableFields("kg");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    mm: {
-      handler(e) {
-        this.checkValue(e.value) || this.mm.disabled || this.disableFields("mm");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    inHg: {
-      handler(e) {
-        this.checkValue(e.value) || this.inHg.disabled || this.disableFields("inHg");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    h2o: {
-      handler(e) {
-        this.checkValue(e.value) || this.h2o.disabled || this.disableFields("h2o");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-    um: {
-      handler(e) {
-        this.checkValue(e.value) || this.um.disabled || this.disableFields("um");
-      },
-      deep: !0,
-      nextTick: !0,
-    },
-  },
+
   methods: {
     calculateNew() {
       (this.Pascal.value = this.pressure.value * this.pressure.unit),
@@ -716,93 +634,12 @@ export default {
         (this.AtmosphericPressure.value = null);
     },
     formatOutput(e) {
-      return isNaN(e) || "" == e || null == e ? e : e.toFixed(2);
-    },
-    calculate() {
-      var e;
-      for (var t in this.$data)
-        if (null != this.$data[t].value && 0 != this.$data[t].value.length) {
-          (e = this.$data[t].value), (e *= isNaN(e) ? 0 : this.$data[t].factor);
-          break;
-        }
-      for (var n in this.$data) this.$data[n].value = this.formatValue(e / this.$data[n].factor);
-    },
-    formatValue(e) {
-      var t,
-        n,
-        r = "",
-        i = e,
-        a = 0;
-      if (0 == i) return "0";
-      for (i < 0 && ((r = "-"), (i = -i)); i < 1; ) a--, (i *= 10);
-      for (; i >= 10; ) a++, (i /= 10);
-      return (
-        (n = (t = this.formatHelp(r, i, a, 1e3)).length - 8) > 4 && (t = "***"),
-          3 == n || 4 == n ? (t = this.formatHelp(r, i, a, 1)) : 2 == n ? (t = this.formatHelp(r, i, a, 10)) : 1 == n && (t = this.formatHelp(r, i, a, 100)),
-          t
-      );
-    },
-    formatHelp(e, t, n, r) {
-      var i = t,
-        a = n;
-      return (i *= r), (i = Math.round(i)), 10 == (i /= r) && ((i = 1), a++), 0 == a ? e + i : e + i + "E" + a;
-    },
-    clearForm() {
-      for (var e in this.$data) (this.$data[e].disabled = !1), (this.$data[e].value = null);
-      this.field = null;
-    },
-    disableFields(e) {
-      for (var t in this.$data) e != t && null !== this.$data[t] && (this.$data[t].disabled = !0);
+      return isNaN(e) || "" == e || null == e ? e : e.toFixed(3);
     },
     checkValue(e) {
       return null == e || "" == e;
     },
   },
-671: function (e, t) {
-  (t.endianness = function () {
-    return "LE";
-  }),
-    (t.hostname = function () {
-      return "undefined" != typeof location ? location.hostname : "";
-    }),
-    (t.loadavg = function () {
-      return [];
-    }),
-    (t.uptime = function () {
-      return 0;
-    }),
-    (t.freemem = function () {
-      return Number.MAX_VALUE;
-    }),
-    (t.totalmem = function () {
-      return Number.MAX_VALUE;
-    }),
-    (t.cpus = function () {
-      return [];
-    }),
-    (t.type = function () {
-      return "Browser";
-    }),
-    (t.release = function () {
-      return "undefined" != typeof navigator ? navigator.appVersion : "";
-    }),
-    (t.networkInterfaces = t.getNetworkInterfaces = function () {
-      return {};
-    }),
-    (t.arch = function () {
-      return "javascript";
-    }),
-    (t.platform = function () {
-      return "browser";
-    }),
-    (t.tmpdir = t.tmpDir = function () {
-      return "/tmp";
-    }),
-    (t.EOL = "\n"),
-    (t.homedir = function () {
-      return "/";
-    });
-},
 }
 </script>
 

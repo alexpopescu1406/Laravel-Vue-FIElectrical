@@ -33,7 +33,6 @@
     <div class="sm:rounded-md sm:overflow-hidden pr-12 pl-12 mt-12 pb-24">
   <br>
   <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
-    <!-- Image -->
     <div>
       <label class="block text-sm font-medium text-gray-700">
         Image
@@ -63,7 +62,8 @@
               </span>
         <button
           type="button"
-          class="relative overflow-hidden ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          class="relative overflow-hidden ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4
+          font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           <input
             type="file"
@@ -74,9 +74,7 @@
         </button>
       </div>
     </div>
-    <!--/ Image -->
 
-    <!-- Title -->
     <div>
       <label for="title" class="block text-sm font-medium text-gray-700">
         Title
@@ -90,7 +88,6 @@
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
-    <!--/ Title -->
 
     <div>
       <label for="dateday" class="block text-sm font-medium text-gray-700">
@@ -119,8 +116,6 @@
         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
       />
     </div>
-
-    <!-- Description -->
     <div>
       <label for="about" class="block text-sm font-medium text-gray-700">
         Description
@@ -137,36 +132,29 @@
               />
       </div>
     </div>
-    <!-- Description -->
-
-
-    <!-- Status -->
     <div>
       <label for="status" class="block text-sm font-medium text-gray-700">
         Status
       </label>
-
       <select v-model="model.status">
         <option>Published</option>
         <option>Work in progress</option>
         <option>Under review</option>
       </select>
     </div>
-
-    <!--/ Status -->
   </div>
 
   <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
     <button
       type="submit"
-      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
+       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
       Save
     </button>
   </div>
     </div>
     <Notification />
-
   </form>
   </div>
 </template>

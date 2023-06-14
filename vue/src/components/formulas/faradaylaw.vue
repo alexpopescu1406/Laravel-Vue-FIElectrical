@@ -10,8 +10,8 @@
                 <label class="control-label">Number of Turns (N):</label>
               </div>
               <div class="col-sm-6 col-xs-12">
-                <input v-model="numberOfTurnsNew.value" @input="checkNumberOfInputs(numberOfTurnsNew)"
-                       :disabled="disableInput(numberOfTurnsNew)" :type="this.calculatedValue == numberOfTurnsNew
+                <input v-model="nrTurns.value" @input="checkNrOfInputs(nrTurns)"
+                       :disabled="disableInput(nrTurns)" :type="this.valoareCalculata == nrTurns
                        ? 'text' : 'number'"
                        class="rounded-pill form-control bg-blue-500 mb-4 text-center" />
               </div>
@@ -25,14 +25,14 @@
                 >
               </div>
               <div class="col-sm-6 col-xs-12">
-                <input v-model="changeInMagneticFluxNew.value" @input="checkNumberOfInputs(changeInMagneticFluxNew)"
-                       :disabled="disableInput(changeInMagneticFluxNew)" :type="this.calculatedValue == changeInMagneticFluxNew
+                <input v-model="changeInMagneticFlux.value" @input="checkNrOfInputs(changeInMagneticFlux)"
+                       :disabled="disableInput(changeInMagneticFlux)" :type="this.valoareCalculata == changeInMagneticFlux
                        ? 'text' : 'number'"
                        class="rounded-pill form-control bg-blue-500 mb-4 text-center" />
               </div>
               <div class="col-sm-2">
-                <select v-model="changeInMagneticFluxNew.unit" class="form-control text-center">
-                  <option v-for="unit in changeInMagneticFluxUnitsNew" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
+                <select v-model="changeInMagneticFlux.unit" class="form-control text-center">
+                  <option v-for="unit in changeInMagneticFluxUnits" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
                 </select>
               </div>
             </div>
@@ -43,13 +43,13 @@
                 <label class="control-label">Time (dt):</label>
               </div>
               <div class="col-sm-6 col-xs-12">
-                <input v-model="timeNew.value" @input="checkNumberOfInputs(timeNew)" :disabled="disableInput(timeNew)"
-                       :type="this.calculatedValue == timeNew ? 'text' : 'number'"
+                <input v-model="time.value" @input="checkNrOfInputs(time)" :disabled="disableInput(time)"
+                       :type="this.valoareCalculata == time ? 'text' : 'number'"
                        class="rounded-pill form-control mb-4 text-center" />
               </div>
               <div class="col-sm-2">
-                <select v-model="timeNew.unit" class="text-center form-control">
-                  <option v-for="unit in timeUnitsNew" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
+                <select v-model="time.unit" class="text-center form-control">
+                  <option v-for="unit in timeUnits" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
                 </select>
               </div>
             </div>
@@ -60,21 +60,21 @@
                 <label class="control-label">Induced EMF (ϵ):</label>
               </div>
               <div class="col-sm-6 col-xs-12 mb-4">
-                <input v-model="inducedEMFNew.value" @input="checkNumberOfInputs(inducedEMFNew)"
-                       :disabled="disableInput(inducedEMFNew)" :type="this.calculatedValue == inducedEMFNew
+                <input v-model="inducedEMF.value" @input="checkNrOfInputs(inducedEMF)"
+                       :disabled="disableInput(inducedEMF)" :type="this.valoareCalculata == inducedEMF
                        ? 'text' : 'number'"
                        class="rounded-pill form-control mb-2 text-center mb-4" />
               </div>
               <div class="col-sm-2 mb-4">
-                <select v-model="inducedEMFNew.unit" class="text-center form-control">
-                  <option v-for="unit in inducedEMFUnitsNew" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
+                <select v-model="inducedEMF.unit" class="text-center form-control">
+                  <option v-for="unit in inducedEMFUnits" :key="unit.text" :value="unit.value" v-text="unit.text"></option>
                 </select>
               </div>
             </div>
           </div>
           <div class="col-xs-12 mb-4">
             <div class="form-group">
-              <button :disabled="disabledNew" @click="calculateNew" class="btn btn-primary">
+              <button :disabled="disabled" @click="calculate" class="btn btn-primary">
                 Calculate
               </button>
               <button @click="resetInputs" class="btn btn-primary">
@@ -89,8 +89,8 @@
   </div>
   <div class="container pl-96 pr-96">
     <p class="text-xl">
-      The application of this calculator is when trying to understand the force and voltage generated by a changing magnetic
-      field around a closed loop. You can enter any three of the four variables:
+      This calculator is specifically designed to assist in comprehending the force and voltage produced by a fluctuating magnetic field surrounding a closed loop.
+      You have the flexibility to input any combination of three out of the four variables:
     </p>
     <ul class="text-xl">
       <li>The number of turns of a coil</li>
@@ -140,18 +140,15 @@ export default {
   name: "faradaylaw",
   data() {
     return {
-      numberOfTurnsNew: { value: null, unit: 1 },
-      changeInMagneticFluxNew: { value: null, unit: 1 },
-      timeNew: { value: null, unit: 1 },
-      inducedEMFNew: { value: null, unit: 1 },
       inputValues: [],
-      calculatedValue: null,
-      areaLoopValue: "",
-      areaLoopUnit: "cm",
-      numberOfLoops: "",
-      magneticField: "",
-      time: "",
+      valoareCalculata: null,
+      nrTurns: { value: null, unit: 1 },
+      changeInMagneticFlux: { value: null, unit: 1 },
+      time: { value: null, unit: 1 },
+      inducedEMF: { value: null, unit: 1 },
+      nrOfLoops: "",
       timeUnit: "sec",
+      magneticField: "",
       inducedVoltage: "",
       magneticFlux: "",
       formula: '$$\\epsilon = N \\frac{d\\theta}{dt}$$',
@@ -159,7 +156,7 @@ export default {
     }
   },
   computed: {
-    changeInMagneticFluxUnitsNew() {
+    changeInMagneticFluxUnits() {
       return [
         {value: 1e6, text: "MWb"},
         {value: 1e3, text: "kWb"},
@@ -168,18 +165,7 @@ export default {
         {value: 1e-6, text: "uWb"},
       ];
     },
-    timeUnitsNew() {
-      return [
-        {value: 3600, text: "hr"},
-        {value: 60, text: "min"},
-        {value: 1, text: "s"},
-        {value: 0.001, text: "ms"},
-        {value: 1e-6, text: "us"},
-        {value: 1e-9, text: "ns"},
-        {value: 1e-12, text: "ps"},
-      ];
-    },
-    inducedEMFUnitsNew() {
+    inducedEMFUnits() {
       return [
         {value: 1e6, text: "MV"},
         {value: 1e3, text: "kV"},
@@ -190,124 +176,83 @@ export default {
         {value: 1e-12, text: "pV"},
       ];
     },
-    disabledNew() {
+    timeUnits() {
+      return [
+        {value: 3600, text: "hr"},
+        {value: 60, text: "min"},
+        {value: 1, text: "s"},
+        {value: 0.001, text: "ms"},
+        {value: 1e-6, text: "us"},
+        {value: 1e-9, text: "ns"},
+        {value: 1e-12, text: "ps"},
+      ];
+    },
+    disabled() {
       return 3 != this.inputValues.length;
-    },
-    areaLoopUnitOptions() {
-      return [
-        {value: "mm", text: "mm²", convert: 0.01},
-        {value: "cm", text: "cm²", convert: 1},
-        {value: "dm", text: "dm²", convert: 100},
-        {value: "m", text: "m²", convert: 1e4},
-        {value: "km", text: "km²", convert: 1e10},
-        {value: "in", text: "in²", convert: 6.4516},
-        {value: "ft", text: "ft²", convert: 929.03},
-        {value: "yd", text: "yd²", convert: 8361.27},
-        {value: "mi", text: "mi²", convert: 259e8},
-      ];
-    },
-    timeUnitOptions() {
-      return [
-        {value: "sec", text: "seconds (sec)", convert: 1},
-        {value: "min", text: "minutes (min)", convert: 60},
-        {value: "hrs", text: "hours (hrs)", convert: 3600},
-        {value: "day", text: "days (day)", convert: 86400},
-        {value: "wks", text: "weeks (wks)", convert: 604800},
-        {value: "mos", text: "months (mos)", convert: 2628e3},
-        {value: "yrs", text: "years (yrs)", convert: 31535965.44},
-      ];
     },
   },
   methods: {
-    checkNumberOfInputs(e) {
-      if (null == e.value || "" == e.value) {
-        if ((null != this.calculatedValue && (this.inputValues.push(this.calculatedValue), (this.calculatedValue = null)),
-          this.inputValues.includes(e))) {
-          var t = this.inputValues.indexOf(e);
+    checkNrOfInputs(inputParam) {
+      if (null == inputParam.value || "" == inputParam.value) {
+        if ((null != this.valoareCalculata && (this.inputValues.push(this.valoareCalculata), (this.valoareCalculata = null)),
+          this.inputValues.includes(inputParam))) {
+          var t = this.inputValues.indexOf(inputParam);
           -1 !== t && this.inputValues.splice(t, 1);
         }
-      } else this.inputValues.includes(e) || (this.inputValues.length < 4 || ((this.inputValues[0].value = null),
-        this.inputValues.shift()), this.inputValues.push(e));
+      } else this.inputValues.includes(inputParam) || (this.inputValues.length < 4 || ((this.inputValues[0].value = null),
+        this.inputValues.shift()), this.inputValues.push(inputParam));
     },
-    disableInput(e) {
-      return (("" == e.value || null == e.value) && this.inputValues.length >= 3) || (e == this.calculatedValue &&
-        this.inputValues.length >= 3);
+    disableInput(inputParam) {
+      return (("" == inputParam.value || null == inputParam.value) && this.inputValues.length >= 3) ||
+        (inputParam == this.valoareCalculata && this.inputValues.length >= 3);
     },
     resetInputs() {
-      (this.numberOfTurnsNew.value = null), (this.changeInMagneticFluxNew.value = null), (this.timeNew.value = null),
-        (this.inducedEMFNew.value = null), (this.inputValues = []), (this.calculatedValue = null);
-    },
-    calculateNew() {
-      (null != this.numberOfTurnsNew.value && "" != this.numberOfTurnsNew.value && this.calculatedValue != this.numberOfTurnsNew) ||
-      ((this.numberOfTurnsNew.value = this.formatOutput(
-        Math.abs((this.inducedEMFNew.value * this.inducedEMFNew.unit * (this.timeNew.value * this.timeNew.unit)) /
-          (this.changeInMagneticFluxNew.value * this.changeInMagneticFluxNew.unit)) / this.numberOfTurnsNew.unit
-      )),
-        (this.calculatedValue = this.numberOfTurnsNew)),
-      (null != this.changeInMagneticFluxNew.value && "" != this.changeInMagneticFluxNew.value && this.calculatedValue
-        != this.changeInMagneticFluxNew) ||
-      ((this.changeInMagneticFluxNew.value = this.formatOutput(
-        (-this.inducedEMFNew.value * this.inducedEMFNew.unit * (this.timeNew.value * this.timeNew.unit)) /
-        (this.numberOfTurnsNew.value * this.numberOfTurnsNew.unit) / this.changeInMagneticFluxNew.unit
-      )),
-        (this.calculatedValue = this.changeInMagneticFluxNew)),
-      (null != this.timeNew.value && "" != this.timeNew.value && this.calculatedValue != this.timeNew) ||
-      ((this.timeNew.value = this.formatOutput(
-        Math.abs((this.numberOfTurnsNew.value * this.numberOfTurnsNew.unit * (this.changeInMagneticFluxNew.value *
-          this.changeInMagneticFluxNew.unit)) / (this.inducedEMFNew.value * this.inducedEMFNew.unit)) /
-        this.timeNew.unit
-      )),
-        (this.calculatedValue = this.timeNew)),
-      (null != this.inducedEMFNew.value && "" != this.inducedEMFNew.value && this.calculatedValue != this.inducedEMFNew) ||
-      ((this.inducedEMFNew.value = this.formatOutput(
-        (this.numberOfTurnsNew.value * this.numberOfTurnsNew.unit * -1 * ((this.changeInMagneticFluxNew.value *
-          this.changeInMagneticFluxNew.unit) / (this.timeNew.value * this.timeNew.unit))) /
-        this.inducedEMFNew.unit
-      )),
-        (this.calculatedValue = this.inducedEMFNew));
-    },
-    formatOutput(e) {
-      return isNaN(e) || "" == e || null == e ? e : parseFloat(e.toFixed(5));
-    },
-    getAreaUnitValue() {
-      var e,
-        t = this.areaLoopUnit,
-        n = a(this.areaLoopUnitOptions);
-      try {
-        for (n.s(); !(e = n.n()).done;) {
-          var r = e.value;
-          if (r.value == t) return r.convert;
-        }
-      } catch (e) {
-        n.e(e);
-      } finally {
-        n.f();
-      }
-    },
-    getTimeUnitValue() {
-      var e,
-        t = this.timeUnit,
-        n = a(this.timeUnitOptions);
-      try {
-        for (n.s(); !(e = n.n()).done;) {
-          var r = e.value;
-          if (r.value == t) return r.convert;
-        }
-      } catch (e) {
-        n.e(e);
-      } finally {
-        n.f();
-      }
-    },
-    round(e) {
-      return e.toFixed(20).match(/^-?\d*\.?0*\d{0,4}/)[0];
+        (this.nrTurns.value = null),
+        (this.changeInMagneticFlux.value = null),
+        (this.time.value = null),
+        (this.inducedEMF.value = null),
+        (this.inputValues = []),
+        (this.valoareCalculata = null);
     },
     calculate() {
-      var e = this.getAreaUnitValue() * this.areaLoopValue;
-      this.magneticFlux = this.magneticField * e * Math.pow(this.numberOfLoops, -4);
-      var t = this.getTimeUnitValue() * this.time;
-      this.inducedVoltage = (-this.numberOfLoops * this.magneticFlux) / t;
+      (null != this.nrTurns.value && "" != this.nrTurns.value && this.valoareCalculata != this.nrTurns) ||
+      ((this.nrTurns.value = this.formatOutput(
+        Math.abs((this.inducedEMF.value * this.inducedEMF.unit * (this.time.value * this.time.unit)) /
+          (this.changeInMagneticFlux.value * this.changeInMagneticFlux.unit)) / this.nrTurns.unit
+      )),
+        (this.valoareCalculata = this.nrTurns)),
+
+      (null != this.changeInMagneticFlux.value && "" != this.changeInMagneticFlux.value && this.valoareCalculata
+        != this.changeInMagneticFlux) ||
+      ((this.changeInMagneticFlux.value = this.formatOutput(
+        (-this.inducedEMF.value * this.inducedEMF.unit * (this.time.value * this.time.unit)) /
+        (this.nrTurns.value * this.nrTurns.unit) / this.changeInMagneticFlux.unit
+      )),
+        (this.valoareCalculata = this.changeInMagneticFlux)),
+
+      (null != this.time.value && "" != this.time.value && this.valoareCalculata != this.time) ||
+      ((this.time.value = this.formatOutput(
+        Math.abs((this.nrTurns.value * this.nrTurns.unit * (this.changeInMagneticFlux.value *
+          this.changeInMagneticFlux.unit)) / (this.inducedEMF.value * this.inducedEMF.unit)) /
+        this.time.unit
+      )),
+        (this.valoareCalculata = this.time)),
+
+      (null != this.inducedEMF.value && "" != this.inducedEMF.value && this.valoareCalculata != this.inducedEMF) ||
+      ((this.inducedEMF.value = this.formatOutput(
+        (this.nrTurns.value * this.nrTurns.unit * -1 * ((this.changeInMagneticFlux.value *
+          this.changeInMagneticFlux.unit) / (this.time.value * this.time.unit))) /
+        this.inducedEMF.unit
+      )),
+        (this.valoareCalculata = this.inducedEMF));
     },
+    formatOutput(outputParam) {
+      return isNaN(outputParam) || "" == outputParam || null == outputParam ? outputParam : parseFloat(outputParam.toFixed(5));
+    },
+    round(a) {
+      return a.toFixed(20).match(/^-?\d*\.?0*\d{0,4}/)[0];
+    },
+
   },
 }
 </script>

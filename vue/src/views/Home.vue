@@ -200,7 +200,7 @@
 
 <script>
 import ArticleComponent from '../components/ArticleComponent.vue';
-import {ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon} from '@heroicons/vue/outline'
+import {ChipIcon, NewspaperIcon, AcademicCapIcon, UserGroupIcon,  CalculatorIcon} from '@heroicons/vue/outline'
 
 const teams = [
   {
@@ -263,10 +263,10 @@ const teams = [
 
 const features = [
   {
-    name: 'Latest news',
+    name: 'Tools',
     description:
-      'Get the latest news and discoveries from reliable sources in related fields.',
-    icon: NewspaperIcon,
+      'Useful calculators and instruments designed to make your job easier.',
+    icon:  CalculatorIcon,
   },
   {
     name: 'Education',

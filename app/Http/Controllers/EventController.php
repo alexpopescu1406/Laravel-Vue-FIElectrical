@@ -95,6 +95,7 @@ class EventController extends Controller
         }
 
         $event->update($data);
+
         return new EventResource($event);
     }
 

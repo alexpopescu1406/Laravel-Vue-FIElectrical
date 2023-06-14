@@ -21,7 +21,7 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         return ArticleResource::collection(Article::where('status', 'Published')->paginate(3));
     }

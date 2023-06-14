@@ -196,7 +196,6 @@ export default {
       formula: '$$\\tau = R · C$$',
       formula2: '$$V_C = V_S · (1 - e^{(\\frac{-t}{\\tau})})$$',
       formula3: '$$V_C = V_{C0} · (e^{(\\frac{-t}{\\tau})})$$',
-
     }
   },
   computed: {

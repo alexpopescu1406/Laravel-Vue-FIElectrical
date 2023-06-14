@@ -4,7 +4,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-sm-4 col-xs-12 mb-4">
-            <label class="control-label">Number of Resistors (<small>min 2 and max 6 resistors</small>):</label
+            <label class="control-label">Number of Resistors (<small>min 2 and max 20 resistors</small>):</label
             >
           </div>
           <div class="col-sm-6 col-xs-8">
@@ -137,8 +137,8 @@ export default {
     addResistors() {
       (this.resistors = []),
         (this.eResistance = null),
-        (this.numberOfResistors = this.numberOfResistors < 7 && this.numberOfResistors > 1 ? this.numberOfResistors
-          : this.numberOfResistors < 2 ? 2 : 6);
+        (this.numberOfResistors = this.numberOfResistors < 21 && this.numberOfResistors > 1 ? this.numberOfResistors
+          : this.numberOfResistors < 2 ? 2 : 20);
       for (var e = 0; e < this.numberOfResistors; e++) this.resistors.push({value: ""});
       return this.resistors;
     },

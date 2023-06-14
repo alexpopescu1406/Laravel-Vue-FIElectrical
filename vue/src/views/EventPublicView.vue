@@ -258,7 +258,6 @@
     <div class="text-xl  text-dark mb-2 pb-2">
       {{ event.longdescription }}
     </div>
-
     </div>
   <Footer/>
 </template>

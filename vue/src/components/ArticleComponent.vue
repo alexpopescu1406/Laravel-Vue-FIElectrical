@@ -24,32 +24,38 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active bg-black">
-        <img src="https://www.teslarati.com/wp-content/uploads/2018/07/tesla-factory.jpg" class="w-100 opacity-70" alt="Wild Landscape"/>
+        <img src="https://www.teslarati.com/wp-content/uploads/2018/07/tesla-factory.jpg" class="w-100 opacity-70"
+             alt="Wild Landscape"/>
         <div class="carousel-caption d-none d-md-block text-center ">
           <h5>EV Gigafactory</h5>
-          <p class="text-center d-flex align-items-center justify-content-center">Inside an electrical vehicles fabrication factory.</p>
+          <p class="text-center d-flex align-items-center justify-content-center">Inside an electrical vehicles
+            fabrication factory.</p>
         </div>
       </div>
       <div class="carousel-item bg-black">
         <img src="https://wallpaperaccess.com/full/2183826.jpg" class="d-block w-100 opacity-70" alt="Camera"/>
         <div class="carousel-caption d-none d-md-block">
           <h5>Green energy</h5>
-          <p class="text-center d-flex align-items-center justify-content-center">Better ways to produce electrical energy.</p>
+          <p class="text-center d-flex align-items-center justify-content-center">Better ways to produce electrical
+            energy.</p>
         </div>
       </div>
       <div class="carousel-item bg-black">
-        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg" class="d-block w-100 opacity-70" alt="Exotic Fruits"/>
+        <img src="https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg"
+             class="d-block w-100 opacity-70" alt="Exotic Fruits"/>
         <div class="carousel-caption d-none d-md-block">
           <h5>Tesla Roadster</h5>
           <p class="text-center d-flex align-items-center justify-content-center">Fastest electrical vehicle.</p>
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions"
+            data-mdb-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions"
+            data-mdb-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -116,19 +122,24 @@
               <div class="sidebar-widget">
                 <h4 class="widget-title">About Article</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
-                <p>Get the latest informations in Electrical Engineering. Discuss with specialists around the globe about
-                new discoveries. Publish your Technical Articles and get feedback from experts. <br>
-                Make use of many Tools to improve your work.</p>
+                <p>Get the latest informations in Electrical Engineering. Discuss with specialists around the globe
+                  about
+                  new discoveries. Publish your Technical Articles and get feedback from experts. <br>
+                  Make use of many Tools to improve your work.</p>
               </div>
               <div class="sidebar-widget">
                 <h4>Categories</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
                 <ul class="widget-ul list-unstyled list-hand ">
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Microcontrollers </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Microcontrollers </a>
+                  </li>
                   <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Circuits </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Telecommunications </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Digital Communications </a></li>
-                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> AC/DC Analysis</a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom">
+                    Telecommunications </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> Digital
+                    Communications </a></li>
+                  <li><i class="fa-solid fa-hand-point-right"></i><a href="#" class="textcustom"> AC/DC Analysis</a>
+                  </li>
                 </ul>
               </div>
               <div class="sidebar-widget">
@@ -140,9 +151,10 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
                            class="rounded-circle"/>
                       <div class="ms-3">
-                       <router-link to="/view/article/digital-logic-design" target="_blank" class="textcustom fw-bold mnb-1">
-                         Digital Logic Design (DLD)
-                       </router-link>
+                        <router-link to="/view/article/digital-logic-design" target="_blank"
+                                     class="textcustom fw-bold mnb-1">
+                          Digital Logic Design (DLD)
+                        </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 20, 2022</p>
                       </div>
                     </div>
@@ -153,7 +165,8 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <router-link to="/view/article/power-electronics" target="_blank" class="textcustom fw-bold mb-1">
+                        <router-link to="/view/article/power-electronics" target="_blank"
+                                     class="textcustom fw-bold mb-1">
                           Power Electronics
                         </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> June 29, 2022</p>
@@ -166,7 +179,8 @@
                       <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt=""
                            style="width: 45px; height: 45px"/>
                       <div class="ms-3">
-                        <router-link to="/view/article/embedded-systems" target="_blank" class="textcustom fw-bold mb-1">
+                        <router-link to="/view/article/embedded-systems" target="_blank"
+                                     class="textcustom fw-bold mb-1">
                           Embedded Systems
                         </router-link>
                         <p class="text-muted mb-0"><i class="fa-solid fa-calendar-days"></i> July 12, 2022</p>
@@ -242,14 +256,14 @@ function deleteArticle(article) {
   }
 }
 
-  function getForPage(ev, link) {
-    ev.preventDefault();
-    if (!link.url || link.active) {
-      return;
-    }
-
-    store.dispatch("getArticles", { url: link.url });
+function getForPage(ev, link) {
+  ev.preventDefault();
+  if (!link.url || link.active) {
+    return;
   }
+
+  store.dispatch("getArticles", {url: link.url});
+}
 
 </script>
 
@@ -258,12 +272,15 @@ function deleteArticle(article) {
 .post-content {
   text-align: justify;
 }
+
 nav {
   position: relative;
 }
+
 p {
   text-align: justify;
 }
+
 .sidebar-widget .tags li a {
   background: #cfe0fc;
   color: #353535;
@@ -330,15 +347,18 @@ ul li {
 .carousel .carousel-item {
   max-height: 500px;
 }
+
 .carousel-item img {
   object-fit: cover;
   max-height: 500px;
 }
+
 button {
   margin: 20px;
   outline: none;
   color: white;
 }
+
 #preloader {
   position: fixed;
   top: 0;
@@ -346,6 +366,7 @@ button {
   width: 100%;
   height: 100%;
 }
+
 #loader {
   display: block;
   position: relative;
@@ -360,6 +381,7 @@ button {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
 #loader:before {
   content: "";
   position: absolute;
@@ -373,6 +395,7 @@ button {
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
+
 #loader:after {
   content: "";
   position: absolute;
@@ -386,6 +409,7 @@ button {
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
+
 @-webkit-keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
@@ -396,6 +420,7 @@ button {
     transform: rotate(360deg);
   }
 }
+
 @keyframes spin {
   0% {
     -ms-transform: rotate(0deg);
