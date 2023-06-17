@@ -129,7 +129,7 @@
 
     <!-- Copyright -->
     <div class="copy text-center text-white p-4">
-      © 2022
+      © 2023
       <a class="text-reset fw-bold hover:text-blue-500" href="/home">FIElectrical - Popescu Alexandru</a>
     </div>
     </section>

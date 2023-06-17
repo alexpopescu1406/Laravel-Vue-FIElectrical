@@ -18,11 +18,22 @@ import EventPublicView from "../views/EventPublicView.vue";
 import VlabsView from "../views/VlabsView.vue";
 import VlabPublicView from "../views/VlabPublicView.vue";
 import Vlabs from "../views/Vlabs.vue";
+import roHome from "../views/romanian/roHome.vue";
+import roLogin from "../views/romanian/roLogin.vue";
+import roRegister from "../views/romanian/roRegister.vue";
+import roDefaultLayout from "../components/ro/roDefaultLayout.vue";
+import roEducation from "../views/romanian/roEducation.vue";
+import roArticles from "../views/romanian/roArticles.vue";
+import roArticleView from "../views/romanian/roArticleView.vue";
+import roArticlePublicView from "../views/romanian/roArticlePublicView.vue";
+import roTools from "../views/romanian/roTools.vue";
+import roToolPublicView from "../views/romanian/roToolPublicView.vue";
+import roToolsView from "../views/romanian/roToolsView.vue";
 
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/home/',
     name: 'Home',
     component: DefaultLayout,
     meta: {requiresAuth: true,},
@@ -44,14 +55,42 @@ const routes = [
     ]
   },
   {
+    path: '/',
+    redirect: '/acasa',
+    name: 'roHome',
+    component: roDefaultLayout,
+    meta: {requiresAuth: true,},
+    children: [
+      {path: '/acasa', name: 'Acasa', component: roHome},
+      {path: '/educatie', name: 'Educatie', component: roEducation},
+      {path: '/articole', name: 'Articole', component: roArticles},
+      {path: '/articole/creeaza', name: 'CreeazaArticole', component: roArticleView},
+      {path: '/articole/:id', name: 'VeziArticole', component: roArticleView},
+      {path: '/instrumente', name: 'Instrumente', component: roTools},
+      {path: '/instrumente/:id', name: 'VeziInstrumente', component: roToolsView},
+      {path: '/instrumente/creeaza', name: 'CreeazaInstrumente', component: roToolsView},
+
+    ]
+  },
+  {
     path: '/view/tool/:slug',
     name: 'ToolPublicView',
     component: ToolPublicView,
   },
   {
+    path: '/view/instrumente/:slug',
+    name: 'VeziInstrumentPublic',
+    component: roToolPublicView,
+  },
+  {
     path: '/view/article/:slug',
     name: 'ArticlePublicView',
     component: ArticlePublicView,
+  },
+  {
+    path: '/view/articole/:slug',
+    name: 'VeziArticolPublic',
+    component: roArticlePublicView,
   },
   {
     path: '/view/event/:slug',
@@ -78,9 +117,19 @@ const routes = [
         component: Login
       },
       {
+        path: '/login/ro',
+        name: 'roLogin',
+        component: roLogin
+      },
+      {
         path: '/register',
         name: 'Register',
         component: Register
+      },
+      {
+        path: '/register/ro',
+        name: 'roRegister',
+        component: roRegister
       },
     ]
   }

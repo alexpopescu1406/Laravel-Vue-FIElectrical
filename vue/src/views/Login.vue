@@ -2,6 +2,13 @@
   <div>
     <img class="mx-auto h-30 w-auto" src="../assets/logo.png"
          alt="Workflow"/>
+    <p class="text-center font-bold">Select Language:</p>
+    <router-link :to="{name: 'roLogin'}" class="font-medium text-indigo-600 hover:text-indigo-500 ml-24">
+      Romanian
+    </router-link>
+    <router-link :to="{name: 'Login'}" class="font-medium text-indigo-600 hover:text-indigo-500 ml-24">
+      English
+    </router-link>
     <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
       Sign in to your account</h2>
     <p class="mt-2 text-center text-sm text-gray-600">

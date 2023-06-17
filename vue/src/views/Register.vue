@@ -117,7 +117,7 @@ function register(ev) {
     .then((res) => {
       loading.value = false;
       router.push({
-        name: 'Home'
+        name: 'roHome'
       })
     })
     .catch(err => {
