@@ -1,5 +1,6 @@
 import {createStore} from "vuex";
 import axiosClient from "../axios";
+import Vuex from 'vuex';
 
 const store = createStore({
   state: {
@@ -48,8 +49,13 @@ const store = createStore({
       links: [],
       data: []
     },
+    isFilteredMutationActive: false,
   },
-  getters: {},
+  getters: {
+    getFilteredArticles: state => {
+      return state.articles.data;
+    }
+  },
   actions: {
     getArticle({commit}, id) {
       commit("setCurrentArticleLoading", true);
@@ -64,6 +70,9 @@ const store = createStore({
           commit("setCurrentArticleLoading", false);
           throw err;
         });
+    },
+    toggleFilteredMutation({ commit, state }) {
+      commit('setFilteredMutationState', !state.isFilteredMutationActive);
     },
     saveArticle({commit}, article) {
       delete article.image_url;
@@ -333,9 +342,17 @@ const store = createStore({
     setCurrentArticle: (state, article) => {
       state.currentArticle.data = article.data;
     },
-    setArticles: (state, articles) => {
+    setFilteredMutationState(state, isActive) {
+      state.isFilteredMutationActive = isActive;
+    },
+    setArticles(state, articles) {
+      if (state.isFilteredMutationActive) {
+        const filteredArticles = articles.data.filter(articles => articles.dateday == 12);
+        state.articles.data = filteredArticles;
+      } else {
+        state.articles.data = articles.data;
+      }
       state.articles.links = articles.meta.links;
-      state.articles.data = articles.data;
     },
 
     setCurrentToolLoading: (state, loading) => {

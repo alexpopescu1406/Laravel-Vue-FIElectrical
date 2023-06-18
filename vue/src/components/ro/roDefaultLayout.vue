@@ -129,7 +129,7 @@ const navigation = [
   {name: 'Educatie', to: {name: "Educatie"}},
   {name: 'Articole', to: {name: "Articole"}},
   {name: 'Instrumente', to: {name: "Instrumente"}},
-  {name: 'Events', to: {name: "Events"}},
+  {name: 'Evenimente', to: {name: "Evenimente"}},
   {name: 'Virtual Labs', to: {name: "Virtual Labs"}},
 ];
 

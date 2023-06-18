@@ -29,6 +29,9 @@ import roArticlePublicView from "../views/romanian/roArticlePublicView.vue";
 import roTools from "../views/romanian/roTools.vue";
 import roToolPublicView from "../views/romanian/roToolPublicView.vue";
 import roToolsView from "../views/romanian/roToolsView.vue";
+import roEvents from "../views/romanian/roEvents.vue";
+import roEventPublicView from "../views/romanian/roEventPublicView.vue";
+import roEventView from "../views/romanian/roEventView.vue";
 
 const routes = [
   {
@@ -69,7 +72,9 @@ const routes = [
       {path: '/instrumente', name: 'Instrumente', component: roTools},
       {path: '/instrumente/:id', name: 'VeziInstrumente', component: roToolsView},
       {path: '/instrumente/creeaza', name: 'CreeazaInstrumente', component: roToolsView},
-
+      {path: '/evenimente', name: 'Evenimente', component: roEvents},
+      {path: '/evenimente/:id', name: 'VeziEvenimente', component: roEventView},
+      {path: '/evenimente/creeaza', name: 'CreeazaEvenimente', component: roEventView},
     ]
   },
   {
@@ -96,6 +101,11 @@ const routes = [
     path: '/view/event/:slug',
     name: 'EventPublicView',
     component: EventPublicView,
+  },
+  {
+    path: '/view/eveniment/:slug',
+    name: 'VeziEvenimentPublic',
+    component: roEventPublicView,
   },
   {
     path: '/view/vlab/:slug',

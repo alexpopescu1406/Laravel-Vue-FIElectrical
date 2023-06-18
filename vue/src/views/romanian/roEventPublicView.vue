@@ -144,8 +144,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Electrical Engineer</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Inginer Electric</h5>
+          <p>Activități de zi cu zi realizate mai ușor.</p>
         </div>
       </div>
 
@@ -155,8 +155,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Modern Power Plant</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>Centrală electrică modernă</h5>
+          <p>Funcționarea unei centrale electrice moderne.</p>
         </div>
       </div>
 
@@ -166,8 +166,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Tesla Giga Factory</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <h5>Giga fabrica Tesla</h5>
+          <p>Prezentarea fabricii Tesla din Berlin.</p>
         </div>
       </div>
     </div>
@@ -189,32 +189,75 @@
       <div id="loader"></div>
     </div>
   </div>
-  <div v-else class="container pt-16">
-    <div class="">
-      <div class="post">
-        <div class="post-image clearfix flex justify-center">
-          <img alt="tool" :src="tool.image_url" class="w-[800px] h-100 object-cover">
-        </div>
-        <div class="post-details">
-          <div class="post-title">
-            <h4 class="pt-24">
-              <a
-                :href="`/view/tool/${tool.slug}`"
-                target="_blank"
-                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
-                {{ tool.title }}
-              </a>
-            </h4>
+  <div v-else class="bg-blue-800">
+
+    <div  class="container mt-24 mb-24 pt-12 pb-12  ">
+      <div class="row">
+        <div class="col-md-8">
+          <h4>
+            <div class="d-flex justify-content-start mt-2 ml-12">
+              <span class="badge rounded-pill badge-info mb-4">{{ event.type }}</span>
+            </div>
+          </h4>
+          <h5 class="d-flex justify-content-start ml-12
+                            text-gray-900 flex justify-center text-3xl text-light font-extrabold mb-4">
+            {{ event.title }}
+          </h5>
+          <div id="name" class="text-xl pl-12 text-light ">
+            {{ event.description }}
           </div>
-          <div id="name" class="text-xl pl-12 ">
-            {{ tool.description }}
-          </div>
+          <section class="text-center mt-24">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                <i class="fas fa-chalkboard-user fa-2x text-light mb-2"></i>
+                <h5 class=" fw-bold mb-3 text-light">Tip Curs</h5>
+                <h6 class="fw-normal mb-0 text-light">{{event.type}}</h6>
+                <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block text-light top-0 end-0"></div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                <i class="fas fa-layer-group fa-2x text-light mb-2"></i>
+                <h5 class=" fw-bold mb-3 text-light">ID Produs</h5>
+                <h6 class="fw-normal mb-0 text-light">{{event.id}}</h6>
+                <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-2 mb-md-2 position-relative">
+                <i class="fas fa-graduation-cap fa-2x text-light mb-2"></i>
+                <h5 class="fw-bold mb-3 text-light">Credite</h5>
+                <h6 class="fw-normal mb-0 text-light">{{ event.credits }}</h6>
+              </div>
+
+            </div>
+          </section>
         </div>
+        <div class="col-md-4 bg-light pb-4 shadow rounded-xl pt-4">
+          <div class="text-center text-2xl text-dark fw-light">
+            Locație & Dată
+          </div>
+          <div id="name" class="text-xl text-center fw-light text-dark mt-4">
+            <i class="fas fa-calendar-days fw-light text-dark"></i>
+            {{ event.date }}
+          </div>
+          <div id="name" class="text-xl text-center fw-light text-dark mt-2 mb-2">
+            <i class="fas fa-location-dot text-dark "></i>
+            {{ event.location }}
+          </div>
+          <iframe :src=event.maplocation class="">
+          </iframe>
+        </div>
+
       </div>
     </div>
   </div>
-  <div>
-    <component :is="formulaComponentName"></component>
+
+  <div  id="containerright" class="container mt-24 mb-24 shadow">
+    <div class="d-inline-flex p-3 bg-green-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
+      DESCRIERE
+    </div>
+    <div class="text-xl  text-dark mb-2 pb-2">
+      {{ event.longdescription }}
+    </div>
   </div>
   <roFooter/>
 </template>
@@ -226,49 +269,25 @@ import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import roFooter from "../../components/ro/roFooter.vue";
-import roparallelresistor from "../../components/formulas/roformulas/roparallelresistor.vue";
-import rowheatstone from "../../components/formulas/roformulas/rowheatstone.vue";
-import rofaradaylaw from "../../components/formulas/roformulas/rofaradaylaw.vue";
-import ropressureunit from "../../components/formulas/roformulas/ropressureunit.vue";
-import roenergycalculator from "../../components/formulas/roformulas/roenergycalculator.vue";
-import roRCtimeconstant from "../../components/formulas/roformulas/roRCtimeconstant.vue";
 
 const navigation = [
-  {name: 'ACasa', to: {name: "Acasa"}},
+  {name: 'Acasa', to: {name: "Acasa"}},
   {name: 'Educatie', to: {name: "Educatie"}},
   {name: 'Articole', to: {name: "Articole"}},
   {name: 'Instrumente', to: {name: "Instrumente"}},
   {name: 'Evenimente', to: {name: "Evenimente"}},
-  {name: 'Virtual Labs', to: {name: "Virtual Labs"}},
+  {name: 'Laboratoare Virtuale', to: {name: "LaboratoareVirtuale"}},
 
 ];
 
 const route = useRoute();
 const store = useStore();
 
-const loading = computed(() => store.state.currentTool.loading);
-const tool = computed (() => store.state.currentTool.data);
+const loading = computed(() => store.state.currentEvent.loading);
+const event = computed (() => store.state.currentEvent.data)
 
-const formulaComponentName = computed (() => {
-  switch (tool.value.formula){
-    case "Punte Wheatstone":
-      return rowheatstone
-    case "Rezistenta Echivalenta in Paralel":
-      return roparallelresistor
-    case "Legile Faraday Lenz":
-      return rofaradaylaw
-    case "Unitati de masura Presiune":
-      return ropressureunit
-    case "Calculator Energii":
-      return roenergycalculator
-    case "Constanta de timp circuit RC":
-      return roRCtimeconstant
-    default:
-      console.log("alll")
-  }
-});
 
-store.dispatch("getToolsBySlug", route.params.slug);
+store.dispatch("getEventsBySlug", route.params.slug);
 
 </script>
 
@@ -285,6 +304,12 @@ store.dispatch("getToolsBySlug", route.params.slug);
   background: black;
   overflow: hidden;
 }
+
+iframe {
+  width: 400px;
+  height: 300px;
+}
+
 body {
   overflow-x: hidden !important;
 }
@@ -355,10 +380,6 @@ body {
     transform: rotate(360deg);
   }
 }
-#name {
-  white-space: pre-line;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 
 </style>

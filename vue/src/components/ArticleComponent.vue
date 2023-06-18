@@ -72,6 +72,26 @@
           </div>
         </div>
       </div>
+      <div class="text-xl font-extrabold text-end">
+        Select Articles' Language:
+        <button
+          type="submit"
+          class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
+       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="toggleFilteredMutation"
+        >
+          RO
+        </button>
+        <button
+          type="submit"
+          class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
+       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          EN
+        </button>
+      </div>
+
+
 
       <div v-if="articles.loading" class="flex justify-center pb-96 pt-96">
         <div id="preloader">
@@ -127,6 +147,7 @@
                   new discoveries. Publish your Technical Articles and get feedback from experts. <br>
                   Make use of many Tools to improve your work.</p>
               </div>
+
               <div class="sidebar-widget">
                 <h4>Categories</h4>
                 <img src="../assets/horizline.png" alt="line" class="horizline2">
@@ -242,6 +263,13 @@ import ArticleListItem from "./ArticleListItem.vue";
 const articles = computed(() => store.state.articles);
 
 store.dispatch('getArticles')
+
+function toggleFilteredMutation(){
+  store.dispatch('toggleFilteredMutation')
+    .then(()=>{
+      store.dispatch('getArticles')
+    })
+}
 
 function deleteArticle(article) {
   if (
