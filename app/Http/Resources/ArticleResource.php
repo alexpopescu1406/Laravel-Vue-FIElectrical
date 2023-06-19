@@ -20,6 +20,7 @@ class ArticleResource extends JsonResource
             'image_url' => $this->image ? URL::to($this->image) : null,
             'title' => $this->title,
             'slug' => $this->slug,
+            'language' => $this->language,
             'status' => $this->status,
             'description' => $this->description,
             'dateday' => $this->dateday,

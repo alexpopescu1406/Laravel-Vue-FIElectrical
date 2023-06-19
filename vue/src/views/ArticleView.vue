@@ -117,6 +117,15 @@
       />
     </div>
     <div>
+      <label for="language" class="block text-sm font-medium text-gray-700">
+        Language
+      </label>
+      <select v-model="model.language">
+        <option>Romanian</option>
+        <option>English</option>
+      </select>
+    </div>
+    <div>
       <label for="about" class="block text-sm font-medium text-gray-700">
         Description
       </label>
@@ -173,6 +182,7 @@ const ArticleLoading = computed(() => store.state.currentArticle.loading)
 let model = ref({
   title: "",
   status: null,
+  language: null,
   description: null,
   image: null,
   image_url: null,

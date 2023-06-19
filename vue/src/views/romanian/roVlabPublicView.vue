@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-14 w-14" src="../../../src/assets/logogray.png" alt="logo"/>
+              <img class="h-14 w-14" src="../../src/assets/logogray.png" alt="logo"/>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -144,8 +144,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Inginer Electric</h5>
-          <p>Activități de zi cu zi realizate mai ușor.</p>
+          <h5>Electrical Engineer</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
       </div>
 
@@ -155,8 +155,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Centrală electrică modernă</h5>
-          <p>Funcționarea unei centrale electrice moderne.</p>
+          <h5>Modern Power Plant</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
 
@@ -166,8 +166,8 @@
              class="d-block w-100"
              alt=""/>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Giga fabrica Tesla</h5>
-          <p>Prezentarea fabricii Tesla din Berlin.</p>
+          <h5>Tesla Giga Factory</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
       </div>
     </div>
@@ -189,82 +189,31 @@
       <div id="loader"></div>
     </div>
   </div>
-  <div v-else class="bg-blue-800">
-
-    <div  class="container mt-24 mb-24 pt-12 pb-12  ">
-      <div class="row">
-        <div class="col-md-8">
-          <h4>
-            <div class="d-flex justify-content-start mt-2 ml-12">
-              <span class="badge rounded-pill badge-info mb-4">{{ event.type }}</span>
-            </div>
-          </h4>
-          <h5 class="d-flex justify-content-start ml-12
-                            text-gray-900 flex justify-center text-3xl text-light font-extrabold mb-4">
-            {{ event.title }}
-          </h5>
-          <div id="name" class="text-xl pl-12 text-light ">
-            {{ event.description }}
+  <div v-else class="container pt-12">
+    <div class="">
+      <div class="post">
+        <div class="post-details">
+          <div class="post-title">
+            <h4 class="pt-2">
+              <a
+                :href="`/view/labvirtuale/${vlab.slug}`"
+                target="_blank"
+                class="text-gray-900 hover:text-green-400 flex justify-center text-3xl font-extrabold">
+                {{ vlab.title }}
+              </a>
+            </h4>
           </div>
-          <section class="text-center mt-24 mr-24">
-            <div class="row">
-              <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
-                <i class="fas fa-chalkboard-user fa-2x text-light mb-2"></i>
-                <h5 class=" fw-bold mb-3 text-light">Tip Curs</h5>
-                <h6 class="fw-normal mb-0 text-light">{{event.type}}</h6>
-                <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block text-light top-0 end-0"></div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
-                <i class="fas fa-layer-group fa-2x text-light mb-2"></i>
-                <h5 class=" fw-bold mb-3 text-light">ID Produs</h5>
-                <h6 class="fw-normal mb-0 text-light">{{event.id}}</h6>
-                <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mb-2 mb-md-2 position-relative">
-                <i class="fas fa-graduation-cap fa-2x text-light mb-2"></i>
-                <h5 class="fw-bold mb-3 text-light">Credite</h5>
-                <h6 class="fw-normal mb-0 text-light">{{ event.credits }}</h6>
-                <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mb-md-2 position-relative">
-                <i class="fas fa-language fa-2x text-light mb-2"></i>
-                <h5 class="fw-bold mb-3 text-light">Limba</h5>
-                <h6 class="fw-normal mb-0 text-light">{{ event.language }}</h6>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col-md-4 bg-light pb-4 shadow rounded-xl pt-4">
-          <div class="text-center text-2xl text-dark fw-light">
-            Locație & Dată
+          <div id="name" class="text-xl ml-60">
+            {{ vlab.description }}
           </div>
-          <div id="name" class="text-xl text-center fw-light text-dark mt-4">
-            <i class="fas fa-calendar-days fw-light text-dark"></i>
-            {{ event.date }}
-          </div>
-          <div id="name" class="text-xl text-center fw-light text-dark mt-2 mb-2">
-            <i class="fas fa-location-dot text-dark "></i>
-            {{ event.location }}
-          </div>
-          <iframe :src=event.maplocation class="">
-          </iframe>
         </div>
       </div>
     </div>
   </div>
-
-  <div  id="containerright" class="container mt-24 mb-24 shadow">
-    <div class="d-inline-flex p-3 bg-green-400 text-uppercase fw-bold text-light mb-2 ml-[-30px] mt-[20px]">
-      DESCRIERE
-    </div>
-    <div class="text-xl  text-dark mb-2 pb-2">
-      {{ event.longdescription }}
-    </div>
-  </div>
+  <component :is="labComponentName"></component>
   <roFooter/>
 </template>
+
 
 <script setup>
 import  { computed } from "vue";
@@ -273,6 +222,7 @@ import { useStore } from "vuex";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import roFooter from "../../components/ro/roFooter.vue";
+import roplcondelay from "../../components/vlabs/roplcondelay/roplcondelay.vue";
 
 const navigation = [
   {name: 'Acasa', to: {name: "Acasa"}},
@@ -287,11 +237,19 @@ const navigation = [
 const route = useRoute();
 const store = useStore();
 
-const loading = computed(() => store.state.currentEvent.loading);
-const event = computed (() => store.state.currentEvent.data)
+const loading = computed(() => store.state.currentVlab.loading);
+const vlab = computed (() => store.state.currentVlab.data);
 
+const labComponentName = computed (() => {
+  switch (vlab.value.lab){
+    case "roplcondelay":
+      return roplcondelay
+    default:
+      console.log("alll")
+  }
+});
 
-store.dispatch("getEventsBySlug", route.params.slug);
+store.dispatch("getVlabsBySlug", route.params.slug);
 
 </script>
 
@@ -308,12 +266,6 @@ store.dispatch("getEventsBySlug", route.params.slug);
   background: black;
   overflow: hidden;
 }
-
-iframe {
-  width: 400px;
-  height: 300px;
-}
-
 body {
   overflow-x: hidden !important;
 }
@@ -323,6 +275,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0.45;
 }
+
 #loader {
   display: block;
   position: relative;
@@ -384,6 +337,10 @@ body {
     transform: rotate(360deg);
   }
 }
-
+#name {
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 </style>

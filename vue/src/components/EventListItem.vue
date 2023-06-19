@@ -43,7 +43,10 @@
             </div>
           </div>
           <p class="mb-0">
-            <i class="fa-solid fa-calendar-days mr-4"></i> {{ event.date }}
+            <i class="fa-solid fa-calendar-days mr-2"></i> {{ event.date }}
+          </p>
+          <p class="mt-2">
+            <i class="fa-solid fa-language mr-2"></i> {{event.language}}
           </p>
           <div class="d-flex w-100 justify-content-between items-center mt-2">
           <button v-if="event.id" type="button"

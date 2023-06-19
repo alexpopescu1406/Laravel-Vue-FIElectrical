@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('status', 1000);
             $table->text('description')->nullable();
             $table->text('longdescription')->nullable();
+            $table->string('language', 1000);
             $table->text('credits')->nullable();
             $table->timestamps();
         });

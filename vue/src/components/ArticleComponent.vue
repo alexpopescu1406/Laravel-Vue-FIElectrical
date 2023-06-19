@@ -78,16 +78,8 @@
           type="submit"
           class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
        text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          @click="toggleFilteredMutation"
-        >
-          RO
-        </button>
-        <button
-          type="submit"
-          class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
-       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          EN
+          @click="callBoth">
+          {{buttonText}}
         </button>
       </div>
 
@@ -255,6 +247,29 @@
   <br>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      buttonText: 'English',
+    };
+  },
+  methods: {
+    changeText(){
+      if (this.buttonText == 'English'){
+        this.buttonText = 'All'
+      }else
+      {
+        this.buttonText = 'English'
+      }
+    },
+    callBoth(){
+      this.toggleFilteredMutation();
+      this.changeText();
+    }
+  }
+}
+</script>
 <script setup>
 import store from "../store";
 import {computed} from "vue";
@@ -264,10 +279,11 @@ const articles = computed(() => store.state.articles);
 
 store.dispatch('getArticles')
 
+
 function toggleFilteredMutation(){
   store.dispatch('toggleFilteredMutation')
     .then(()=>{
-      store.dispatch('getArticles')
+      store.dispatch('getArticlesEn')
     })
 }
 

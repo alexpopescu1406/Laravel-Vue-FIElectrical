@@ -22,6 +22,7 @@ class ToolResource extends JsonResource
             'status' => $this->status,
             'slug' => $this->slug,
             'formula' => $this->formula,
+            'language' => $this->language,
             'description' => $this->description,
             'updated_at' => $this->updated_at,
         ];

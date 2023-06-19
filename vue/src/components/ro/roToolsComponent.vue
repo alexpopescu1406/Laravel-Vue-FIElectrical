@@ -10,7 +10,16 @@
         <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Calculatoare folositoare</p>
       </div>
     </div>
-
+    <div class="text-xl font-extrabold text-center pl-[900px]">
+      Selecează limba:
+      <button
+        type="submit"
+        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
+       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        @click="callBoth">
+        {{buttonText}}
+      </button>
+    </div>
     <div v-if="tools.loading" class="flex justify-center pb-96 pt-96">
       <div id="preloader">
         <div id="loader"></div>
@@ -61,6 +70,30 @@
   <br><br>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      buttonText: 'Romanian',
+    };
+  },
+  methods: {
+    changeText(){
+      if (this.buttonText == 'Romanian'){
+        this.buttonText = 'Toate'
+      }else
+      {
+        this.buttonText = 'Romanian'
+      }
+    },
+    callBoth(){
+      this.toggleFilteredMutation();
+      this.changeText();
+    }
+  }
+}
+</script>
+
 <script setup>
 import store from "../../store";
 import {computed} from "vue";
@@ -69,6 +102,13 @@ import roToolListItem from "./roToolListItem.vue";
 const tools = computed(() => store.state.tools);
 
 store.dispatch('getTools')
+
+function toggleFilteredMutation(){
+  store.dispatch('toggleFilteredMutation')
+    .then(()=>{
+      store.dispatch('getToolsRo')
+    })
+}
 
 function deleteTool(tool) {
   if (

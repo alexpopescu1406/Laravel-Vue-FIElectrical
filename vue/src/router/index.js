@@ -32,6 +32,9 @@ import roToolsView from "../views/romanian/roToolsView.vue";
 import roEvents from "../views/romanian/roEvents.vue";
 import roEventPublicView from "../views/romanian/roEventPublicView.vue";
 import roEventView from "../views/romanian/roEventView.vue";
+import roVlabs from "../views/romanian/roVlabs.vue";
+import roVlabsView from "../views/romanian/roVlabsView.vue";
+import roVlabPublicView from '../views/romanian/roVlabPublicView.vue';
 
 const routes = [
   {
@@ -75,6 +78,9 @@ const routes = [
       {path: '/evenimente', name: 'Evenimente', component: roEvents},
       {path: '/evenimente/:id', name: 'VeziEvenimente', component: roEventView},
       {path: '/evenimente/creeaza', name: 'CreeazaEvenimente', component: roEventView},
+      {path: '/labvirtuale', name: 'Laboratoare Virtuale', component: roVlabs},
+      {path: '/labvirtuale/:id', name: 'VeziLabVirtuale', component: roVlabsView},
+      {path: '/labvirtuale/create', name: 'CreeazaLabVirtuale', component: roVlabsView},
     ]
   },
   {
@@ -112,7 +118,11 @@ const routes = [
     name: 'VlabPublicView',
     component: VlabPublicView,
   },
-
+  {
+    path: '/view/labvirtuale/:slug',
+    name: 'VeziLaboratorPublic',
+    component: roVlabPublicView,
+  },
 
   {
     path: '/auth',

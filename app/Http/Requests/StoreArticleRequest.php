@@ -42,6 +42,7 @@ class StoreArticleRequest extends FormRequest
             'description' => 'nullable|string',
             'dateday' => 'nullable|string',
             'datemonth' => 'nullable|string',
+            'language' => 'required|string',
         ];
     }
 }

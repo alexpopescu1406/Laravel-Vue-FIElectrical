@@ -206,26 +206,32 @@
                   <div id="name" class="text-xl pl-12 text-light ">
                     {{ event.description }}
                   </div>
-              <section class="text-center mt-24">
+              <section class="text-center mt-24 mr-12">
                 <div class="row">
-                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                  <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
                     <i class="fas fa-chalkboard-user fa-2x text-light mb-2"></i>
                     <h5 class=" fw-bold mb-3 text-light">Course Type</h5>
                     <h6 class="fw-normal mb-0 text-light">{{event.type}}</h6>
                     <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block text-light top-0 end-0"></div>
                   </div>
 
-                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
+                  <div class="col-lg-3 col-md-6 mb-2 mb-md-2 mb-lg-0 position-relative">
                     <i class="fas fa-layer-group fa-2x text-light mb-2"></i>
                     <h5 class=" fw-bold mb-3 text-light">Product ID</h5>
                     <h6 class="fw-normal mb-0 text-light">{{event.id}}</h6>
                     <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
                   </div>
 
-                  <div class="col-lg-4 col-md-6 mb-2 mb-md-2 position-relative">
+                  <div class="col-lg-3 col-md-6 mb-2 mb-md-2 position-relative">
                     <i class="fas fa-graduation-cap fa-2x text-light mb-2"></i>
                     <h5 class="fw-bold mb-3 text-light">Credits</h5>
                     <h6 class="fw-normal mb-0 text-light">{{ event.credits }}</h6>
+                    <div class="vr vr-blurry position-absolute my-0 h-100 d-none text-light d-md-block top-0 end-0"></div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 mb-2 mb-md-2 position-relative">
+                    <i class="fas fa-language fa-2x text-light mb-2"></i>
+                    <h5 class="fw-bold mb-3 text-light">Language</h5>
+                    <h6 class="fw-normal mb-0 text-light">{{ event.language }}</h6>
                   </div>
 
                 </div>

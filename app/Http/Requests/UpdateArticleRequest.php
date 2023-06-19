@@ -36,6 +36,7 @@ class UpdateArticleRequest extends FormRequest
             'description' => 'nullable|string',
             'dateday' => 'nullable|string',
             'datemonth' => 'nullable|string',
+            'language' => 'required|string',
         ];
     }
 }

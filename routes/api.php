@@ -32,9 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('/articole', ArticleController::class);
     Route::resource('/instrumente', ToolController::class);
     Route::resource('/evenimente', EventController::class);
-
-
-
+    Route::resource('/labvirtuale', VlabController::class);
 });
 
 Route::get('/article-by-slug/{article:slug}', [ArticleController::class, 'showForGuest']);
@@ -43,6 +41,7 @@ Route::get('/tool-by-slug/{tool:slug}', [ToolController::class, 'showForGuest'])
 Route::get('/tool-by-slug/{instrumente:slug}', [ToolController::class, 'showForGuest']);
 Route::get('/event-by-slug/{event:slug}', [EventController::class, 'showForGuest']);
 Route::get('/vlab-by-slug/{vlab:slug}', [VlabController::class, 'showForGuest']);
+Route::get('/vlab-by-slug/{labvirtuale:slug}', [VlabController::class, 'showForGuest']);
 Route::get('/event-by-slug/{eveniment:slug}', [EventController::class, 'showForGuest']);
 
 

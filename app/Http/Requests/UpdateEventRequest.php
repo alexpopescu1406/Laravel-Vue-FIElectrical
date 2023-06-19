@@ -38,6 +38,7 @@ class UpdateEventRequest extends FormRequest
             'maplocation' => 'required|string',
             'longdescription' => 'nullable|string',
             'type' => 'required|string',
+            'language' => 'required|string',
             'user_id' => 'exists:users, id',
             'description' => 'nullable|string',
         ];

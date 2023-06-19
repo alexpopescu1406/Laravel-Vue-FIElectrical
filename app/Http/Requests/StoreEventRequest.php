@@ -42,6 +42,7 @@ class StoreEventRequest extends FormRequest
             'date' => 'required|date',
             'location' => 'required|string',
             'maplocation' => 'required|string',
+            'language' => 'required|string',
             'longdescription' => 'nullable|string',
             'credits' => 'string',
             'type' => 'required|string|max:1000',

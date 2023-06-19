@@ -91,7 +91,15 @@
             />
           </div>
           <!--/ Title -->
-
+          <div>
+            <label for="language" class="block text-sm font-medium text-gray-700">
+              Limba
+            </label>
+            <select v-model="model.language">
+              <option>Romanian</option>
+              <option>English</option>
+            </select>
+          </div>
           <!-- Description -->
           <div>
             <label for="about" class="block text-sm font-medium text-gray-700">
@@ -170,6 +178,7 @@ let model = ref({
   description: null,
   status: null,
   formula: null,
+  language: null,
   image: null,
   image_url: null,
 });

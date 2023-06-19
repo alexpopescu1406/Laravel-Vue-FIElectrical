@@ -33,6 +33,7 @@ class UpdateToolRequest extends FormRequest
             'image' => 'nullable|string',
             'status' => 'required|string',
             'user_id' => 'exists:users, id',
+            'language' => 'required|string',
             'formula' => 'nullable|string',
             'description' => 'nullable|string',
         ];

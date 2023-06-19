@@ -43,7 +43,10 @@
             </div>
           </div>
           <p class="mb-0">
-            <i class="fa-solid fa-calendar-days mr-4"></i> {{ event.date }}
+            <i class="fa-solid fa-calendar-days mr-2"></i> {{ event.date }}
+          </p>
+          <p class="mt-2">
+            <i class="fa-solid fa-language mr-2"></i> {{ event.language }}
           </p>
           <div class="d-flex w-100 justify-content-between items-center mt-2">
             <button v-if="event.id" type="button"
@@ -51,7 +54,7 @@
                     class="btn btn-primary">
               <span>Participă</span>
             </button>
-            <router-link :to="{ name: 'EventsView', params: { id: event.id } }"
+            <router-link :to="{ name: 'VeziEvenimente', params: { id: event.id } }"
                          class="flex py-1 px-3 ml-96 text-md rounded-md text-indigo-500
                                   bg-white hover:bg-indigo-900">
               <svg xmins="http://www.w3.org/2000/svg"

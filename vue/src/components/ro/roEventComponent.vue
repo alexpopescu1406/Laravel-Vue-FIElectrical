@@ -10,7 +10,35 @@
         <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Participă sau organizează un Eveniment </p>
       </div>
     </div>
-
+    <div class="ml-96 mb-[-50px] mt-12">
+      <router-link :to="{ name: 'CreeazaEvenimente' }"
+                   class="py-2 px-3 text-dark bg-blue-500 rounded-md hover:bg-blue-800">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 -mt-1 inline-block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4"/>
+        </svg>
+        Adaugă
+      </router-link>
+    </div>
+    <div class="text-xl font-extrabold text-center pl-[900px]">
+      Selectează limba:
+      <button
+        type="submit"
+        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
+       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        @click="callBoth">
+        {{buttonText}}
+      </button>
+    </div>
     <div v-if="events.loading" class="flex justify-center pb-96 pt-96">
       <div id="preloader">
         <div id="loader"></div>
@@ -62,6 +90,30 @@
   <br><br>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      buttonText: 'Romanian',
+    };
+  },
+  methods: {
+    changeText(){
+      if (this.buttonText == 'Romanian'){
+        this.buttonText = 'Toate'
+      }else
+      {
+        this.buttonText = 'Romanian'
+      }
+    },
+    callBoth(){
+      this.toggleFilteredMutation();
+      this.changeText();
+    }
+  }
+}
+</script>
+
 <script setup>
 import store from "../../store";
 import {computed} from "vue";
@@ -82,6 +134,13 @@ function deleteEvent(event) {
         store.dispatch('getEvents')
       })
   }
+}
+
+function toggleFilteredMutation(){
+  store.dispatch('toggleFilteredMutation')
+    .then(()=>{
+      store.dispatch('getEventsRo')
+    })
 }
 
 function attendEvent(event) {

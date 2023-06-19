@@ -130,7 +130,7 @@ const navigation = [
   {name: 'Articole', to: {name: "Articole"}},
   {name: 'Instrumente', to: {name: "Instrumente"}},
   {name: 'Evenimente', to: {name: "Evenimente"}},
-  {name: 'Virtual Labs', to: {name: "Virtual Labs"}},
+  {name: 'Laboratoare Virtuale', to: {name: "Laboratoare Virtuale"}},
 ];
 
 

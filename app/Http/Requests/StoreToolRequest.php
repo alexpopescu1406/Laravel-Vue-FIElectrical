@@ -39,6 +39,7 @@ class StoreToolRequest extends FormRequest
             'image' => 'nullable|string',
             'status' => 'required|string',
             'formula' => 'nullable|string',
+            'language' => 'required|string',
             'user_id' => 'exists:users,id',
             'description' => 'nullable|string',
         ];

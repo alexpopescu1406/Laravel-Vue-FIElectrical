@@ -13,7 +13,7 @@
         <div class="post-title">
           <h4 class="pl-20 pt-3">
             <a
-              :href="`/view/article/${article.slug}`"
+              :href="`/view/articole/${article.slug}`"
               target="_blank"
               class="text-gray-900 hover:text-green-400">
               {{ article.title }}
@@ -24,12 +24,13 @@
           <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
           <a href="#"><i class="fa-solid fa-heart"></i> {{ value4 }} Aprecieri </a>
           <a href="#"><i class="fa-solid fa-comment"></i> Comentarii </a>
+          <a href="#"><i class="fa-solid fa-language"></i> {{article.language}}</a>
         </div>
         <div id="name" class="post-content">
           {{ article.description }}
         </div>
         <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
-          <router-link :to="{ name: 'ArticleView', params: { id: article.id } }"
+          <router-link :to="{ name: 'VeziArticole', params: { id: article.id } }"
                        class="flex py-2 px-4 border border-transparent text-md rounded-md text-white
                                   bg-indigo-600 hover:bg-indigo-700 ml-[660px] ">
             <svg xmins="http://www.w3.org/2000/svg"

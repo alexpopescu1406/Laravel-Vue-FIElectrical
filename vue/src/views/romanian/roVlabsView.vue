@@ -1,11 +1,11 @@
 <template>
   <div class="bg-gray-100">
     <div class="bg-white pb-8 text-center pt-24 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 pl-24 pr-24 sm:text-4xl d-flex justify-content-between">
-      {{ route.params.id ? model.title : "Create a Tool" }}
+      {{ route.params.id ? model.title : "Creează Laborator Virtual" }}
       <button
         v-if="route.params.id"
         type="button"
-        @click="deleteTool()"
+        @click="deleteVlab()"
         class="py-2 px-3 text-xl text-white bg-red-500 rounded-md hover:bg-red-700"
       >
         <svg
@@ -20,23 +20,23 @@
             clip-rule="evenodd"
           />
         </svg>
-        Delete Tool
+       Șterge Laborator
       </button>
     </div>
 
-    <div v-if="toolLoading" class="d-flex justify-content-center pb-96 pt-96 mt-96 mb-96">
+    <div v-if="vlabLoading" class="d-flex justify-content-center pb-96 pt-96 mt-96 mb-96">
       <div id="preloader">
         <div id="loader"></div>
       </div>
     </div>
-    <form v-else @submit.prevent="saveTool" class="animate-fade-in-down">
+    <form v-else @submit.prevent="saveVlab" class="animate-fade-in-down">
       <div class="sm:rounded-md sm:overflow-hidden pr-12 pl-12 mt-12 pb-24">
         <br>
         <div class="px-4 py-5 bg-white space-y-6 sm:p-6 mr-36 ml-36">
           <!-- Image -->
           <div>
             <label class="block text-sm font-medium text-gray-700">
-              Image
+              Imagine
             </label>
             <div class="mt-1 flex items-center">
               <img
@@ -70,7 +70,7 @@
                   @change="onImageChoose"
                   class="absolute left-0 top-0 right-0 bottom-0 opacity-0 cursor-pointer"
                 />
-                Change
+                Schimbă
               </button>
             </div>
           </div>
@@ -79,31 +79,23 @@
           <!-- Title -->
           <div>
             <label for="title" class="block text-sm font-medium text-gray-700">
-              Title
+              Titlu
             </label>
             <input
               type="text"
               name="title"
               id="title"
               v-model="model.title"
-              autocomplete="tool_title"
+              autocomplete="vlab_title"
               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
           </div>
           <!--/ Title -->
-          <div>
-            <label for="language" class="block text-sm font-medium text-gray-700">
-              Language
-            </label>
-            <select v-model="model.language">
-              <option>Romanian</option>
-              <option>English</option>
-            </select>
-          </div>
+
           <!-- Description -->
           <div>
             <label for="about" class="block text-sm font-medium text-gray-700">
-              Description
+              Descriere
             </label>
             <div class="mt-1">
               <textarea
@@ -111,49 +103,44 @@
                 name="description"
                 rows="3"
                 v-model="model.description"
-                autocomplete="tool_description"
+                autocomplete="vlab_description"
                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                placeholder="Describe your post"
+                placeholder="Descrie laboratorul"
               />
             </div>
           </div>
           <!-- Description -->
 
           <div>
-            <label for="formula" class="block text-sm font-medium text-gray-700">
-              Formula name
+            <label for="lab" class="block text-sm font-medium text-gray-700">
+              Virtual Lab
             </label>
 
-            <div>Select formula</div>
-           <select v-model="model.formula">
-             <option>Wheatstone Bridge</option>
-             <option>Parallel Resistor</option>
-             <option>Faraday Lenz Law</option>
-             <option>Pressure Unit</option>
-             <option>Energy Calculator</option>
-             <option>RC Time Constant</option>
-           </select>
+            <div>Selectează Laborator Virtual</div>
+            <select v-model="model.lab">
+              <option>roplcondelay</option>
+            </select>
           </div>
 
 
-        <div>
-          <label for="status" class="block text-sm font-medium text-gray-700">
-            Status
-          </label>
+          <div>
+            <label for="status" class="block text-sm font-medium text-gray-700">
+              Status
+            </label>
 
-          <select v-model="model.status">
-            <option>Published</option>
-            <option>Work in progress</option>
-            <option>Under review</option>
-          </select>
-        </div>
+            <select v-model="model.status">
+              <option>Published</option>
+              <option>Work in progress</option>
+              <option>Under review</option>
+            </select>
+          </div>
         </div>
         <div class="px-4 py-3 bg-white text-right sm:px-6 mr-36 ml-36">
           <button
             type="submit"
             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Save
+            Salvează
           </button>
         </div>
       </div>
@@ -165,26 +152,25 @@
 <script setup>
 import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import store from "../store";
-import Notification from "../components/Notification.vue";
+import store from "../../store";
+import Notification from "../../components/Notification.vue";
 
 const router = useRouter();
 const route = useRoute();
 
-const toolLoading = computed(() => store.state.currentTool.loading)
+const vlabLoading = computed(() => store.state.currentVlab.loading)
 
 let model = ref({
   title: "",
   description: null,
   status: null,
-  language: null,
-  formula: null,
+  lab: null,
   image: null,
   image_url: null,
 });
 
 watch (
-  () => store.state.currentTool.data,
+  () => store.state.currentVlab.data,
   (newVal, oldVal) => {
     model.value = {
       ...JSON.parse(JSON.stringify(newVal)),
@@ -194,7 +180,7 @@ watch (
 );
 
 if (route.params.id) {
-  store.dispatch('getTool', route.params.id);
+  store.dispatch('getVlab', route.params.id);
 }
 
 function onImageChoose (ev) {
@@ -210,28 +196,28 @@ function onImageChoose (ev) {
   reader.readAsDataURL(file);
 }
 
-function saveTool() {
-  store.dispatch("saveTool", model.value).then(({ data }) => {
+function saveVlab() {
+  store.dispatch("saveVlab", model.value).then(({ data }) => {
     store.commit('notify', {
       type: 'success',
-      message: 'Tool was successfully updated'
+      message: 'Laboratorul a fost actualizat cu succes!'
     })
     router.push({
-      name: "ToolsView",
+      name: "VeziLabVirtuale",
       params: { id: data.data.id },
     });
   });
 }
 
-function deleteTool() {
+function deleteVlab() {
   if (
     confirm (
-      `Are you sure you want to delete this tool? Operation can't be undone.`
+      `Ești sigur că dorești să ștergi acest Laborator?.`
     )
   ) {
-    store.dispatch("deleteTool", model.value.id).then(() => {
+    store.dispatch("deleteVlab", model.value.id).then(() => {
       router.push({
-        name: "Tools",
+        name: "Vlabs",
       })
     });
   }

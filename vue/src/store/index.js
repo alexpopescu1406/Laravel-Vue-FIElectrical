@@ -51,11 +51,7 @@ const store = createStore({
     },
     isFilteredMutationActive: false,
   },
-  getters: {
-    getFilteredArticles: state => {
-      return state.articles.data;
-    }
-  },
+  getters: {},
   actions: {
     getArticle({commit}, id) {
       commit("setCurrentArticleLoading", true);
@@ -95,12 +91,31 @@ const store = createStore({
     deleteArticle({}, id) {
       return axiosClient.delete(`/article/${id}`);
     },
+
     getArticles({commit}, {url = null} = {}) {
       url = url || '/article'
       commit('setArticlesLoading', true)
       return axiosClient.get(url).then((res) => {
         commit('setArticlesLoading', false)
         commit("setArticles", res.data);
+        return res;
+      });
+    },
+    getArticlesRo({commit}, {url = null} = {}) {
+      url = url || '/article'
+      commit('setArticlesLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setArticlesLoading', false)
+        commit("setArticlesRo", res.data);
+        return res;
+      });
+    },
+    getArticlesEn({commit}, {url = null} = {}) {
+      url = url || '/article'
+      commit('setArticlesLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setArticlesLoading', false)
+        commit("setArticlesEn", res.data);
         return res;
       });
     },
@@ -119,6 +134,7 @@ const store = createStore({
           commit("setCurrentArticleLoading", false);
         });
     },
+
 
     getEvent({commit}, id) {
       commit("setCurrentEventLoading", true);
@@ -164,6 +180,24 @@ const store = createStore({
       return axiosClient.get(url).then((res) => {
         commit('setEventsLoading', false)
         commit("setEvents", res.data);
+        return res;
+      });
+    },
+    getEventsRo({commit}, {url = null} = {}) {
+      url = url || '/event'
+      commit('setEventsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setEventsLoading', false)
+        commit("setEventsRo", res.data);
+        return res;
+      });
+    },
+    getEventsEn({commit}, {url = null} = {}) {
+      url = url || '/event'
+      commit('setEventsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setEventsLoading', false)
+        commit("setEventsEn", res.data);
         return res;
       });
     },
@@ -228,6 +262,25 @@ const store = createStore({
         return res;
       });
     },
+    getToolsRo({commit}, {url = null} = {}) {
+      url = url || '/tool'
+      commit('setToolsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setToolsLoading', false)
+        commit("setToolsRo", res.data);
+        return res;
+      });
+    },
+    getToolsEn({commit}, {url = null} = {}) {
+      url = url || '/tool'
+      commit('setToolsLoading', true)
+      return axiosClient.get(url).then((res) => {
+        commit('setToolsLoading', false)
+        commit("setToolsEn", res.data);
+        return res;
+      });
+    },
+
     getToolsBySlug({commit}, slug) {
       commit("setCurrentToolLoading", true);
       return axiosClient
@@ -345,15 +398,29 @@ const store = createStore({
     setFilteredMutationState(state, isActive) {
       state.isFilteredMutationActive = isActive;
     },
-    setArticles(state, articles) {
+    setArticlesRo(state, articles) {
       if (state.isFilteredMutationActive) {
-        const filteredArticles = articles.data.filter(articles => articles.dateday == 12);
+        const filteredArticles = articles.data.filter(articles => articles.language == 'Romanian');
         state.articles.data = filteredArticles;
-      } else {
+      }else {
         state.articles.data = articles.data;
       }
       state.articles.links = articles.meta.links;
     },
+    setArticlesEn(state, articles) {
+      if (state.isFilteredMutationActive) {
+        const filteredArticles = articles.data.filter(articles => articles.language == 'English');
+        state.articles.data = filteredArticles;
+      }else {
+        state.articles.data = articles.data;
+      }
+      state.articles.links = articles.meta.links;
+    },
+    setArticles(state, articles){
+      state.articles.links = articles.meta.links;
+      state.articles.data = articles.data;
+    },
+
 
     setCurrentToolLoading: (state, loading) => {
       state.currentTool.loading = loading;
@@ -367,6 +434,24 @@ const store = createStore({
     setTools: (state, tools) => {
       state.tools.links = tools.meta.links;
       state.tools.data = tools.data;
+    },
+    setToolsRo(state, tools) {
+      if (state.isFilteredMutationActive) {
+        const filteredTools = tools.data.filter(tools => tools.language == 'Romanian');
+        state.tools.data = filteredTools;
+      }else {
+        state.tools.data = tools.data;
+      }
+      state.tools.links = tools.meta.links;
+    },
+    setToolsEn(state, tools) {
+      if (state.isFilteredMutationActive) {
+        const filteredTools = tools.data.filter(tools => tools.language == 'English');
+        state.tools.data = filteredTools;
+      }else {
+        state.tools.data = tools.data;
+      }
+      state.tools.links = tools.meta.links;
     },
 
 
@@ -393,6 +478,24 @@ const store = createStore({
     },
     setCurrentEvent: (state, event) => {
       state.currentEvent.data = event.data;
+    },
+    setEventsRo(state, events) {
+      if (state.isFilteredMutationActive) {
+        const filteredEvents = events.data.filter(events => events.language == 'Romanian');
+        state.events.data = filteredEvents;
+      }else {
+        state.events.data = events.data;
+      }
+      state.events.links = events.meta.links;
+    },
+    setEventsEn(state, events) {
+      if (state.isFilteredMutationActive) {
+        const filteredEvents = events.data.filter(events => events.language == 'English');
+        state.events.data = filteredEvents;
+      }else {
+        state.events.data = events.data;
+      }
+      state.events.links = events.meta.links;
     },
     setEvents: (state, events) => {
       state.events.links = events.meta.links;

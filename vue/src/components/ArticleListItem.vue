@@ -24,6 +24,7 @@
           <a href="#"><i class="fa-solid fa-user-tie"></i> Admin </a>
           <a href="#"><i class="fa-solid fa-heart"></i> {{ value4 }} Likes </a>
           <a href="#"><i class="fa-solid fa-comment"></i> Comments </a>
+          <a href="#"><i class="fa-solid fa-language"></i> {{article.language}}</a>
         </div>
         <div id="name" class="post-content">
           {{ article.description }}

@@ -1,26 +1,18 @@
 <template>
   <section class="page-section-ptb pt-24">
     <div class="row">
-      <div class="col-sm-12 mb-20">
+      <div class="col-sm-12 mb-2">
         <div class="section-title text-center">
-          <slot name="header"></slot>
           <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl title">
-            Events in Electrical Engineering</h2>
+            Laboratoare Virtuale pentru Ingineria Electrică</h2>
         </div>
-        <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Attend or organize a new event </p>
+        <p class="text-base text-indigo-600 font-semibold tracking-wide uppercase text-center text-xl">Modele și simulări din Ingineria Electrică </p>
       </div>
+      <slot name="header"></slot>
+
     </div>
-    <div class="text-xl font-extrabold text-center pl-[900px]">
-      Select Events' Language:
-      <button
-        type="submit"
-        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md
-       text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        @click="callBoth">
-        {{buttonText}}
-      </button>
-    </div>
-    <div v-if="events.loading" class="flex justify-center pb-96 pt-96">
+
+    <div v-if="vlabs.loading" class="flex justify-center pb-96 pt-96">
       <div id="preloader">
         <div id="loader"></div>
       </div>
@@ -28,13 +20,12 @@
     <div v-else>
       <div class="container">
         <div class="cards">
-          <div class="row row-cols-1 row-cols-md-1 g-xxl-5">
-            <EventListItem
-              v-for="event in events.data"
-              :key="event.id"
-              :event="event"
-              @delete="deleteEvent(event)"
-              @attend="attendEvent(event)"
+          <div class="row row-cols-1 row-cols-md-3 g-5">
+            <roVlabListItem
+              v-for="vlab in vlabs.data"
+              :key="vlab.id"
+              :vlab="vlab"
+              @delete="deleteVlab(vlab)"
             />
           </div>
         </div>
@@ -46,7 +37,7 @@
           aria-label="Pagination"
         >
           <a
-            v-for="(link, i) of events.links"
+            v-for="(link, i) of vlabs.links"
             :key="i"
             :disabled="!link.url"
             href="#"
@@ -58,7 +49,7 @@
                       ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
                       : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
                       i === 0 ? 'rounded-l-md bg-gray-100 text-gray-700' : '',
-                      i === events.links.length - 1 ? 'rounded-r-md' : '',
+                      i === vlabs.links.length - 1 ? 'rounded-r-md' : '',
                     ]"
             v-html="link.label"
           >
@@ -71,69 +62,25 @@
   <br><br>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      buttonText: 'English',
-    };
-  },
-  methods: {
-    changeText(){
-      if (this.buttonText == 'English'){
-        this.buttonText = 'All'
-      }else
-      {
-        this.buttonText = 'English'
-      }
-    },
-    callBoth(){
-      this.toggleFilteredMutation();
-      this.changeText();
-    }
-  }
-}
-</script>
-
 <script setup>
-import store from "../store";
+import store from "../../store";
 import {computed} from "vue";
-import EventListItem from "./EventListItem.vue";
+import roVlabListItem from "./roVlabListItem.vue";
 
-const events = computed(() => store.state.events);
+const vlabs = computed(() => store.state.vlabs);
 
-store.dispatch('getEvents')
+store.dispatch('getVlabs')
 
-function toggleFilteredMutation(){
-  store.dispatch('toggleFilteredMutation')
-    .then(()=>{
-      store.dispatch('getEventsEn')
-    })
-}
-
-function deleteEvent(event) {
+function deleteVlab(vlab) {
   if (
     confirm(
-      `Are you sure you want to delete this Event? Operation can't be undone!`
+      `Ești sigur că dorești să ștergi acest Laborator?!`
     )
   ) {
-    store.dispatch('deleteEvent', event.id)
+    store.dispatch('deleteVlab', vlab.id)
       .then(() => {
-        store.dispatch('getEvents')
+        store.dispatch('getVlabs')
       })
-  }
-}
-
-function attendEvent(event) {
-  if (
-    confirm(
-      'Are you sure you want to Attend this Event?'
-    )
-  ) {
-    store.dispatch('attendEvent', event.id)
-      .then(() => {
-        store.dispatch('getEvents')
-    })
   }
 }
 
@@ -143,7 +90,7 @@ function getForPage(ev, link) {
     return;
   }
 
-  store.dispatch("getEvents", { url: link.url });
+  store.dispatch("getVlabs", { url: link.url });
 }
 
 </script>
