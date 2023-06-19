@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="post">
-      <div class="post-image clearfix">
+      <div class="post-image clearfix d-flex justify-content-center">
         <a
           :href="`/view/articole/${article.slug}`"
           target="_blank">
-          <img alt="article" :src="article.image_url" class="w-full h-full object-cover">
+          <img alt="article" :src="article.image_url" class="w-70 h-70 object-cover">
         </a>
       </div>
       <div class="post-date text-black">{{ article.dateday }}<span>{{ article.datemonth }}</span></div>
       <div class="post-details">
         <div class="post-title">
-          <h4 class="pl-20 pt-3">
+          <h4 class="pl-48">
             <a
               :href="`/view/articole/${article.slug}`"
               target="_blank"
@@ -26,12 +26,12 @@
           <a href="#"><i class="fa-solid fa-comment"></i> Comentarii </a>
           <a href="#"><i class="fa-solid fa-language"></i> {{article.language}}</a>
         </div>
-        <div id="name" class="post-content">
+        <div id="name" class="post-content pl-[85px]">
           {{ article.description }}
         </div>
         <div class="d-flex w-100 justify-content-between items-center mt-3 mr-4">
           <router-link :to="{ name: 'VeziArticole', params: { id: article.id } }"
-                       class="flex py-2 px-4 border border-transparent text-md rounded-md text-white
+                       class="flex py-1 px-3 border border-transparent text-md rounded-md text-white
                                   bg-indigo-600 hover:bg-indigo-700 ml-[660px] ">
             <svg xmins="http://www.w3.org/2000/svg"
                  class="h-6 w-6 mr-2"
@@ -103,14 +103,15 @@ p {
 
 .post .post-meta {
   margin-bottom: 10px;
-  margin-left: 80px;
+  margin-left: 190px;
 }
 
 .post .post-meta a {
   font-size: 14px;
   font-weight: 350;
   color: #555555;
-  margin-right: 15px;
+  margin-right: 10px;
+
 }
 
 .post .post-meta a:hover {
@@ -127,6 +128,7 @@ p {
 
 .post .post-meta a .fa {
   margin-right: 80px;
+
 }
 
 .fa {
@@ -134,26 +136,28 @@ p {
 }
 
 .post .post-content {
-  margin-left: 80px;
+  margin-top: 10px;
+  margin-left: 105px;
 }
 
 .post .post-image + .post-date {
-  margin-top: -20px;
-  margin-left: 8px;
+  margin-top: -30px;
+  margin-left: 120px;
 }
 
 .post .post-date {
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 600;
   color: #333333;
   background: #ffd200;
   display: inline-block;
   width: 60px;
-  height: 85px;
+  height: 75px;
   text-align: center;
   position: absolute;
   line-height: 55px;
 }
+
 
 #name {
   display: -webkit-box;

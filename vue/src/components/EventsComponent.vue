@@ -72,6 +72,8 @@
 </template>
 
 <script>
+import store from "../store/index.js";
+
 export default {
   data() {
     return {
@@ -90,26 +92,25 @@ export default {
     callBoth(){
       this.toggleFilteredMutation();
       this.changeText();
+    },
+    toggleFilteredMutation(){
+      store.dispatch('toggleFilteredMutation')
+        .then(()=>{
+          store.dispatch('getEventsEn')
+        })
     }
+
   }
 }
 </script>
 
 <script setup>
-import store from "../store";
 import {computed} from "vue";
 import EventListItem from "./EventListItem.vue";
 
 const events = computed(() => store.state.events);
 
 store.dispatch('getEvents')
-
-function toggleFilteredMutation(){
-  store.dispatch('toggleFilteredMutation')
-    .then(()=>{
-      store.dispatch('getEventsEn')
-    })
-}
 
 function deleteEvent(event) {
   if (

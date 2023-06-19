@@ -91,6 +91,8 @@
 </template>
 
 <script>
+import store from "../../store/index.js";
+
 export default {
   data() {
     return {
@@ -109,13 +111,18 @@ export default {
     callBoth(){
       this.toggleFilteredMutation();
       this.changeText();
+    },
+    toggleFilteredMutation(){
+      store.dispatch('toggleFilteredMutation')
+        .then(()=>{
+          store.dispatch('getEventsRo')
+        })
     }
   }
 }
 </script>
 
 <script setup>
-import store from "../../store";
 import {computed} from "vue";
 import roEventListItem from "./roEventListItem.vue";
 
@@ -134,13 +141,6 @@ function deleteEvent(event) {
         store.dispatch('getEvents')
       })
   }
-}
-
-function toggleFilteredMutation(){
-  store.dispatch('toggleFilteredMutation')
-    .then(()=>{
-      store.dispatch('getEventsRo')
-    })
 }
 
 function attendEvent(event) {

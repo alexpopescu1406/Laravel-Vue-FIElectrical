@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import store from "../../store/index.js";
+
 export default {
   data() {
     return {
@@ -89,13 +91,18 @@ export default {
     callBoth(){
       this.toggleFilteredMutation();
       this.changeText();
+    },
+    toggleFilteredMutation(){
+      store.dispatch('toggleFilteredMutation')
+        .then(()=>{
+          store.dispatch('getToolsRo')
+        })
     }
   }
 }
 </script>
 
 <script setup>
-import store from "../../store";
 import {computed} from "vue";
 import roToolListItem from "./roToolListItem.vue";
 
@@ -103,12 +110,6 @@ const tools = computed(() => store.state.tools);
 
 store.dispatch('getTools')
 
-function toggleFilteredMutation(){
-  store.dispatch('toggleFilteredMutation')
-    .then(()=>{
-      store.dispatch('getToolsRo')
-    })
-}
 
 function deleteTool(tool) {
   if (

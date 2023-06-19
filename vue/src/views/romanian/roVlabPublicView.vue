@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-14 w-14" src="../../src/assets/logogray.png" alt="logo"/>
+              <img class="h-14 w-14" src="../../../src/assets/logogray.png" alt="logo"/>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
