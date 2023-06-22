@@ -119,6 +119,7 @@
             <div>Select Virtual Lab</div>
             <select v-model="model.lab">
               <option>plcondelay</option>
+              <option>plcoffdelay</option>
             </select>
           </div>
 

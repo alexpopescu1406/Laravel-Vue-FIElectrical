@@ -2,10 +2,10 @@
   <div class="container">
     <p class="font-bold  text-2xl text-decoration-underline">Introducere</p>
     <p class="font-bold">TIMERE</p>
-    <p>Toate PLC-urile au instrucțiuni de cronometru. Temporizatoarele sunt instrucțiuni de ieșire care sunt interne logicii controloarelor logice programabile.
+    <p>Toate PLC-urile au instrucțiuni de temporizare.
       Temporizatoarele oferă control temporizat al dispozitivelor pe care le activează sau le dezactivează.</p>
 
-    <p class="font-bold">Basic functions of timer:</p>
+    <p class="font-bold">Funcțiile de bază ale instrucțiunilor de temporizare:</p>
     <ul>
       <li>● Temporizatoarele sunt folosite pentru a întârzia o acțiune.</li>
       <li>● Temporizatoarele sunt folosite pentru a rula o operațiune pentru o perioadă de timp predeterminată.</li>
@@ -18,8 +18,8 @@
       este T4:0, valoarea acumulată de zero (0) și o valoare prestabilită de 200.
       Fiecare instrucțiune de cronometru are trei biți de stare foarte utili. Acești biți sunt: activarea temporizatorului (EN), sincronizarea temporizatorului (TT),
       și cronometrul gata (DN).</p>
-    <p>Există 3 tipuri de temporizatoare: temporizator cu întârziere la pornire, temporizator cu întârziere la oprire și temporizator retentiv.</p>
-    <p class="font-bold">Temporizator de întârziere:</p>
+    <p>Există 3 tipuri de temporizatoare: temporizator cu întârziere la deschidere, temporizator cu întârziere la închidere și temporizator retentiv.</p>
+    <p class="font-bold">Temporizator cu întârziere la deschidere:</p>
     <ul>
       <li>● Utilizați această instrucțiune pentru a programa o întârziere după ce instrucțiunile devin adevărate.</li>
       <li>● Pornit – temporizatoarele de întârziere sunt utilizate atunci când o acțiune urmează să înceapă la o oră specificată după ce intrarea devine adevărată.
@@ -28,12 +28,12 @@
 
       </li>
     </ul>
-    <p class="font-bold">Temporizator de întârziere la oprire:</p>
+    <p class="font-bold">Temporizator cu întârziere la închidere:</p>
     <ul>
-      <li>● Instrucțiunile temporizatorului cu întârziere la oprire sunt utilizate pentru a programa o întârziere care să înceapă după ce introducerea treptei devine falsă.</li>
+      <li>● Instrucțiunile temporizatorului cu întârziere la închidere sunt utilizate pentru a programa o întârziere care să înceapă după ce introducerea treptei devine falsă.</li>
       <li>● De exemplu, când este prevăzut un ventilator de răcire extern pe un motor, ventilatorul trebuie să funcționeze tot timpul cât
         motorul merge
-        și, de asemenea, pentru un anumit timp (să zicem 10 minute) după ce motorul este oprit. Acesta este un temporizator de întârziere la oprire de zece minute.
+        și, de asemenea, pentru un anumit timp (să zicem 10 minute) după ce motorul este oprit. Acesta este un temporizator cu întârziere la închidere de zece minute.
         Perioada de timp de zece minute începe imediat ce motorul este oprit.
       </li>
     </ul>

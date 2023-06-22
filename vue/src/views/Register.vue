@@ -2,6 +2,13 @@
   <div>
     <img class="mx-auto h-30 w-auto" src="../assets/logo.png"
          alt="Workflow"/>
+    <p class="text-center font-bold">Select Language:</p>
+    <router-link :to="{name: 'roRegister'}" class="font-medium text-indigo-600 hover:text-indigo-500 ml-24">
+      Romanian
+    </router-link>
+    <router-link :to="{name: 'Register'}" class="font-medium text-indigo-600 hover:text-indigo-500 ml-24">
+      English
+    </router-link>
     <h2 class="mt-6 text-center text-4xl font-extrabold text-gray-900">Register</h2>
     <p class="mt-2 text-center text-medium text-gray-600">
       Or

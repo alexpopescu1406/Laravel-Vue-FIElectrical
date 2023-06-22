@@ -223,6 +223,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import roFooter from "../../components/ro/roFooter.vue";
 import roplcondelay from "../../components/vlabs/roplcondelay/roplcondelay.vue";
+import roplcoffdelay from "../../components/vlabs/roplcoffdelay/roplcoffdelay.vue";
 
 const navigation = [
   {name: 'Acasa', to: {name: "Acasa"}},
@@ -244,6 +245,8 @@ const labComponentName = computed (() => {
   switch (vlab.value.lab){
     case "roplcondelay":
       return roplcondelay
+    case "roplcoffdelay":
+      return roplcoffdelay
     default:
       console.log("alll")
   }

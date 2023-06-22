@@ -119,6 +119,7 @@
             <div>Selectează Laborator Virtual</div>
             <select v-model="model.lab">
               <option>roplcondelay</option>
+              <option>roplcoffdelay</option>
             </select>
           </div>
 

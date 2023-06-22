@@ -226,8 +226,8 @@
     <p class="text-3xl font-extrabold">Ecuația lui Joule pentru consumul de energie
     </p>
     <p class="text-xl">
-      From here, we can find the total energy consumed by the circuit by using the following equation (also known as
-      Joule’s Law):
+      De aici, putem găsi energia totală consumată de circuit utilizând următoarea ecuație (cunoscută și ca
+      Legea lui Joule):
     </p>
     <div class="d-flex text-2xl mb-4 mt-4 justify-content-center align-items-center">
       <vue-mathjax :formula="formula2"/>

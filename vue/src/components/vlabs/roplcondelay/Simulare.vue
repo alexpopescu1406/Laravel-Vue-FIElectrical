@@ -1,8 +1,6 @@
 <template>
   <div class="pt-24 d-flex justify-content-center container mb-12">
     <div id="simscreen">
-
-      <div class="simsubscreen bg-black">
         <div class="simsubscreen">
           <img style="position:absolute; left:10px; top:90px;" src="../../../views/images/i1.png"/>
           <img style="position:absolute; left:360px; top:10px;" src="../../../views/images/counter.png"/>
@@ -87,7 +85,6 @@
           <p id="accum" style="position:absolute; left:656px; top:152px; font-size:14.5px; color:white;">0</p>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -121,6 +118,7 @@ export default {
       }
       this.trackCounter = setInterval(() => {
         this.count++;
+        document.getElementById("accum").innerHTML=this.count;
         this.doneCounting(this.count);
       }, 750);
       document.getElementById("arrow").style.visibility = "visible";
